@@ -84,7 +84,7 @@ class GitHubSourceFetcher:
         per_page = int(params.get("per_page", 30))
 
         while True:
-            params["page"] = page
+            params["page"] = str(page)
             payload = self._get_json(path, params=params)
             if not payload:
                 break
