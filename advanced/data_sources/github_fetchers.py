@@ -72,13 +72,13 @@ class GitHubSourceFetcher:
             )
         return response
 
-    def _get_json(self, path: str, params: Optional[Dict[str, str]] = None) -> List[Dict[str, str]]:
+    def _get_json(self, path: str, params: Optional[Dict[str, str]] = None) -> Any:
         url = f"https://api.github.com/repos/{self.owner}/{self.repo}{path}"
         response = self._request(url, params=params)
         return response.json()
 
-    def _paginate(self, path: str, params: Optional[Dict[str, str]] = None) -> List[Dict[str, str]]:
-        results: List[Dict[str, str]] = []
+    def _paginate(self, path: str, params: Optional[Dict[str, str]] = None) -> List[Dict[str, Any]]:
+        results: List[Dict[str, Any]] = []
         page = 1
         params = params.copy() if params else {}
         per_page = int(params.get("per_page", 30))
