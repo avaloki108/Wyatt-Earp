@@ -737,17 +737,6 @@ contract Exploiter {{
         payable(address(lender)).transfer(msg.value);
     }}
 }}""",
-<<<<<<< Updated upstream
-            required_imports=["forge-std/Test.sol"],
-            setup_code="// Flash loan setup",
-            exploit_code="// Attack execution",
-            validation_code="// Profit verification"
-        ))
-
-        self._load_dynamic_templates()
-
-    def register_template(self, template: PoCTemplate, replace_existing: bool = True):
-=======
                 required_imports=["forge-std/Test.sol"],
                 setup_code="// Flash loan setup",
                 exploit_code="// Attack execution",
@@ -755,15 +744,15 @@ contract Exploiter {{
             )
         )
 
-    def register_template(self, template: PoCTemplate):
->>>>>>> Stashed changes
+        self._load_dynamic_templates()
+
+    def register_template(self, template: PoCTemplate, replace_existing: bool = True):
         """Register a PoC template"""
         key = f"{template.framework.value}_{template.vulnerability_type}"
         if not replace_existing and key in self.poc_templates:
             return
 
         self.poc_templates[key] = template
-<<<<<<< Updated upstream
         if template.template_id:
             self.template_usage_lookup[key] = template.template_id
 
@@ -818,7 +807,9 @@ contract Exploiter {{
 
                     self.register_template(dynamic_template)
 
-    def _build_template_context(self, template_key: Optional[str]) -> Optional[Dict[str, Any]]:
+    def _build_template_context(
+        self, template_key: Optional[str]
+    ) -> Optional[Dict[str, Any]]:
         """Construct metadata context for the currently used template."""
 
         if not template_key:
@@ -846,19 +837,12 @@ contract Exploiter {{
 
         return context or None
 
-    def generate_poc(self,
-                    hypothesis: Any,
-                    contract_code: str,
-                    contract_name: str = "VulnerableContract") -> str:
-=======
-
     def generate_poc(
         self,
         hypothesis: Any,
         contract_code: str,
         contract_name: str = "VulnerableContract",
     ) -> str:
->>>>>>> Stashed changes
         """
         Generate PoC code for a hypothesis
         """
@@ -874,10 +858,7 @@ contract Exploiter {{
             # Fallback to generic template
             return self._generate_generic_poc(hypothesis, contract_code, contract_name)
 
-<<<<<<< Updated upstream
         self.last_template_key = template_key
-=======
->>>>>>> Stashed changes
         # Fill template with contract-specific information
         poc_code = template.template_code.format(
             contract_name=contract_name,
@@ -939,8 +920,7 @@ contract Exploiter {{
 
                 result.update(execution_result)
             except Exception as e:
-<<<<<<< Updated upstream
-                result['error'] = f"Execution failed: {str(e)}"
+                result["error"] = f"Execution failed: {str(e)}"
 
         template_context = None
         template_id = None
@@ -948,7 +928,7 @@ contract Exploiter {{
             template_id = self.template_usage_lookup.get(self.last_template_key)
             execution_success = result.get("success") if execute else None
             usage_context = {
-                "hypothesis_id": getattr(hypothesis, 'id', 'unknown'),
+                "hypothesis_id": getattr(hypothesis, "id", "unknown"),
                 "contract_name": contract_name,
                 "framework": self.framework.value,
             }
@@ -962,9 +942,6 @@ contract Exploiter {{
             template_context = self._build_template_context(self.last_template_key)
             if template_context:
                 result["template_context"] = template_context
-=======
-                result["error"] = f"Execution failed: {str(e)}"
->>>>>>> Stashed changes
 
         # Store result
         poc_result = PoCResult(

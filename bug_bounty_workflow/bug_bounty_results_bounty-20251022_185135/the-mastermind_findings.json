@@ -1,0 +1,15 @@
+[
+  {
+    "type": "mastermind_synthesis",
+    "severity": "info",
+    "description": "Total findings synthesized: 421",
+    "severity_breakdown": {
+      "info": 222,
+      "medium": 147,
+      "critical": 33,
+      "high": 7,
+      "low": 12
+    },
+    "analysis_complete": true
+  }
+]

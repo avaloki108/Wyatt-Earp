@@ -67,9 +67,16 @@ class AutoLearner:
 
     def _load_learned_patterns(self) -> List[Dict[str, Any]]:
         """Load previously learned patterns"""
-        if os.path.exists(self.patterns_file):
-            with open(self.patterns_file, "r") as f:
-                return json.load(f)
+        if self.patterns_file.exists():
+            try:
+                with self.patterns_file.open('r', encoding='utf-8') as handle:
+                    data = json.load(handle)
+                    if isinstance(data, list):
+                        return data
+            except json.JSONDecodeError as exc:
+                LOGGER.warning("Failed to decode learned patterns file %s: %s", self.patterns_file, exc)
+            except OSError as exc:
+                LOGGER.warning("Failed to load learned patterns from %s: %s", self.patterns_file, exc)
         return []
 
     def _save_learned_patterns(self):

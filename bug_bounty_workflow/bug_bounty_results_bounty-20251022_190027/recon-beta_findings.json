@@ -1,0 +1,240 @@
+[
+  {
+    "type": "static_analysis",
+    "pattern": "assembly",
+    "severity": "medium",
+    "description": "Contract uses inline assembly",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/initializable/contracts/UnstructuredStorage.sol"
+  },
+  {
+    "type": "static_analysis",
+    "pattern": "block.timestamp",
+    "severity": "low",
+    "description": "Contract uses block.timestamp",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/initializable/contracts/TimeHelpers.sol"
+  },
+  {
+    "type": "static_analysis",
+    "pattern": "selfdestruct",
+    "severity": "critical",
+    "description": "Contract uses selfdestruct",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/opcode/contracts/OpCodes.sol"
+  },
+  {
+    "type": "static_analysis",
+    "pattern": "delegatecall",
+    "severity": "high",
+    "description": "Contract uses delegatecall",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/opcode/contracts/OpCodes.sol"
+  },
+  {
+    "type": "static_analysis",
+    "pattern": "assembly",
+    "severity": "medium",
+    "description": "Contract uses inline assembly",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/opcode/contracts/OpCodes.sol"
+  },
+  {
+    "type": "static_analysis",
+    "pattern": "assembly",
+    "severity": "medium",
+    "description": "Contract uses inline assembly",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/staking/contracts/Staking.sol"
+  },
+  {
+    "type": "static_analysis",
+    "pattern": "assembly",
+    "severity": "medium",
+    "description": "Contract uses inline assembly",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/staking/contracts/test/lib/MiniMeToken.sol"
+  },
+  {
+    "type": "static_analysis",
+    "pattern": "block.timestamp",
+    "severity": "low",
+    "description": "Contract uses block.timestamp",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/staking/contracts/test/mocks/TimeHelpersMock.sol"
+  },
+  {
+    "type": "static_analysis",
+    "pattern": "delegatecall",
+    "severity": "high",
+    "description": "Contract uses delegatecall",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/staking/contracts/proxies/StakingProxy.sol"
+  },
+  {
+    "type": "static_analysis",
+    "pattern": "assembly",
+    "severity": "medium",
+    "description": "Contract uses inline assembly",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/staking/contracts/proxies/StakingProxy.sol"
+  },
+  {
+    "type": "static_analysis",
+    "pattern": "assembly",
+    "severity": "medium",
+    "description": "Contract uses inline assembly",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/staking/contracts/lib/os/UnstructuredStorage.sol"
+  },
+  {
+    "type": "static_analysis",
+    "pattern": "delegatecall",
+    "severity": "high",
+    "description": "Contract uses delegatecall",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/staking/contracts/lib/os/DelegateProxy.sol"
+  },
+  {
+    "type": "static_analysis",
+    "pattern": "assembly",
+    "severity": "medium",
+    "description": "Contract uses inline assembly",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/staking/contracts/lib/os/DelegateProxy.sol"
+  },
+  {
+    "type": "static_analysis",
+    "pattern": "assembly",
+    "severity": "medium",
+    "description": "Contract uses inline assembly",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/staking/contracts/lib/os/ScriptHelpers.sol"
+  },
+  {
+    "type": "static_analysis",
+    "pattern": "assembly",
+    "severity": "medium",
+    "description": "Contract uses inline assembly",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/staking/contracts/lib/os/SafeERC20.sol"
+  },
+  {
+    "type": "static_analysis",
+    "pattern": "block.timestamp",
+    "severity": "low",
+    "description": "Contract uses block.timestamp",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/staking/contracts/lib/os/TimeHelpers.sol"
+  },
+  {
+    "type": "static_analysis",
+    "pattern": "assembly",
+    "severity": "medium",
+    "description": "Contract uses inline assembly",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/staking/contracts/lib/os/IsContract.sol"
+  },
+  {
+    "type": "static_analysis",
+    "pattern": "assembly",
+    "severity": "medium",
+    "description": "Contract uses inline assembly",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/initializable-buidler/contracts/UnstructuredStorage.sol"
+  },
+  {
+    "type": "static_analysis",
+    "pattern": "block.timestamp",
+    "severity": "low",
+    "description": "Contract uses block.timestamp",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/initializable-buidler/contracts/TimeHelpers.sol"
+  },
+  {
+    "type": "static_analysis",
+    "pattern": "assembly",
+    "severity": "medium",
+    "description": "Contract uses inline assembly",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/proxy/contracts/DepositableDelegateProxy.sol"
+  },
+  {
+    "type": "static_analysis",
+    "pattern": "assembly",
+    "severity": "medium",
+    "description": "Contract uses inline assembly",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/proxy/contracts/UnstructuredStorage.sol"
+  },
+  {
+    "type": "static_analysis",
+    "pattern": "delegatecall",
+    "severity": "high",
+    "description": "Contract uses delegatecall",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/proxy/contracts/DelegateProxy.sol"
+  },
+  {
+    "type": "static_analysis",
+    "pattern": "assembly",
+    "severity": "medium",
+    "description": "Contract uses inline assembly",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/proxy/contracts/DelegateProxy.sol"
+  },
+  {
+    "type": "static_analysis",
+    "pattern": "assembly",
+    "severity": "medium",
+    "description": "Contract uses inline assembly",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/proxy/contracts/IsContract.sol"
+  },
+  {
+    "type": "static_analysis",
+    "pattern": "assembly",
+    "severity": "medium",
+    "description": "Contract uses inline assembly",
+    "file": "/home/dok/web3/Injective/injective-core/peggo/solidity/contracts/hardhat/console.sol"
+  },
+  {
+    "type": "static_analysis",
+    "pattern": "delegatecall",
+    "severity": "high",
+    "description": "Contract uses delegatecall",
+    "file": "/home/dok/web3/Injective/injective-core/peggo/solidity/contracts/@openzeppelin/contracts/Proxy.sol"
+  },
+  {
+    "type": "static_analysis",
+    "pattern": "assembly",
+    "severity": "medium",
+    "description": "Contract uses inline assembly",
+    "file": "/home/dok/web3/Injective/injective-core/peggo/solidity/contracts/@openzeppelin/contracts/Proxy.sol"
+  },
+  {
+    "type": "static_analysis",
+    "pattern": "block.timestamp",
+    "severity": "low",
+    "description": "Contract uses block.timestamp",
+    "file": "/home/dok/web3/Injective/injective-core/peggo/solidity/contracts/@openzeppelin/contracts/OwnableWithExpiry.sol"
+  },
+  {
+    "type": "static_analysis",
+    "pattern": "block.timestamp",
+    "severity": "low",
+    "description": "Contract uses block.timestamp",
+    "file": "/home/dok/web3/Injective/injective-core/peggo/solidity/contracts/@openzeppelin/contracts/OwnableUpgradeableWithExpiry.sol"
+  },
+  {
+    "type": "static_analysis",
+    "pattern": "assembly",
+    "severity": "medium",
+    "description": "Contract uses inline assembly",
+    "file": "/home/dok/web3/Injective/injective-core/peggo/solidity/contracts/@openzeppelin/contracts/ERC1967Proxy.sol"
+  },
+  {
+    "type": "static_analysis",
+    "pattern": "unchecked",
+    "severity": "medium",
+    "description": "Contract uses unchecked arithmetic",
+    "file": "/home/dok/web3/Injective/injective-core/peggo/solidity/contracts/@openzeppelin/contracts/SafeERC20.sol"
+  },
+  {
+    "type": "static_analysis",
+    "pattern": "assembly",
+    "severity": "medium",
+    "description": "Contract uses inline assembly",
+    "file": "/home/dok/web3/Injective/injective-core/peggo/solidity/contracts/@openzeppelin/contracts/TransparentUpgradeableProxy.sol"
+  },
+  {
+    "type": "static_analysis",
+    "pattern": "delegatecall",
+    "severity": "high",
+    "description": "Contract uses delegatecall",
+    "file": "/home/dok/web3/Injective/injective-core/peggo/solidity/contracts/@openzeppelin/contracts/utils/Address.sol"
+  },
+  {
+    "type": "static_analysis",
+    "pattern": "assembly",
+    "severity": "medium",
+    "description": "Contract uses inline assembly",
+    "file": "/home/dok/web3/Injective/injective-core/peggo/solidity/contracts/@openzeppelin/contracts/utils/Address.sol"
+  }
+]

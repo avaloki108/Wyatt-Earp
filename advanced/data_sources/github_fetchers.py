@@ -6,7 +6,7 @@ import logging
 import time
 from dataclasses import dataclass
 from datetime import datetime
-from typing import Any, Dict, Iterable, List, Optional
+from typing import Any, Dict, Iterable, List, Optional, Tuple
 
 import requests
 
@@ -28,6 +28,7 @@ class GitHubSourceFetcher:
     token: Optional[str] = None
     request_interval: float = 1.0
     session: Optional[requests.Session] = None
+    provides_code_artifacts: bool = True
 
     def __post_init__(self) -> None:
         self.session = self.session or requests.Session()
@@ -76,8 +77,8 @@ class GitHubSourceFetcher:
         response = self._request(url, params=params)
         return response.json()
 
-    def _paginate(self, path: str, params: Optional[Dict[str, str]] = None) -> List[Dict[str, str]]:
-        results: List[Dict[str, str]] = []
+    def _paginate(self, path: str, params: Optional[Dict[str, str]] = None) -> List[Dict[str, Any]]:
+        results: List[Dict[str, Any]] = []
         page = 1
         params = params.copy() if params else {}
         per_page = int(params.get("per_page", 30))
@@ -134,7 +135,7 @@ class GitHubSourceFetcher:
             if patch:
                 entry["patch"] = patch[:max_preview]
             raw_url = file_info.get("raw_url")
-            if raw_url and filename.endswith(".sol"):
+            if raw_url and filename.endswith((".sol", ".vy")):
                 try:
                     raw_resp = self._request(raw_url)
                     entry["raw_preview"] = raw_resp.text[:max_preview]
@@ -142,6 +143,40 @@ class GitHubSourceFetcher:
                     LOGGER.debug("Failed to fetch raw file %s: %s", raw_url, exc)
             collected.append(entry)
         return {"files": collected}
+
+    def _extract_commit_metadata(
+        self,
+        sha: str,
+        details: Dict[str, Any],
+        default_message: str,
+    ) -> Optional[Tuple[str, str, datetime]]:
+        """Normalize commit message/title/date with consistent error handling."""
+
+        commit_info = details.get("commit", {})
+        message = commit_info.get("message") or default_message
+        title = message.splitlines()[0]
+        author_info = commit_info.get("author") or {}
+        date_str = author_info.get("date")
+        if not date_str:
+            LOGGER.warning(
+                "Skipping commit %s from %s/%s due to missing author date",
+                sha,
+                self.owner,
+                self.repo,
+            )
+            return None
+        try:
+            commit_date = parse_github_datetime(date_str)
+        except (TypeError, ValueError) as exc:
+            LOGGER.warning(
+                "Failed to parse commit date for %s/%s@%s: %s",
+                self.owner,
+                self.repo,
+                sha,
+                exc,
+            )
+            return None
+        return message, title, commit_date
 
 
 class SmartBugsWildFetcher(GitHubSourceFetcher):
@@ -168,11 +203,14 @@ class SmartBugsWildFetcher(GitHubSourceFetcher):
             if not artifact.get("files"):
                 continue
 
-            message = details.get("commit", {}).get("message", "SmartBugs Wild update")
-            title = message.splitlines()[0]
-            commit_date = details.get("commit", {}).get("author", {}).get("date")
-            if not commit_date:
-                LOGGER.warning("Missing commit date for smartbugs commit %s", sha)
+            metadata = self._extract_commit_metadata(
+                sha,
+                details,
+                default_message="SmartBugs Wild update",
+            )
+            if not metadata:
+                continue
+            message, title, commit_date = metadata
             record = HackRecord(
                 uid=f"smartbugs-wild-{sha}",
                 title=f"SmartBugs Wild dataset update: {title}",
@@ -211,9 +249,14 @@ class DeFiHackLabsFetcher(GitHubSourceFetcher):
             if not artifact.get("files"):
                 continue
 
-            message = details.get("commit", {}).get("message", "DeFiHackLabs update")
-            title = message.splitlines()[0]
-            commit_date = details.get("commit", {}).get("author", {}).get("date", datetime.utcnow().isoformat())
+            metadata = self._extract_commit_metadata(
+                sha,
+                details,
+                default_message="DeFiHackLabs update",
+            )
+            if not metadata:
+                continue
+            message, title, commit_date = metadata
             record = HackRecord(
                 uid=f"defihacklabs-{sha}",
                 title=f"DeFiHackLabs PoC update: {title}",
@@ -252,9 +295,14 @@ class CyfrinAderynFetcher(GitHubSourceFetcher):
             if not artifact.get("files"):
                 continue
 
-            message = details.get("commit", {}).get("message", "Aderyn update")
-            title = message.splitlines()[0]
-            commit_date = details.get("commit", {}).get("author", {}).get("date", datetime.utcnow().isoformat())
+            metadata = self._extract_commit_metadata(
+                sha,
+                details,
+                default_message="Aderyn update",
+            )
+            if not metadata:
+                continue
+            message, title, commit_date = metadata
             record = HackRecord(
                 uid=f"cyfrin-aderyn-{sha}",
                 title=f"Cyfrin/aderyn rule update: {title}",
@@ -274,6 +322,7 @@ class SoloditContentFetcher(GitHubSourceFetcher):
 
     def __init__(self, token: Optional[str] = None) -> None:
         super().__init__(owner="Solodit", repo="solodit_content", token=token)
+        self.provides_code_artifacts = False
 
     def fetch(self, since: datetime) -> List[HackRecord]:
         commits = self._list_commits(since, path="reports", limit=25)
@@ -315,9 +364,14 @@ class SoloditContentFetcher(GitHubSourceFetcher):
             if not report_artifacts:
                 continue
 
-            message = details.get("commit", {}).get("message", "Solodit report update")
-            title = message.splitlines()[0]
-            commit_date = details.get("commit", {}).get("author", {}).get("date", datetime.utcnow().isoformat())
+            metadata = self._extract_commit_metadata(
+                sha,
+                details,
+                default_message="Solodit report update",
+            )
+            if not metadata:
+                continue
+            message, title, commit_date = metadata
             record = HackRecord(
                 uid=f"solodit-{sha}",
                 title=f"Solodit report update: {title}",
