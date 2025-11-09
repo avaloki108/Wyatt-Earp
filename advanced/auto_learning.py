@@ -8,7 +8,7 @@ Uses LLM to analyze hack descriptions and generate new detection rules
 import json
 import logging
 import os
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Set
 
@@ -335,7 +335,7 @@ def detect_{pattern["name"].lower().replace(" ", "_")}(contract_code: str) -> bo
             "pattern_name": pattern.get("name"),
             "severity": pattern.get("severity"),
             "provenance": provenance,
-            "timestamp": datetime.utcnow().isoformat(),
+            "timestamp": datetime.now(timezone.utc).isoformat(),
         }
 
         try:
@@ -353,12 +353,12 @@ def detect_{pattern["name"].lower().replace(" ", "_")}(contract_code: str) -> bo
 
         pattern = self.extract_pattern_from_hack(hack)
         pattern.setdefault("source_hack", hack.get("title"))
-        pattern.setdefault("date_learned", datetime.utcnow().isoformat())
+        pattern.setdefault("date_learned", datetime.now(timezone.utc).isoformat())
         pattern["provenance"] = {
             "source_id": hack_id,
             "source": hack.get("source"),
             "references": hack.get("references", []),
-            "ingested_at": datetime.utcnow().isoformat(),
+            "ingested_at": datetime.now(timezone.utc).isoformat(),
         }
 
         # Mark hack as processed before duplicate check to avoid reprocessing
