@@ -5,39 +5,65 @@ Sources: Rekt.news, PeckShield, Twitter alerts, GitHub exploit repos, dark web f
 Uses LLM to analyze hack descriptions and generate new detection rules
 """
 
-from typing import List, Dict, Any, Optional
+import json
+import logging
+import os
 from datetime import datetime, timedelta
+from pathlib import Path
+from typing import Any, Dict, List, Optional, Set
+
+from advanced.data_sources import (
+    CyfrinAderynFetcher,
+    DeFiHackLabsFetcher,
+    HackRecord,
+    SmartBugsWildFetcher,
+    SoloditContentFetcher,
+)
 from advanced.llm_reasoning_engine import AdvancedLLMReasoner
 from advanced.novel_vulnerability_patterns import NovelPatternDetector
-import json
-import os
+
+
+LOGGER = logging.getLogger(__name__)
 
 
 class AutoLearner:
     """
     Auto-Learning system that learns from new hacks and updates vulnerability patterns
     """
+    
 
     def __init__(self, llm_reasoner: Optional[AdvancedLLMReasoner] = None):
         self.llm = llm_reasoner or AdvancedLLMReasoner()
-        self.patterns_file = "patterns/learned_patterns.json"
-        self.hack_sources = [
-            "https://rekt.news/recent",  # Mock endpoint
-            "https://twitter.com/peckshield",  # Would use API
-            # Add dark web TOR feeds in production (with caution)
-        ]
-        self.github_repos = [
-            "https://api.github.com/repos/crytic/not-so-smart-contracts/contents",
-            "https://api.github.com/search/code?q=exploit+solidity+repo:ethereum",
-            # Add more: SecurifyBV/ethereum-vulnerabilities, etc.
+        self.storage_dir = Path("patterns")
+        self.storage_dir.mkdir(parents=True, exist_ok=True)
+        self.patterns_file = self.storage_dir / "learned_patterns.json"
+        self.provenance_log = self.storage_dir / "pattern_provenance.jsonl"
+        self.github_token = os.getenv("GITHUB_TOKEN")
+        self.source_fetchers = [
+            SmartBugsWildFetcher(token=self.github_token),
+            DeFiHackLabsFetcher(token=self.github_token),
+            CyfrinAderynFetcher(token=self.github_token),
+            SoloditContentFetcher(token=self.github_token),
         ]
         self.learned_patterns: List[Dict[str, Any]] = self._load_learned_patterns()
-
+        self.processed_hack_ids: Set[str] = {
+            pattern.get("provenance", {}).get("source_id")
+            for pattern in self.learned_patterns
+            if pattern.get("provenance", {}).get("source_id")
+        }
+    
     def _load_learned_patterns(self) -> List[Dict[str, Any]]:
         """Load previously learned patterns"""
-        if os.path.exists(self.patterns_file):
-            with open(self.patterns_file, "r") as f:
-                return json.load(f)
+        if self.patterns_file.exists():
+            try:
+                with self.patterns_file.open('r', encoding='utf-8') as handle:
+                    data = json.load(handle)
+                    if isinstance(data, list):
+                        return data
+            except json.JSONDecodeError as exc:
+                LOGGER.warning("Failed to decode learned patterns file %s: %s", self.patterns_file, exc)
+            except OSError as exc:
+                LOGGER.warning("Failed to load learned patterns from %s: %s", self.patterns_file, exc)
         return []
 
     def _save_learned_patterns(self):
@@ -293,6 +319,49 @@ def detect_{pattern["name"].lower().replace(" ", "_")}(contract_code: str) -> bo
     return False
 """
 
+    def _log_provenance(self, pattern: Dict[str, Any]) -> None:
+        provenance = pattern.get("provenance")
+        if not provenance:
+            return
+
+        entry = {
+            "pattern_name": pattern.get("name"),
+            "severity": pattern.get("severity"),
+            "provenance": provenance,
+            "timestamp": datetime.utcnow().isoformat(),
+        }
+
+        try:
+            with self.provenance_log.open("a", encoding="utf-8") as handle:
+                handle.write(json.dumps(entry) + "\n")
+        except OSError as exc:
+            LOGGER.warning("Failed to log provenance for %s: %s", pattern.get("name"), exc)
+
+    def _ingest_hack(self, hack: Dict[str, Any]) -> Optional[Dict[str, Any]]:
+        hack_id = hack.get("id")
+        if hack_id and hack_id in self.processed_hack_ids:
+            return None
+
+        pattern = self.extract_pattern_from_hack(hack)
+        pattern.setdefault("source_hack", hack.get("title"))
+        pattern.setdefault("date_learned", datetime.utcnow().isoformat())
+        pattern["provenance"] = {
+            "source_id": hack_id,
+            "source": hack.get("source"),
+            "references": hack.get("references", []),
+            "ingested_at": datetime.utcnow().isoformat(),
+        }
+
+        if any(existing.get("name") == pattern["name"] for existing in self.learned_patterns):
+            return None
+
+        self.learned_patterns.append(pattern)
+        if hack_id:
+            self.processed_hack_ids.add(hack_id)
+        LOGGER.info("Learned new pattern %s from %s", pattern.get("name"), hack.get("title"))
+        self._log_provenance(pattern)
+        return pattern
+    
     def get_learned_patterns_summary(self) -> str:
         """Summary of learned patterns"""
         if not self.learned_patterns:
