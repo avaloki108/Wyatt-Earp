@@ -30,7 +30,6 @@ class AutoLearner:
     """
     Auto-Learning system that learns from new hacks and updates vulnerability patterns
     """
-    
 
     def __init__(self, llm_reasoner: Optional[AdvancedLLMReasoner] = None):
         self.llm = llm_reasoner or AdvancedLLMReasoner()
@@ -51,19 +50,27 @@ class AutoLearner:
             for pattern in self.learned_patterns
             if pattern.get("provenance", {}).get("source_id")
         }
-    
+
     def _load_learned_patterns(self) -> List[Dict[str, Any]]:
         """Load previously learned patterns"""
         if self.patterns_file.exists():
             try:
-                with self.patterns_file.open('r', encoding='utf-8') as handle:
+                with self.patterns_file.open("r", encoding="utf-8") as handle:
                     data = json.load(handle)
                     if isinstance(data, list):
                         return data
             except json.JSONDecodeError as exc:
-                LOGGER.warning("Failed to decode learned patterns file %s: %s", self.patterns_file, exc)
+                LOGGER.warning(
+                    "Failed to decode learned patterns file %s: %s",
+                    self.patterns_file,
+                    exc,
+                )
             except OSError as exc:
-                LOGGER.warning("Failed to load learned patterns from %s: %s", self.patterns_file, exc)
+                LOGGER.warning(
+                    "Failed to load learned patterns from %s: %s",
+                    self.patterns_file,
+                    exc,
+                )
         return []
 
     def _save_learned_patterns(self):
@@ -335,7 +342,9 @@ def detect_{pattern["name"].lower().replace(" ", "_")}(contract_code: str) -> bo
             with self.provenance_log.open("a", encoding="utf-8") as handle:
                 handle.write(json.dumps(entry) + "\n")
         except OSError as exc:
-            LOGGER.warning("Failed to log provenance for %s: %s", pattern.get("name"), exc)
+            LOGGER.warning(
+                "Failed to log provenance for %s: %s", pattern.get("name"), exc
+            )
 
     def _ingest_hack(self, hack: Dict[str, Any]) -> Optional[Dict[str, Any]]:
         hack_id = hack.get("id")
@@ -352,16 +361,23 @@ def detect_{pattern["name"].lower().replace(" ", "_")}(contract_code: str) -> bo
             "ingested_at": datetime.utcnow().isoformat(),
         }
 
-        if any(existing.get("name") == pattern["name"] for existing in self.learned_patterns):
+        # Mark hack as processed before duplicate check to avoid reprocessing
+        if hack_id:
+            self.processed_hack_ids.add(hack_id)
+
+        if any(
+            existing.get("name") == pattern["name"]
+            for existing in self.learned_patterns
+        ):
             return None
 
         self.learned_patterns.append(pattern)
-        if hack_id:
-            self.processed_hack_ids.add(hack_id)
-        LOGGER.info("Learned new pattern %s from %s", pattern.get("name"), hack.get("title"))
+        LOGGER.info(
+            "Learned new pattern %s from %s", pattern.get("name"), hack.get("title")
+        )
         self._log_provenance(pattern)
         return pattern
-    
+
     def get_learned_patterns_summary(self) -> str:
         """Summary of learned patterns"""
         if not self.learned_patterns:
