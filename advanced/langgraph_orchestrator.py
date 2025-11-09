@@ -76,7 +76,10 @@ class LangGraphOrchestrator:
             "rewrite_count": 0,
         }
 
-        final_state = self._app.invoke(initial_state)
+        final_state = self._app.invoke(
+            initial_state,
+            config={"configurable": {"thread_id": "default"}, "recursion_limit": 50}
+        )
 
         agent_runs = [
             AgentRun(
@@ -92,7 +95,11 @@ class LangGraphOrchestrator:
         ]
 
         final_assessment = final_state.get("shared_memory", {}).get("final_assessment", {})
-        final_decision = final_assessment.get("status", "undetermined")
+        status = final_assessment.get("status", "undetermined")
+        # Map "continue" to "approved" for backward compatibility
+        if status == "continue":
+            status = "approved"
+        final_decision = status
 
         return LangGraphExecutionResult(
             agent_runs=agent_runs,
