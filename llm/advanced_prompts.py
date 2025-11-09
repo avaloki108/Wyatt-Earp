@@ -2,11 +2,16 @@
 Advanced LLM prompts for novel vulnerability detection in Web3 contracts
 """
 
+from typing import Optional
+
+
 class AdvancedAuditPrompts:
     """Collection of specialized prompts for different vulnerability types"""
 
     @staticmethod
-    def bridge_vulnerability_analysis(contract_code: str, bridge_context: str = "") -> str:
+    def bridge_vulnerability_analysis(
+        contract_code: str, bridge_context: str = ""
+    ) -> str:
         """Prompt for analyzing bridge-specific vulnerabilities"""
         return f"""
         Analyze this bridge contract for cross-chain vulnerabilities. Focus on:
@@ -14,7 +19,7 @@ class AdvancedAuditPrompts:
         BRIDGE CONTRACT CODE:
         {contract_code}
 
-        {f'BRIDGE CONTEXT: {bridge_context}' if bridge_context else ''}
+        {f"BRIDGE CONTEXT: {bridge_context}" if bridge_context else ""}
 
         Look for these specific bridge attack patterns:
 
@@ -62,7 +67,7 @@ class AdvancedAuditPrompts:
         CONTRACT CODE:
         {contract_code}
 
-        {f'PROTOCOL DESCRIPTION: {protocol_description}' if protocol_description else ''}
+        {f"PROTOCOL DESCRIPTION: {protocol_description}" if protocol_description else ""}
 
         Focus on these business logic attack vectors:
 
@@ -106,7 +111,9 @@ class AdvancedAuditPrompts:
         """
 
     @staticmethod
-    def cross_contract_logic(contract_code: str, related_contracts: list = None) -> str:
+    def cross_contract_logic(
+        contract_code: str, related_contracts: Optional[list] = None
+    ) -> str:
         """Prompt for analyzing cross-contract interaction vulnerabilities"""
         related_info = ""
         if related_contracts:
@@ -200,17 +207,21 @@ class AdvancedAuditPrompts:
         """
 
     @staticmethod
-    def attack_scenario_simulation(contract_code: str, attack_type: str = "general") -> str:
+    def attack_scenario_simulation(
+        contract_code: str, attack_type: str = "general"
+    ) -> str:
         """Simulate specific attack scenarios"""
         attack_contexts = {
             "flash_loan": "Simulate a flash loan attack scenario",
             "oracle_manipulation": "Simulate oracle price manipulation",
             "governance_attack": "Simulate governance manipulation",
             "reentrancy": "Simulate complex reentrancy patterns",
-            "arbitrage": "Simulate arbitrage opportunities"
+            "arbitrage": "Simulate arbitrage opportunities",
         }
 
-        context = attack_contexts.get(attack_type, "Simulate a sophisticated attack scenario")
+        context = attack_contexts.get(
+            attack_type, "Simulate a sophisticated attack scenario"
+        )
 
         return f"""
         {context} against this contract:

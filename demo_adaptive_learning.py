@@ -4,13 +4,13 @@ Adaptive Learning System - Comprehensive Demo
 Shows all features of the adaptive learning and feedback system
 """
 
-import sys
 import json
+import subprocess
 from pathlib import Path
 
-print("="*70)
+print("=" * 70)
 print(" ADAPTIVE LEARNING & FEEDBACK SYSTEM - COMPREHENSIVE DEMO")
-print("="*70)
+print("=" * 70)
 print()
 
 print("This demo showcases the adaptive learning system that continuously")
@@ -20,7 +20,7 @@ print("  • Verification weight auto-tuning")
 print("  • Pattern learning from verified findings")
 print("  • User feedback integration")
 print()
-print("="*70)
+print("=" * 70)
 print()
 
 # 1. Show current learning state
@@ -28,11 +28,10 @@ print("📊 STEP 1: View Current Learning Metrics")
 print("-" * 70)
 print("\nRunning: python advanced_bug_hunter.py --show-learning\n")
 
-import subprocess
 result = subprocess.run(
-    ['python', 'advanced_bug_hunter.py', '--show-learning'],
+    ["python", "advanced_bug_hunter.py", "--show-learning"],
     capture_output=True,
-    text=True
+    text=True,
 )
 print(result.stdout)
 
@@ -40,22 +39,31 @@ print(result.stdout)
 print("\n📝 STEP 2: User Feedback Integration")
 print("-" * 70)
 print("\nExample: Marking a pattern as false positive")
-print("Command: python advanced_bug_hunter.py --mark-false-positive 'potential_backdoor'\n")
+print(
+    "Command: python advanced_bug_hunter.py --mark-false-positive 'potential_backdoor'\n"
+)
 
 result = subprocess.run(
-    ['python', 'advanced_bug_hunter.py', '--mark-false-positive', 'potential_backdoor'],
+    ["python", "advanced_bug_hunter.py", "--mark-false-positive", "potential_backdoor"],
     capture_output=True,
-    text=True
+    text=True,
 )
 print(result.stdout)
 
 print("\nExample: Confirming a vulnerability")
-print("Command: python advanced_bug_hunter.py --confirm-vuln 'flash_loan_oracle_manipulation'\n")
+print(
+    "Command: python advanced_bug_hunter.py --confirm-vuln 'flash_loan_oracle_manipulation'\n"
+)
 
 result = subprocess.run(
-    ['python', 'advanced_bug_hunter.py', '--confirm-vuln', 'flash_loan_oracle_manipulation'],
+    [
+        "python",
+        "advanced_bug_hunter.py",
+        "--confirm-vuln",
+        "flash_loan_oracle_manipulation",
+    ],
     capture_output=True,
-    text=True
+    text=True,
 )
 print(result.stdout)
 
@@ -65,15 +73,18 @@ print("-" * 70)
 
 print("\nRunning component tests...")
 result = subprocess.run(
-    ['python', 'test_adaptive_learning.py'],
-    capture_output=True,
-    text=True
+    ["python", "test_adaptive_learning.py"], capture_output=True, text=True
 )
 
 # Extract key results
-output_lines = result.stdout.split('\n')
+output_lines = result.stdout.split("\n")
 for line in output_lines:
-    if 'TEST' in line or '✓' in line or 'Success Rate' in line or 'Adjusted weights' in line:
+    if (
+        "TEST" in line
+        or "✓" in line
+        or "Success Rate" in line
+        or "Adjusted weights" in line
+    ):
         print(line)
 
 # 4. Explain learned_knowledge.json schema
@@ -82,22 +93,32 @@ print("-" * 70)
 
 print("\nThe learned_knowledge.json now includes:")
 
-db_path = Path('learned_knowledge.json')
+db_path = Path("learned_knowledge.json")
 if db_path.exists():
     with open(db_path) as f:
         data = json.load(f)
-    
+
     print(f"\n  ✓ learning_records: {len(data.get('learning_records', []))} scans")
-    print(f"  ✓ pattern_effectiveness: {len(data.get('pattern_effectiveness', {}))} patterns tracked")
-    print(f"  ✓ prompt_performance: {len(data.get('prompt_performance', {}))} prompt stages")
-    print(f"  ✓ verification_weights: {len(data.get('verification_weights', {}))} verification layers")
-    print(f"  ✓ user_feedback_log: {len(data.get('user_feedback_log', []))} feedback items")
-    
-    if data.get('hypothesis_quality_trends'):
-        trends = data['hypothesis_quality_trends']
-        if trends.get('avg_confidence_over_time'):
-            print(f"  ✓ hypothesis_quality_trends: {len(trends['avg_confidence_over_time'])} data points")
-    
+    print(
+        f"  ✓ pattern_effectiveness: {len(data.get('pattern_effectiveness', {}))} patterns tracked"
+    )
+    print(
+        f"  ✓ prompt_performance: {len(data.get('prompt_performance', {}))} prompt stages"
+    )
+    print(
+        f"  ✓ verification_weights: {len(data.get('verification_weights', {}))} verification layers"
+    )
+    print(
+        f"  ✓ user_feedback_log: {len(data.get('user_feedback_log', []))} feedback items"
+    )
+
+    if data.get("hypothesis_quality_trends"):
+        trends = data["hypothesis_quality_trends"]
+        if trends.get("avg_confidence_over_time"):
+            print(
+                f"  ✓ hypothesis_quality_trends: {len(trends['avg_confidence_over_time'])} data points"
+            )
+
     print(f"\n  Total scans: {data.get('total_scans', 0)}")
     print(f"  Last updated: {data.get('last_updated', 'N/A')}")
 
@@ -225,9 +246,9 @@ AdaptiveLearningSystem Components:
                  (learned_knowledge.json)
 """)
 
-print("\n" + "="*70)
+print("\n" + "=" * 70)
 print(" DEMO COMPLETE")
-print("="*70)
+print("=" * 70)
 print()
 print("✅ Adaptive Learning System is fully functional!")
 print()

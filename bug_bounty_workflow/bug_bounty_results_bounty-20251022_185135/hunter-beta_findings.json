@@ -1,0 +1,110 @@
+[
+  {
+    "type": "storage_collision_vulnerability",
+    "severity": "critical",
+    "category": "storage_collision",
+    "confidence": 0.98,
+    "description": "Storage Collision: Constructor storage initialization",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/opcode/contracts/OpCodes.sol",
+    "novelty": "extreme",
+    "rarity": "extreme",
+    "human_only": true,
+    "requires_deep_evm_knowledge": true
+  },
+  {
+    "type": "storage_collision_vulnerability",
+    "severity": "critical",
+    "category": "storage_collision",
+    "confidence": 0.98,
+    "description": "Storage Collision: Constructor storage initialization",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/staking/contracts/test/lib/MiniMeToken.sol",
+    "novelty": "extreme",
+    "rarity": "extreme",
+    "human_only": true,
+    "requires_deep_evm_knowledge": true
+  },
+  {
+    "type": "storage_collision_vulnerability",
+    "severity": "critical",
+    "category": "storage_collision",
+    "confidence": 0.98,
+    "description": "Storage Collision: Proxy delegatecall storage collision",
+    "file": "/home/dok/web3/Injective/injective-core/peggo/solidity/contracts/@openzeppelin/contracts/ERC1967Proxy.sol",
+    "novelty": "extreme",
+    "rarity": "extreme",
+    "human_only": true,
+    "requires_deep_evm_knowledge": true
+  },
+  {
+    "type": "storage_collision_vulnerability",
+    "severity": "critical",
+    "category": "storage_collision",
+    "confidence": 0.98,
+    "description": "Storage Collision: Proxy logic storage collision",
+    "file": "/home/dok/web3/Injective/injective-core/peggo/solidity/contracts/@openzeppelin/contracts/ERC1967Proxy.sol",
+    "novelty": "extreme",
+    "rarity": "extreme",
+    "human_only": true,
+    "requires_deep_evm_knowledge": true
+  },
+  {
+    "type": "storage_collision_vulnerability",
+    "severity": "critical",
+    "category": "storage_collision",
+    "confidence": 0.98,
+    "description": "Storage Collision: Constructor storage initialization",
+    "file": "/home/dok/web3/Injective/injective-core/peggo/solidity/contracts/@openzeppelin/contracts/ERC1967Proxy.sol",
+    "novelty": "extreme",
+    "rarity": "extreme",
+    "human_only": true,
+    "requires_deep_evm_knowledge": true
+  },
+  {
+    "type": "storage_collision_vulnerability",
+    "severity": "critical",
+    "category": "storage_collision",
+    "confidence": 0.98,
+    "description": "Storage Collision: Proxy delegatecall storage collision",
+    "file": "/home/dok/web3/Injective/injective-core/peggo/solidity/contracts/@openzeppelin/contracts/TransparentUpgradeableProxy.sol",
+    "novelty": "extreme",
+    "rarity": "extreme",
+    "human_only": true,
+    "requires_deep_evm_knowledge": true
+  },
+  {
+    "type": "storage_collision_vulnerability",
+    "severity": "critical",
+    "category": "storage_collision",
+    "confidence": 0.98,
+    "description": "Storage Collision: Implementation admin slot collision",
+    "file": "/home/dok/web3/Injective/injective-core/peggo/solidity/contracts/@openzeppelin/contracts/TransparentUpgradeableProxy.sol",
+    "novelty": "extreme",
+    "rarity": "extreme",
+    "human_only": true,
+    "requires_deep_evm_knowledge": true
+  },
+  {
+    "type": "storage_collision_vulnerability",
+    "severity": "critical",
+    "category": "storage_collision",
+    "confidence": 0.98,
+    "description": "Storage Collision: Proxy logic storage collision",
+    "file": "/home/dok/web3/Injective/injective-core/peggo/solidity/contracts/@openzeppelin/contracts/TransparentUpgradeableProxy.sol",
+    "novelty": "extreme",
+    "rarity": "extreme",
+    "human_only": true,
+    "requires_deep_evm_knowledge": true
+  },
+  {
+    "type": "storage_collision_vulnerability",
+    "severity": "critical",
+    "category": "storage_collision",
+    "confidence": 0.98,
+    "description": "Storage Collision: Constructor storage initialization",
+    "file": "/home/dok/web3/Injective/injective-core/peggo/solidity/contracts/@openzeppelin/contracts/TransparentUpgradeableProxy.sol",
+    "novelty": "extreme",
+    "rarity": "extreme",
+    "human_only": true,
+    "requires_deep_evm_knowledge": true
+  }
+]

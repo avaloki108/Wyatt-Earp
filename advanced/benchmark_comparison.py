@@ -7,7 +7,7 @@ Tracks which tool finds what, and measures improvement
 import json
 import subprocess
 import time
-from typing import Dict, List, Any, Optional, Set
+from typing import Dict, List, Any, Optional
 from pathlib import Path
 from dataclasses import dataclass, asdict
 from datetime import datetime
@@ -92,7 +92,6 @@ class BenchmarkSystem:
             
             from advanced.novel_vulnerability_patterns import NovelPatternDetector
             from advanced.behavioral_anomaly_detector import BehavioralAnomalyDetector
-            from advanced.symbolic_execution_engine import AdvancedSymbolicExecutor
             
             # Read contract
             with open(contract_path, 'r') as f:
@@ -354,7 +353,7 @@ class BenchmarkSystem:
         slither_count = len(report.results['Slither'].vulnerabilities_found)
         mythril_count = len(report.results['Mythril'].vulnerabilities_found)
         
-        print(f"\nVulnerabilities Found:")
+        print("\nVulnerabilities Found:")
         print(f"  Advanced Web3 Bug Hunter: {our_count}")
         print(f"  Slither:                  {slither_count}")
         print(f"  Mythril:                  {mythril_count}")
@@ -384,7 +383,7 @@ class BenchmarkSystem:
         slither_time = report.results['Slither'].execution_time
         mythril_time = report.results['Mythril'].execution_time
         
-        print(f"\nExecution Time:")
+        print("\nExecution Time:")
         print(f"  Our Tool: {our_time:.2f}s")
         print(f"  Slither:  {slither_time:.2f}s")
         print(f"  Mythril:  {mythril_time:.2f}s")
@@ -394,9 +393,9 @@ class BenchmarkSystem:
         if advantage > 0:
             print(f"\n🏆 OUR TOOL FOUND {advantage} UNIQUE VULNERABILITIES!")
         elif advantage == 0 and our_count >= max(slither_count, mythril_count):
-            print(f"\n✓ Our tool matched or exceeded other tools")
+            print("\n✓ Our tool matched or exceeded other tools")
         else:
-            print(f"\n⚠️ Other tools found some unique issues to investigate")
+            print("\n⚠️ Other tools found some unique issues to investigate")
             
     def generate_summary_report(self) -> Dict[str, Any]:
         """Generate summary of all benchmarks"""

@@ -1,0 +1,20 @@
+[
+  {
+    "type": "compilation",
+    "severity": "medium",
+    "description": "No recognized build system found",
+    "build_system": "none"
+  },
+  {
+    "type": "network_setup",
+    "severity": "info",
+    "description": "No local network setup required or supported",
+    "network": "none"
+  },
+  {
+    "type": "test_execution",
+    "severity": "info",
+    "description": "No test framework detected or tests not found",
+    "test_framework": "none"
+  }
+]

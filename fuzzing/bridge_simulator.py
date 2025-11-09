@@ -5,10 +5,9 @@ Simulates bridge attacks: message replay, reordering, forged proofs, double-spen
 
 import hashlib
 import time
-from typing import List, Dict, Any, Optional, Tuple
+from typing import List, Dict, Any
 from dataclasses import dataclass, field
 from enum import Enum
-import json
 
 
 class MessageStatus(Enum):
@@ -494,7 +493,7 @@ if __name__ == "__main__":
     msg = simulator.lock_tokens("ethereum", "alice", 100, "arbitrum")
     simulator.mint_on_destination(msg)
 
-    print(f"\n📊 After Bridge:")
+    print("\n📊 After Bridge:")
     print(f"  Alice on Ethereum: {ethereum.balances['alice']} tokens")
     print(f"  Alice on Arbitrum: {arbitrum.balances.get('alice', 0)} tokens")
     print(f"  Locked on Ethereum: {ethereum.locked_tokens} tokens")
@@ -543,7 +542,7 @@ if __name__ == "__main__":
     print(f"Successful exploits: {report['successful_exploits']}")
 
     if report['invariant_violations']:
-        print(f"\n⚠️  INVARIANT VIOLATIONS:")
+        print("\n⚠️  INVARIANT VIOLATIONS:")
         for violation in report['invariant_violations']:
             print(f"  - {violation}")
 

@@ -242,3 +242,161 @@ optimization:
   success_pattern_boost: 0.1
   false_positive_penalty: -0.05
   track_stage_effectiveness: true
+
+# LangGraph DAG agent configuration
+langgraph:
+  enabled: true
+  model: gpt-4-turbo
+  max_rewrites: 2
+  agents:
+    hunter:
+      temperature: 0.85
+      prompt: |
+        You are the Hunter Agent searching for novel exploit hypotheses in a smart contract.
+
+        CONTRACT TYPE: {{contract_type}}
+        ITERATION: {{iteration}}
+
+        CONTRACT CODE:
+        ```solidity
+        {{contract_code}}
+        ```
+
+        STATIC ANALYSIS SUMMARY:
+        {{static_analysis_summary}}
+
+        PREVIOUS HYPOTHESES:
+        {{previous_hypotheses}}
+
+        PRIOR FEEDBACK:
+        {{feedback}}
+
+        Return a JSON object with the following structure:
+        {
+          "hypotheses": [
+            {
+              "id": "unique identifier",
+              "title": "Short description of the exploit concept",
+              "rationale": "One to two sentence explanation",
+              "preconditions": ["condition1", "condition2"],
+              "likelihood": 0.0-1.0
+            }
+          ],
+          "summary": "Key insight",
+          "confidence": 0.6
+        }
+
+    analogical_reasoner:
+      temperature: 0.65
+      prompt: |
+        You are the Analogical Reasoner mapping historical exploits onto the current hypotheses.
+
+        CONTRACT TYPE: {{contract_type}}
+        CONTRACT SUMMARY:
+        {{contract_summary}}
+
+        HYPOTHESES FROM HUNTER:
+        {{previous_hypotheses}}
+
+        LEARNED PATTERNS:
+        {{learned_patterns}}
+
+        Produce a JSON object:
+        {
+          "hypotheses": [
+            {
+              "id": "matching hunter hypothesis id",
+              "historical_reference": "Named exploit or protocol",
+              "manifestation": "How the pattern may appear here",
+              "confidence": 0.0-1.0,
+              "variations": ["variant a", "variant b"]
+            }
+          ],
+          "summary": "Key transfer patterns identified"
+        }
+
+    skeptical_validator:
+      temperature: 0.35
+      prompt: |
+        You are the Skeptical Validator auditing hypotheses for feasibility.
+
+        CONTRACT CODE:
+        ```solidity
+        {{contract_code}}
+        ```
+
+        HYPOTHESES TO REVIEW:
+        {{hypotheses}}
+
+        STATIC ANALYSIS SUMMARY:
+        {{static_analysis_summary}}
+
+        Respond with JSON:
+        {
+          "validated": [
+            {
+              "id": "hypothesis id",
+              "reasoning": "Why it is feasible",
+              "confidence": 0.0-1.0,
+              "property_tests": ["Invariant or fuzz test idea"]
+            }
+          ],
+          "rejected": [
+            {
+              "id": "hypothesis id",
+              "reason": "Why it fails"
+            }
+          ],
+          "decision": "approve | rewrite | terminate",
+          "feedback": "Guidance for the hunter or synthesizer"
+        }
+
+    exploit_synthesizer:
+      temperature: 0.3
+      prompt: |
+        You are the Exploit Synthesizer turning validated hypotheses into actionable exploit paths.
+
+        CONTRACT CODE:
+        ```solidity
+        {{contract_code}}
+        ```
+
+        VALIDATED HYPOTHESES:
+        {{validated_hypotheses}}
+
+        Respond with JSON:
+        {
+          "scenarios": [
+            {
+              "name": "Exploit name",
+              "steps": ["Step 1", "Step 2"],
+              "impact": "Expected outcome",
+              "requirements": ["Flash loan", "Governance token"],
+              "confidence": 0.0-1.0
+            }
+          ],
+          "summary": "Key exploit opportunities"
+        }
+
+    self_evaluation:
+      temperature: 0.25
+      prompt: |
+        You are the Self-Evaluation Agent performing a final critical review.
+
+        EXPLOIT SCENARIOS:
+        {{exploit_scenarios}}
+
+        VALIDATED HYPOTHESES:
+        {{validated_hypotheses}}
+
+        FEEDBACK HISTORY:
+        {{feedback}}
+
+        Respond with JSON:
+        {
+          "status": "approve | rewrite | terminate",
+          "summary": "Final assessment",
+          "confidence": 0.0-1.0,
+          "actions": ["Next action item"],
+          "feedback": "Any closing notes"
+        }

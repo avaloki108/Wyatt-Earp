@@ -3,7 +3,7 @@ Prompt Orchestrator - Multi-Stage LLM Prompt Chaining
 Orchestrates different prompt strategies and tracks effectiveness
 """
 
-from typing import List, Dict, Any, Optional, Callable
+from typing import List, Dict, Any, Optional
 from dataclasses import dataclass, field
 from enum import Enum
 from datetime import datetime

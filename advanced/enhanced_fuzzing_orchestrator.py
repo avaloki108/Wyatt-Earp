@@ -4,13 +4,10 @@ Intelligent fuzzing with coverage-guided mutations, adaptive strategies,
 and integration with symbolic execution for maximum vulnerability discovery
 """
 
-from typing import List, Dict, Any, Set, Tuple, Optional
-from dataclasses import dataclass, field
+from typing import List, Dict, Any, Set, Optional
+from dataclasses import dataclass
 from enum import Enum
 import subprocess
-import json
-import os
-from pathlib import Path
 
 
 class FuzzingStrategy(Enum):
@@ -25,6 +22,7 @@ class FuzzingStrategy(Enum):
 @dataclass
 class FuzzingConfig:
     """Configuration for fuzzing campaign"""
+
     strategy: FuzzingStrategy
     max_iterations: int = 10000
     max_time_seconds: int = 3600
@@ -38,6 +36,7 @@ class FuzzingConfig:
 @dataclass
 class FuzzingResult:
     """Result from fuzzing campaign"""
+
     strategy: FuzzingStrategy
     iterations_run: int
     coverage_achieved: float
@@ -60,10 +59,12 @@ class EnhancedFuzzingOrchestrator:
         self.crashes: List[Any] = []
         self.interesting_inputs: List[Any] = []
 
-    def run_fuzzing_campaign(self,
-                            contract_path: str,
-                            property_functions: List[str],
-                            symbolic_constraints: Optional[List[Any]] = None) -> FuzzingResult:
+    def run_fuzzing_campaign(
+        self,
+        contract_path: str,
+        property_functions: List[str],
+        symbolic_constraints: Optional[List[Any]] = None,
+    ) -> FuzzingResult:
         """
         Run comprehensive fuzzing campaign with multiple strategies
         """
@@ -72,7 +73,9 @@ class EnhancedFuzzingOrchestrator:
         if self.config.strategy == FuzzingStrategy.COVERAGE_GUIDED:
             return self._coverage_guided_fuzzing(contract_path, property_functions)
         elif self.config.strategy == FuzzingStrategy.SYMBOLIC_GUIDED:
-            return self._symbolic_guided_fuzzing(contract_path, property_functions, symbolic_constraints)
+            return self._symbolic_guided_fuzzing(
+                contract_path, property_functions, symbolic_constraints
+            )
         elif self.config.strategy == FuzzingStrategy.MUTATION_BASED:
             return self._mutation_based_fuzzing(contract_path, property_functions)
         elif self.config.strategy == FuzzingStrategy.ADVERSARIAL:
@@ -80,9 +83,9 @@ class EnhancedFuzzingOrchestrator:
         else:
             return self._random_fuzzing(contract_path, property_functions)
 
-    def _coverage_guided_fuzzing(self,
-                                 contract_path: str,
-                                 property_functions: List[str]) -> FuzzingResult:
+    def _coverage_guided_fuzzing(
+        self, contract_path: str, property_functions: List[str]
+    ) -> FuzzingResult:
         """
         Coverage-guided fuzzing (like AFL/libFuzzer)
         Prioritizes inputs that increase code coverage
@@ -96,7 +99,10 @@ class EnhancedFuzzingOrchestrator:
         # Generate initial corpus
         self._generate_initial_corpus(contract_path)
 
-        while iterations < self.config.max_iterations and coverage < self.config.coverage_target:
+        while (
+            iterations < self.config.max_iterations
+            and coverage < self.config.coverage_target
+        ):
             # Select input from corpus
             input_data = self._select_from_corpus()
 
@@ -128,13 +134,15 @@ class EnhancedFuzzingOrchestrator:
             vulnerabilities_found=vulnerabilities,
             interesting_inputs=self.interesting_inputs,
             execution_time=0.0,
-            crash_count=len(self.crashes)
+            crash_count=len(self.crashes),
         )
 
-    def _symbolic_guided_fuzzing(self,
-                                 contract_path: str,
-                                 property_functions: List[str],
-                                 symbolic_constraints: Optional[List[Any]] = None) -> FuzzingResult:
+    def _symbolic_guided_fuzzing(
+        self,
+        contract_path: str,
+        property_functions: List[str],
+        symbolic_constraints: Optional[List[Any]] = None,
+    ) -> FuzzingResult:
         """
         Symbolic execution guided fuzzing
         Uses symbolic constraints to generate targeted inputs
@@ -145,6 +153,7 @@ class EnhancedFuzzingOrchestrator:
 
         executor = AdvancedSymbolicExecutor()
         vulnerabilities = []
+        targeted_inputs = []
 
         # Use symbolic execution to find interesting paths
         if symbolic_constraints:
@@ -165,12 +174,12 @@ class EnhancedFuzzingOrchestrator:
             vulnerabilities_found=vulnerabilities,
             interesting_inputs=[],
             execution_time=0.0,
-            crash_count=len(vulnerabilities)
+            crash_count=len(vulnerabilities),
         )
 
-    def _mutation_based_fuzzing(self,
-                                contract_path: str,
-                                property_functions: List[str]) -> FuzzingResult:
+    def _mutation_based_fuzzing(
+        self, contract_path: str, property_functions: List[str]
+    ) -> FuzzingResult:
         """
         Mutation-based fuzzing with smart mutations
         """
@@ -201,18 +210,19 @@ class EnhancedFuzzingOrchestrator:
             vulnerabilities_found=vulnerabilities,
             interesting_inputs=[],
             execution_time=0.0,
-            crash_count=len(vulnerabilities)
+            crash_count=len(vulnerabilities),
         )
 
-    def _adversarial_fuzzing(self,
-                            contract_path: str,
-                            property_functions: List[str]) -> FuzzingResult:
+    def _adversarial_fuzzing(
+        self, contract_path: str, property_functions: List[str]
+    ) -> FuzzingResult:
         """
         Adversarial fuzzing - generate inputs specifically designed to break properties
         """
         print("Running adversarial fuzzing...")
 
         vulnerabilities = []
+        adversarial_inputs = []
 
         # Generate adversarial inputs for each property
         for prop in property_functions:
@@ -227,26 +237,28 @@ class EnhancedFuzzingOrchestrator:
 
         return FuzzingResult(
             strategy=FuzzingStrategy.ADVERSARIAL,
-            iterations_run=len(adversarial_inputs) * len(property_functions) if adversarial_inputs else 0,
+            iterations_run=len(adversarial_inputs) * len(property_functions)
+            if adversarial_inputs
+            else 0,
             coverage_achieved=0.0,
             vulnerabilities_found=vulnerabilities,
             interesting_inputs=[],
             execution_time=0.0,
-            crash_count=len(vulnerabilities)
+            crash_count=len(vulnerabilities),
         )
 
-    def _random_fuzzing(self,
-                       contract_path: str,
-                       property_functions: List[str]) -> FuzzingResult:
+    def _random_fuzzing(
+        self, contract_path: str, property_functions: List[str]
+    ) -> FuzzingResult:
         """Basic random fuzzing with Echidna"""
         print("Running random fuzzing with Echidna...")
 
         # Run Echidna with default configuration
         result = subprocess.run(
-            ['echidna', contract_path, '--test-limit', str(self.config.max_iterations)],
+            ["echidna", contract_path, "--test-limit", str(self.config.max_iterations)],
             capture_output=True,
             text=True,
-            timeout=self.config.max_time_seconds
+            timeout=self.config.max_time_seconds,
         )
 
         vulnerabilities = self._parse_echidna_output(result.stdout)
@@ -258,7 +270,7 @@ class EnhancedFuzzingOrchestrator:
             vulnerabilities_found=vulnerabilities,
             interesting_inputs=[],
             execution_time=0.0,
-            crash_count=len(vulnerabilities)
+            crash_count=len(vulnerabilities),
         )
 
     def _generate_initial_corpus(self, contract_path: str):
@@ -271,11 +283,9 @@ class EnhancedFuzzingOrchestrator:
             {"value": 2**255},  # Half of max
             {"value": 2**128},
             {"value": 10**18},  # 1 ether in wei
-
             # Edge cases
             {"value": -1},
             {"value": 2**256},  # Overflow
-
             # Common amounts
             {"value": 100 * 10**18},
             {"value": 1000000 * 10**18},
@@ -289,6 +299,7 @@ class EnhancedFuzzingOrchestrator:
         # Simple random selection for now
         # In production, use coverage-weighted selection
         import random
+
         return random.choice(self.corpus)
 
     def _mutate_input(self, input_data: Any) -> Any:
@@ -299,22 +310,24 @@ class EnhancedFuzzingOrchestrator:
 
         if "value" in mutated:
             # Apply random mutation
-            mutation_type = random.choice(['bit_flip', 'arithmetic', 'interesting_value'])
+            mutation_type = random.choice(
+                ["bit_flip", "arithmetic", "interesting_value"]
+            )
 
-            if mutation_type == 'bit_flip':
+            if mutation_type == "bit_flip":
                 # Flip random bit
                 value = mutated["value"]
                 bit_position = random.randint(0, 255)
                 mutated["value"] = value ^ (1 << bit_position)
 
-            elif mutation_type == 'arithmetic':
+            elif mutation_type == "arithmetic":
                 # Add/subtract random amount
-                delta = random.choice([1, -1, 100, -100, 10**18, -10**18])
+                delta = random.choice([1, -1, 100, -100, 10**18, -(10**18)])
                 mutated["value"] = max(0, mutated["value"] + delta)
 
-            elif mutation_type == 'interesting_value':
+            elif mutation_type == "interesting_value":
                 # Replace with interesting value
-                mutated["value"] = random.choice([0, 1, 2**256-1, 10**18])
+                mutated["value"] = random.choice([0, 1, 2**256 - 1, 10**18])
 
         return mutated
 
@@ -325,23 +338,25 @@ class EnhancedFuzzingOrchestrator:
         mutated = input_data.copy()
 
         # Mutations targeting specific vulnerability classes
-        mutation_strategy = random.choice([
-            'overflow_trigger',
-            'underflow_trigger',
-            'precision_loss',
-            'zero_value',
-            'max_value'
-        ])
+        mutation_strategy = random.choice(
+            [
+                "overflow_trigger",
+                "underflow_trigger",
+                "precision_loss",
+                "zero_value",
+                "max_value",
+            ]
+        )
 
-        if mutation_strategy == 'overflow_trigger':
+        if mutation_strategy == "overflow_trigger":
             mutated["value"] = 2**256 - 2
-        elif mutation_strategy == 'underflow_trigger':
+        elif mutation_strategy == "underflow_trigger":
             mutated["value"] = 1
-        elif mutation_strategy == 'precision_loss':
+        elif mutation_strategy == "precision_loss":
             mutated["value"] = 3  # Triggers rounding in divisions
-        elif mutation_strategy == 'zero_value':
+        elif mutation_strategy == "zero_value":
             mutated["value"] = 0
-        elif mutation_strategy == 'max_value':
+        elif mutation_strategy == "max_value":
             mutated["value"] = 2**256 - 1
 
         return mutated
@@ -354,28 +369,30 @@ class EnhancedFuzzingOrchestrator:
             "coverage": 0.75,
             "properties": {
                 "echidna_balance_conservation": True,
-                "echidna_no_reentrancy": True
-            }
+                "echidna_no_reentrancy": True,
+            },
         }
 
     def _extract_coverage(self, result: Dict[str, Any]) -> float:
         """Extract coverage from execution result"""
         return result.get("coverage", 0.0)
 
-    def _check_property_violations(self,
-                                   result: Dict[str, Any],
-                                   property_functions: List[str]) -> List[Dict[str, Any]]:
+    def _check_property_violations(
+        self, result: Dict[str, Any], property_functions: List[str]
+    ) -> List[Dict[str, Any]]:
         """Check if any properties were violated"""
         violations = []
 
         properties = result.get("properties", {})
         for prop_name in property_functions:
             if prop_name in properties and not properties[prop_name]:
-                violations.append({
-                    "property": prop_name,
-                    "severity": "high",
-                    "description": f"Property {prop_name} violated"
-                })
+                violations.append(
+                    {
+                        "property": prop_name,
+                        "severity": "high",
+                        "description": f"Property {prop_name} violated",
+                    }
+                )
 
         return violations
 
@@ -409,23 +426,29 @@ class EnhancedFuzzingOrchestrator:
         # Analyze property to determine adversarial inputs
         if "balance" in property_name.lower():
             # Try to break balance conservation
-            adversarial.extend([
-                {"value": 0},  # Zero transfer
-                {"value": 2**256 - 1},  # Max transfer
-            ])
+            adversarial.extend(
+                [
+                    {"value": 0},  # Zero transfer
+                    {"value": 2**256 - 1},  # Max transfer
+                ]
+            )
 
         if "overflow" in property_name.lower():
             # Try to trigger overflow
-            adversarial.extend([
-                {"value": 2**256 - 1},
-                {"value": 2**255 + 2**254},
-            ])
+            adversarial.extend(
+                [
+                    {"value": 2**256 - 1},
+                    {"value": 2**255 + 2**254},
+                ]
+            )
 
         if "reentrancy" in property_name.lower():
             # Simulate reentrancy conditions
-            adversarial.extend([
-                {"value": 100, "reentrant": True},
-            ])
+            adversarial.extend(
+                [
+                    {"value": 100, "reentrant": True},
+                ]
+            )
 
         return adversarial
 
@@ -433,14 +456,16 @@ class EnhancedFuzzingOrchestrator:
         """Parse Echidna output for vulnerabilities"""
         vulnerabilities = []
 
-        lines = output.split('\n')
+        lines = output.split("\n")
         for line in lines:
-            if 'FAILED' in line or 'failed' in line:
-                vulnerabilities.append({
-                    "type": "property_violation",
-                    "description": line,
-                    "severity": "high"
-                })
+            if "FAILED" in line or "failed" in line:
+                vulnerabilities.append(
+                    {
+                        "type": "property_violation",
+                        "description": line,
+                        "severity": "high",
+                    }
+                )
 
         return vulnerabilities
 
@@ -478,34 +503,34 @@ def demonstrate_enhanced_fuzzing():
         "echidna_balance_conservation",
         "echidna_no_overflow",
         "echidna_no_reentrancy",
-        "echidna_access_control"
+        "echidna_access_control",
     ]
 
     results = []
 
     for config in configs:
-        print(f"\n{'='*60}")
+        print(f"\n{'=' * 60}")
         print(f"Running fuzzing with strategy: {config.strategy.value}")
-        print(f"{'='*60}")
+        print(f"{'=' * 60}")
 
         orchestrator = EnhancedFuzzingOrchestrator(config)
 
         result = orchestrator.run_fuzzing_campaign(
             contract_path="./vulnerable_contract.sol",
-            property_functions=property_functions
+            property_functions=property_functions,
         )
 
         results.append(result)
 
-        print(f"\nResults:")
+        print("\nResults:")
         print(f"  Iterations: {result.iterations_run}")
         print(f"  Coverage: {result.coverage_achieved:.2%}")
         print(f"  Vulnerabilities: {len(result.vulnerabilities_found)}")
 
     # Generate report
-    print(f"\n{'='*60}")
+    print(f"\n{'=' * 60}")
     print("FINAL REPORT")
-    print(f"{'='*60}")
+    print(f"{'=' * 60}")
 
     report = orchestrator.generate_fuzzing_report(results)
     print(report)

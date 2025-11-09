@@ -2,7 +2,6 @@
 Tests for PoC Generator Module
 """
 
-import pytest
 import sys
 from pathlib import Path
 
@@ -13,8 +12,7 @@ from advanced.poc_generator import (
     SafetyValidator,
     PoCGenerator,
     AutomatedPoCGenerator,
-    PoCFramework,
-    PoCTemplate
+    PoCFramework
 )
 
 
@@ -48,10 +46,10 @@ contract SafeTest is Test {
 }
 """
         result = validator.validate(safe_code)
-        assert result['safe'] == True
-        assert result['checks']['uses_test_framework'] == True
-        assert result['checks']['has_test_functions'] == True
-        assert result['checks']['no_mainnet_interaction'] == True
+        assert result['safe']
+        assert result['checks']['uses_test_framework']
+        assert result['checks']['has_test_functions']
+        assert result['checks']['no_mainnet_interaction']
     
     def test_unsafe_mainnet_interaction(self):
         """Test that code with mainnet interaction fails validation"""
@@ -66,8 +64,8 @@ contract UnsafeTest {
 }
 """
         result = validator.validate(unsafe_code)
-        assert result['safe'] == False
-        assert result['checks']['no_mainnet_interaction'] == False
+        assert not result['safe']
+        assert not result['checks']['no_mainnet_interaction']
     
     def test_missing_test_framework(self):
         """Test that code without test framework fails validation"""
@@ -81,8 +79,8 @@ contract NotATest {
 }
 """
         result = validator.validate(code_without_test)
-        assert result['safe'] == False
-        assert result['checks']['uses_test_framework'] == False
+        assert not result['safe']
+        assert not result['checks']['uses_test_framework']
     
     def test_private_key_exposure(self):
         """Test that code with private key exposure fails validation"""
@@ -97,7 +95,7 @@ contract UnsafeTest {
 """
         result = validator.validate(unsafe_code)
         # This should fail validation
-        assert result['safe'] == False or len(result['warnings']) > 0
+        assert not result['safe'] or len(result['warnings']) > 0
 
 
 class TestPoCGenerator:
@@ -246,7 +244,7 @@ def test_safety_validator_integration():
     
     # Generated PoC should pass safety validation
     result = validator.validate(poc_code)
-    assert result['safe'] == True
+    assert result['safe']
 
 
 if __name__ == "__main__":

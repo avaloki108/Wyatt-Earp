@@ -2,6 +2,7 @@
 z3-solver>=4.8.8.0,<4.12.2.0  # Symbolic execution (compatible with mythril)
 openai>=1.0.0  # LLM integration
 anthropic>=0.18.0  # Claude API (optional)
+langgraph>=0.0.56  # Multi-agent orchestration DAG
 
 # Static analysis (install separately to avoid conflicts)
 # slither-analyzer==0.10.0  # Run: pip install slither-analyzer
@@ -21,3 +22,4 @@ mypy==1.8.0
 # Utilities
 python-dotenv==1.0.0
 rich==13.7.0  # Pretty terminal output
+PyYAML>=6.0

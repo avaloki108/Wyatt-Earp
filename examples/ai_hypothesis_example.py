@@ -85,14 +85,14 @@ def main():
     
     if 'hypothesis_engine' in stats and stats['hypothesis_engine']:
         hyp_stats = stats['hypothesis_engine']
-        print(f"\nHypothesis Engine:")
+        print("\nHypothesis Engine:")
         print(f"  Total Hypotheses: {hyp_stats.get('total_hypotheses', 0)}")
         print(f"  Verified: {hyp_stats.get('verified_count', 0)}")
         print(f"  Rejected: {hyp_stats.get('rejected_count', 0)}")
     
     if 'verification_pipeline' in stats and stats['verification_pipeline']:
         ver_stats = stats['verification_pipeline']
-        print(f"\nVerification Pipeline:")
+        print("\nVerification Pipeline:")
         print(f"  Total Verifications: {ver_stats.get('total_verifications', 0)}")
         print(f"  Verified: {ver_stats.get('verified_count', 0)}")
         print(f"  Rejected: {ver_stats.get('rejected_count', 0)}")

@@ -4,11 +4,9 @@ Multi-agent approach with specialized reasoning modules
 Supports: Grok (x.ai), Claude (Anthropic), OpenAI
 """
 
-from typing import List, Dict, Any, Optional, Tuple
+from typing import List, Dict, Any, Optional
 from dataclasses import dataclass, field
 from enum import Enum
-import json
-import os
 
 # Import LLM provider
 from .llm_providers import LLMClient, LLMProvider

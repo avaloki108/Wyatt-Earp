@@ -13,7 +13,6 @@ sys.path.insert(0, str(Path(__file__).parent.parent))
 from advanced.llm_reasoning_engine import AdvancedLLMReasoner
 from advanced.persistent_learning import PersistentLearningDB
 from advanced.prompt_chaining import PromptOptimizer
-import json
 
 
 # Sample vulnerable contract for demonstration
@@ -106,7 +105,7 @@ def demonstrate_prompt_chaining():
     # Display results
     print_section("Results Summary")
     
-    print(f"📊 Execution Statistics:")
+    print("📊 Execution Statistics:")
     print(f"  • Total hypotheses generated: {result.hypotheses_generated}")
     print(f"  • Hypotheses validated: {result.hypotheses_validated}")
     print(f"  • Hypotheses rejected: {result.hypotheses_rejected}")
@@ -156,15 +155,15 @@ def demonstrate_prompt_chaining():
             print(f"   Confidence: {scenario.confidence:.2f}")
             print(f"   Difficulty: {scenario.difficulty}")
             print(f"   Estimated Profit: {scenario.estimated_profit}")
-            print(f"\n   Conditions Required:")
+            print("\n   Conditions Required:")
             for cond in scenario.conditions:
                 print(f"     • {cond}")
             
-            print(f"\n   Attacker Capabilities:")
+            print("\n   Attacker Capabilities:")
             for cap in scenario.attacker_capabilities:
                 print(f"     • {cap}")
             
-            print(f"\n   Attack Sequence:")
+            print("\n   Attack Sequence:")
             for step in scenario.attack_sequence:
                 print(f"     {step['step']}. {step['action']} [{step.get('function', 'N/A')}]")
             
@@ -190,7 +189,7 @@ def demonstrate_prompt_chaining():
             avg_final_confidence=avg_final
         )
         
-        print(f"✓ Recorded hypothesis quality metrics to learning database")
+        print("✓ Recorded hypothesis quality metrics to learning database")
         print(f"  • Average initial confidence: {avg_initial:.2f}")
         print(f"  • Average final confidence: {avg_final:.2f}")
         print(f"  • Confidence improvement: {(avg_final - avg_initial):+.2f}\n")
@@ -215,7 +214,7 @@ def demonstrate_prompt_chaining():
             print(f"  • False positive rate: {recommendations['avg_fp_rate']:.1%}")
             
             if recommendations['suggestions']:
-                print(f"  • Suggestions:")
+                print("  • Suggestions:")
                 for suggestion in recommendations['suggestions']:
                     print(f"    - {suggestion}")
             print()
@@ -234,7 +233,7 @@ def demonstrate_prompt_chaining():
     metrics = learning_db.get_improvement_metrics()
     
     if metrics.get('total_scans', 0) > 0:
-        print(f"📚 Learning Database Summary:")
+        print("📚 Learning Database Summary:")
         print(f"  • Total scans: {metrics.get('total_scans', 0)}")
         print(f"  • Patterns learned: {metrics.get('total_patterns_learned', 0)}")
         

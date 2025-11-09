@@ -10,7 +10,6 @@ import os
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 from advanced.auto_learning import AutoLearner
-from datetime import datetime
 
 def main(days_hacks=7, days_github=30):
     print("🚀 Starting Auto-Learning Process...")
@@ -32,8 +31,8 @@ def main(days_hacks=7, days_github=30):
     print("="*50)
     print(learner.get_learned_patterns_summary())
     print(f"\n✅ Total new patterns learned: {len(hack_patterns) + len(github_patterns)}")
-    print(f"📁 Saved to: patterns/learned_patterns.json")
-    print(f"🔄 Updated detectors: patterns/updated_detector.json")
+    print("📁 Saved to: patterns/learned_patterns.json")
+    print("🔄 Updated detectors: patterns/updated_detector.json")
     
     print("\n💡 Next: Run your analysis with updated patterns!")
     print("   python advanced_bug_hunter.py contract.sol --auto-learn")

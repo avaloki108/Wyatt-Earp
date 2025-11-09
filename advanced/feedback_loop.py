@@ -8,7 +8,6 @@ Learns from discovered vulnerabilities and automatically:
 """
 
 import json
-import os
 import hashlib
 from pathlib import Path
 from typing import List, Dict, Any, Optional
@@ -352,7 +351,7 @@ When analyzing contracts, specifically look for:
         print(f"✓ Learned from vulnerability: {vuln_id}")
         print(f"  - Pattern extracted: {pattern[:50]}...")
         print(f"  - Detector generated: {vulnerability_type}Detector")
-        print(f"  - Invariant generated: echidna_custom_invariant")
+        print("  - Invariant generated: echidna_custom_invariant")
 
         return vuln
 
@@ -499,7 +498,7 @@ function getPrice() public view returns (uint256) {
     print(f"Invariants generated: {report['invariants_generated']}")
     print(f"LLM enhancements: {report['llm_enhancements']}")
 
-    print(f"\nDatabase statistics:")
+    print("\nDatabase statistics:")
     print(f"  Total vulnerabilities: {report['database_stats']['total_vulnerabilities']}")
     print(f"  By type: {report['database_stats']['types']}")
     print(f"  By severity: {report['database_stats']['severities']}")

@@ -444,7 +444,7 @@ class DualPhaseLLM:
         print(f"Phase 2 (Critic) time:  {result.critic_time:.1f}s")
 
         if result.confirmed_vulnerabilities:
-            print(f"\n🚨 CONFIRMED VULNERABILITIES:")
+            print("\n🚨 CONFIRMED VULNERABILITIES:")
             for vuln in result.confirmed_vulnerabilities:
                 print(f"\n  [{vuln.severity.upper()}] {vuln.id}: {vuln.description}")
                 print(f"    Location: {vuln.affected_code}")

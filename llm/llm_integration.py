@@ -2,8 +2,11 @@ import json
 from typing import List, Dict, Any, Optional
 import os
 
+
 class LLMVulnerabilityAnalyzer:
-    def __init__(self, api_key: str = None, model: str = "gpt-4-turbo-preview"):
+    def __init__(
+        self, api_key: Optional[str] = None, model: str = "gpt-4-turbo-preview"
+    ):
         self.api_key = api_key or os.getenv("OPENAI_API_KEY")
         if not self.api_key:
             raise ValueError("OpenAI API key not provided")
@@ -11,14 +14,19 @@ class LLMVulnerabilityAnalyzer:
         # Lazy import openai to avoid dependency issues
         try:
             import openai
+
             openai.api_key = self.api_key
             self._openai = openai
         except ImportError:
-            raise ImportError("openai package required for OpenAI LLM: pip install openai")
+            raise ImportError(
+                "openai package required for OpenAI LLM: pip install openai"
+            )
 
         self.model = model
 
-    def analyze_contract_logic(self, contract_code: str, slither_output: Dict[str, Any]) -> Dict[str, Any]:
+    def analyze_contract_logic(
+        self, contract_code: str, slither_output: Dict[str, Any]
+    ) -> Dict[str, Any]:
         """
         Use LLM to analyze contract logic and infer potential vulnerabilities
         """
@@ -49,7 +57,9 @@ class LLMVulnerabilityAnalyzer:
         analysis = response
         return self._parse_llm_response(analysis)
 
-    def analyze_contract_logic_with_prompt(self, contract_code: str, slither_output: Dict[str, Any], custom_prompt: str) -> Dict[str, Any]:
+    def analyze_contract_logic_with_prompt(
+        self, contract_code: str, slither_output: Dict[str, Any], custom_prompt: str
+    ) -> Dict[str, Any]:
         """
         Use LLM to analyze contract logic with a custom prompt
         """
@@ -63,12 +73,11 @@ class LLMVulnerabilityAnalyzer:
         {custom_prompt}
         """
         response = self._generate_response(base_prompt)
-        return {
-            "raw_response": response,
-            "prompt_type": "custom"
-        }
+        return {"raw_response": response, "prompt_type": "custom"}
 
-    def generate_fuzzing_properties(self, contract_code: str, vulnerabilities: List[str]) -> List[str]:
+    def generate_fuzzing_properties(
+        self, contract_code: str, vulnerabilities: List[str]
+    ) -> List[str]:
         """
         Generate property-based tests based on LLM analysis
         """
@@ -80,7 +89,7 @@ class LLMVulnerabilityAnalyzer:
         {contract_code}
 
         Identified Vulnerabilities:
-        {', '.join(vulnerabilities)}
+        {", ".join(vulnerabilities)}
 
         Generate 5-10 property functions that would help detect these vulnerabilities.
         Each property should be a boolean function starting with 'echidna_'.
@@ -95,12 +104,13 @@ class LLMVulnerabilityAnalyzer:
         """
         try:
             from openai import OpenAI
+
             client = OpenAI(api_key=self.api_key)
             response = client.chat.completions.create(
                 model=self.model,
                 messages=[{"role": "user", "content": prompt}],
                 max_tokens=2000,
-                temperature=0.3
+                temperature=0.3,
             )
             return response.choices[0].message.content
         except Exception as e:
@@ -115,35 +125,41 @@ class LLMVulnerabilityAnalyzer:
             "attack_scenarios": [],
             "property_suggestions": [],
             "analysis_areas": [],
-            "raw_response": response
+            "raw_response": response,
         }
 
     def _extract_properties(self, properties_text: str) -> List[str]:
         # Extract property function names from LLM response
         # Simple implementation - would need improvement
-        lines = properties_text.split('\n')
+        lines = properties_text.split("\n")
         properties = []
         for line in lines:
-            if line.strip().startswith('function echidna_'):
-                prop_name = line.split('function ')[1].split('(')[0]
+            if line.strip().startswith("function echidna_"):
+                prop_name = line.split("function ")[1].split("(")[0]
                 properties.append(prop_name)
         return properties
+
 
 # Local LLM alternative using transformers
 class LocalLLMAnalyzer:
     def __init__(self, model_path: str = "microsoft/DialoGPT-medium"):
         try:
             from transformers import AutoModelForCausalLM, AutoTokenizer
+
             self.tokenizer = AutoTokenizer.from_pretrained(model_path)
             self.model = AutoModelForCausalLM.from_pretrained(model_path)
         except ImportError:
             raise ImportError("transformers library required for local LLM")
 
-    def analyze_contract_logic(self, contract_code: str, slither_output: Dict[str, Any]) -> Dict[str, Any]:
+    def analyze_contract_logic(
+        self, contract_code: str, slither_output: Dict[str, Any]
+    ) -> Dict[str, Any]:
         # Implement local LLM analysis
         # This is a placeholder - actual implementation would be more complex
         return {"local_analysis": "Placeholder for local LLM analysis"}
 
-    def analyze_contract_logic_with_prompt(self, contract_code: str, slither_output: Dict[str, Any], custom_prompt: str) -> Dict[str, Any]:
+    def analyze_contract_logic_with_prompt(
+        self, contract_code: str, slither_output: Dict[str, Any], custom_prompt: str
+    ) -> Dict[str, Any]:
         # Placeholder for local LLM with custom prompt
         return {"local_analysis": "Placeholder for local LLM with custom prompt"}

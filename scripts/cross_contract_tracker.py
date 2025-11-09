@@ -1,9 +1,7 @@
-import json
-from typing import Dict, List, Set, Tuple, Any
+from typing import Dict, List, Any
 from slither.core.declarations import Contract
 from slither.core.declarations import FunctionContract
 from slither.core.expressions import CallExpression
-from slither.core.variables.state_variable import StateVariable
 
 
 class CrossContractLogicTracker:

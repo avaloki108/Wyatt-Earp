@@ -1,0 +1,952 @@
+[
+  {
+    "type": "architecture",
+    "contract": "Counter",
+    "file": "/home/dok/web3/Injective/injective-core/interchaintest/solidity/Counter.sol",
+    "functions_count": 3,
+    "modifiers_count": 0,
+    "events_count": 2,
+    "severity": "info",
+    "description": "Contract Counter has 3 functions, 0 modifiers, 2 events"
+  },
+  {
+    "type": "architecture",
+    "contract": "Panicing",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/precompiles/bindings/cosmos/precompile/exchange/test/panicing/Panicing.sol",
+    "functions_count": 2,
+    "modifiers_count": 0,
+    "events_count": 1,
+    "severity": "info",
+    "description": "Contract Panicing has 2 functions, 0 modifiers, 1 events"
+  },
+  {
+    "type": "architecture",
+    "contract": "Initializable",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/initializable/contracts/Initializable.sol",
+    "functions_count": 4,
+    "modifiers_count": 0,
+    "events_count": 0,
+    "severity": "info",
+    "description": "Contract Initializable has 4 functions, 0 modifiers, 0 events"
+  },
+  {
+    "type": "architecture",
+    "contract": "UnstructuredStorage",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/initializable/contracts/UnstructuredStorage.sol",
+    "functions_count": 8,
+    "modifiers_count": 0,
+    "events_count": 0,
+    "severity": "info",
+    "description": "Contract UnstructuredStorage has 8 functions, 0 modifiers, 0 events"
+  },
+  {
+    "type": "architecture",
+    "contract": "Uint256Helpers",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/initializable/contracts/Uint256Helpers.sol",
+    "functions_count": 1,
+    "modifiers_count": 0,
+    "events_count": 0,
+    "severity": "info",
+    "description": "Contract Uint256Helpers has 1 functions, 0 modifiers, 0 events"
+  },
+  {
+    "type": "architecture",
+    "contract": "Petrifiable",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/initializable/contracts/Petrifiable.sol",
+    "functions_count": 2,
+    "modifiers_count": 0,
+    "events_count": 0,
+    "severity": "info",
+    "description": "Contract Petrifiable has 2 functions, 0 modifiers, 0 events"
+  },
+  {
+    "type": "architecture",
+    "contract": "TimeHelpers",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/initializable/contracts/TimeHelpers.sol",
+    "functions_count": 4,
+    "modifiers_count": 0,
+    "events_count": 0,
+    "severity": "info",
+    "description": "Contract TimeHelpers has 4 functions, 0 modifiers, 0 events"
+  },
+  {
+    "type": "architecture",
+    "contract": "Migrations",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/initializable/contracts/test/Migrations.sol",
+    "functions_count": 1,
+    "modifiers_count": 1,
+    "events_count": 0,
+    "severity": "info",
+    "description": "Contract Migrations has 1 functions, 1 modifiers, 0 events"
+  },
+  {
+    "type": "architecture",
+    "contract": "InitializableMock",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/initializable/contracts/test/InitializableMock.sol",
+    "functions_count": 2,
+    "modifiers_count": 0,
+    "events_count": 0,
+    "severity": "info",
+    "description": "Contract InitializableMock has 2 functions, 0 modifiers, 0 events"
+  },
+  {
+    "type": "architecture",
+    "contract": "Migrations",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/opcode/contracts/Migrations.sol",
+    "functions_count": 2,
+    "modifiers_count": 1,
+    "events_count": 0,
+    "severity": "info",
+    "description": "Contract Migrations has 2 functions, 1 modifiers, 0 events"
+  },
+  {
+    "type": "architecture",
+    "contract": "OpCodes",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/opcode/contracts/OpCodes.sol",
+    "functions_count": 11,
+    "modifiers_count": 1,
+    "events_count": 0,
+    "severity": "info",
+    "description": "Contract OpCodes has 11 functions, 1 modifiers, 0 events"
+  },
+  {
+    "type": "architecture",
+    "contract": "Storage",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/storage/contracts/Storage.sol",
+    "functions_count": 3,
+    "modifiers_count": 0,
+    "events_count": 0,
+    "severity": "info",
+    "description": "Contract Storage has 3 functions, 0 modifiers, 0 events"
+  },
+  {
+    "type": "architecture",
+    "contract": "EventTest",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/storage/contracts/EventTest.sol",
+    "functions_count": 2,
+    "modifiers_count": 0,
+    "events_count": 3,
+    "severity": "info",
+    "description": "Contract EventTest has 2 functions, 0 modifiers, 3 events"
+  },
+  {
+    "type": "architecture",
+    "contract": "StakingFactory",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/staking/contracts/StakingFactory.sol",
+    "functions_count": 5,
+    "modifiers_count": 0,
+    "events_count": 1,
+    "severity": "info",
+    "description": "Contract StakingFactory has 5 functions, 0 modifiers, 1 events"
+  },
+  {
+    "type": "architecture",
+    "contract": "Staking",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/staking/contracts/Staking.sol",
+    "functions_count": 45,
+    "modifiers_count": 0,
+    "events_count": 0,
+    "severity": "info",
+    "description": "Contract Staking has 45 functions, 0 modifiers, 0 events"
+  },
+  {
+    "type": "architecture",
+    "contract": "TestImports",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/staking/contracts/test/TestImports.sol",
+    "functions_count": 0,
+    "modifiers_count": 0,
+    "events_count": 0,
+    "severity": "info",
+    "description": "Contract TestImports has 0 functions, 0 modifiers, 0 events"
+  },
+  {
+    "type": "architecture",
+    "contract": "MiniMeToken",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/staking/contracts/test/lib/MiniMeToken.sol",
+    "functions_count": 22,
+    "modifiers_count": 0,
+    "events_count": 4,
+    "severity": "info",
+    "description": "Contract MiniMeToken has 22 functions, 0 modifiers, 4 events"
+  },
+  {
+    "type": "architecture",
+    "contract": "EchidnaStaking",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/staking/contracts/test/lib/EchidnaStaking.sol",
+    "functions_count": 7,
+    "modifiers_count": 0,
+    "events_count": 0,
+    "severity": "info",
+    "description": "Contract EchidnaStaking has 7 functions, 0 modifiers, 0 events"
+  },
+  {
+    "type": "architecture",
+    "contract": "ITokenController",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/staking/contracts/test/lib/ITokenController.sol",
+    "functions_count": 3,
+    "modifiers_count": 0,
+    "events_count": 0,
+    "severity": "info",
+    "description": "Contract ITokenController has 3 functions, 0 modifiers, 0 events"
+  },
+  {
+    "type": "architecture",
+    "contract": "CheckpointingMock",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/staking/contracts/test/mocks/CheckpointingMock.sol",
+    "functions_count": 5,
+    "modifiers_count": 0,
+    "events_count": 0,
+    "severity": "info",
+    "description": "Contract CheckpointingMock has 5 functions, 0 modifiers, 0 events"
+  },
+  {
+    "type": "architecture",
+    "contract": "LockManagerMock",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/staking/contracts/test/mocks/LockManagerMock.sol",
+    "functions_count": 8,
+    "modifiers_count": 0,
+    "events_count": 0,
+    "severity": "info",
+    "description": "Contract LockManagerMock has 8 functions, 0 modifiers, 0 events"
+  },
+  {
+    "type": "architecture",
+    "contract": "TimeHelpersMock",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/staking/contracts/test/mocks/TimeHelpersMock.sol",
+    "functions_count": 8,
+    "modifiers_count": 0,
+    "events_count": 0,
+    "severity": "info",
+    "description": "Contract TimeHelpersMock has 8 functions, 0 modifiers, 0 events"
+  },
+  {
+    "type": "architecture",
+    "contract": "ERC20",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/staking/contracts/test/mocks/ERC20.sol",
+    "functions_count": 6,
+    "modifiers_count": 0,
+    "events_count": 2,
+    "severity": "info",
+    "description": "Contract ERC20 has 6 functions, 0 modifiers, 2 events"
+  },
+  {
+    "type": "architecture",
+    "contract": "BadTokenMock",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/staking/contracts/test/mocks/BadTokenMock.sol",
+    "functions_count": 12,
+    "modifiers_count": 0,
+    "events_count": 0,
+    "severity": "info",
+    "description": "Contract BadTokenMock has 12 functions, 0 modifiers, 0 events"
+  },
+  {
+    "type": "architecture",
+    "contract": "StakingMock",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/staking/contracts/test/mocks/StakingMock.sol",
+    "functions_count": 4,
+    "modifiers_count": 0,
+    "events_count": 1,
+    "severity": "info",
+    "description": "Contract StakingMock has 4 functions, 0 modifiers, 1 events"
+  },
+  {
+    "type": "architecture",
+    "contract": "StandardTokenMock",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/staking/contracts/test/mocks/StandardTokenMock.sol",
+    "functions_count": 13,
+    "modifiers_count": 0,
+    "events_count": 1,
+    "severity": "info",
+    "description": "Contract StandardTokenMock has 13 functions, 0 modifiers, 1 events"
+  },
+  {
+    "type": "architecture",
+    "contract": "TimeLockManagerMock",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/staking/contracts/test/mocks/TimeLockManagerMock.sol",
+    "functions_count": 6,
+    "modifiers_count": 0,
+    "events_count": 0,
+    "severity": "info",
+    "description": "Contract TimeLockManagerMock has 6 functions, 0 modifiers, 0 events"
+  },
+  {
+    "type": "architecture",
+    "contract": "NoApproveTokenMock",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/staking/contracts/test/mocks/NoApproveTokenMock.sol",
+    "functions_count": 12,
+    "modifiers_count": 0,
+    "events_count": 0,
+    "severity": "info",
+    "description": "Contract NoApproveTokenMock has 12 functions, 0 modifiers, 0 events"
+  },
+  {
+    "type": "architecture",
+    "contract": "StakingProxy",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/staking/contracts/proxies/StakingProxy.sol",
+    "functions_count": 1,
+    "modifiers_count": 0,
+    "events_count": 0,
+    "severity": "info",
+    "description": "Contract StakingProxy has 1 functions, 0 modifiers, 0 events"
+  },
+  {
+    "type": "architecture",
+    "contract": "ThinProxy",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/staking/contracts/proxies/ThinProxy.sol",
+    "functions_count": 3,
+    "modifiers_count": 0,
+    "events_count": 0,
+    "severity": "info",
+    "description": "Contract ThinProxy has 3 functions, 0 modifiers, 0 events"
+  },
+  {
+    "type": "architecture",
+    "contract": "Checkpointing",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/staking/contracts/lib/Checkpointing.sol",
+    "functions_count": 6,
+    "modifiers_count": 0,
+    "events_count": 0,
+    "severity": "info",
+    "description": "Contract Checkpointing has 6 functions, 0 modifiers, 0 events"
+  },
+  {
+    "type": "architecture",
+    "contract": "Initializable",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/staking/contracts/lib/os/Initializable.sol",
+    "functions_count": 4,
+    "modifiers_count": 0,
+    "events_count": 0,
+    "severity": "info",
+    "description": "Contract Initializable has 4 functions, 0 modifiers, 0 events"
+  },
+  {
+    "type": "architecture",
+    "contract": "UnstructuredStorage",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/staking/contracts/lib/os/UnstructuredStorage.sol",
+    "functions_count": 8,
+    "modifiers_count": 0,
+    "events_count": 0,
+    "severity": "info",
+    "description": "Contract UnstructuredStorage has 8 functions, 0 modifiers, 0 events"
+  },
+  {
+    "type": "architecture",
+    "contract": "Migrations",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/staking/contracts/lib/os/Migrations.sol",
+    "functions_count": 2,
+    "modifiers_count": 1,
+    "events_count": 0,
+    "severity": "info",
+    "description": "Contract Migrations has 2 functions, 1 modifiers, 0 events"
+  },
+  {
+    "type": "architecture",
+    "contract": "Uint256Helpers",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/staking/contracts/lib/os/Uint256Helpers.sol",
+    "functions_count": 2,
+    "modifiers_count": 0,
+    "events_count": 0,
+    "severity": "info",
+    "description": "Contract Uint256Helpers has 2 functions, 0 modifiers, 0 events"
+  },
+  {
+    "type": "architecture",
+    "contract": "SafeMath64",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/staking/contracts/lib/os/SafeMath64.sol",
+    "functions_count": 5,
+    "modifiers_count": 0,
+    "events_count": 0,
+    "severity": "info",
+    "description": "Contract SafeMath64 has 5 functions, 0 modifiers, 0 events"
+  },
+  {
+    "type": "architecture",
+    "contract": "DelegateProxy",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/staking/contracts/lib/os/DelegateProxy.sol",
+    "functions_count": 1,
+    "modifiers_count": 0,
+    "events_count": 0,
+    "severity": "info",
+    "description": "Contract DelegateProxy has 1 functions, 0 modifiers, 0 events"
+  },
+  {
+    "type": "architecture",
+    "contract": "SafeMath",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/staking/contracts/lib/os/SafeMath.sol",
+    "functions_count": 5,
+    "modifiers_count": 0,
+    "events_count": 0,
+    "severity": "info",
+    "description": "Contract SafeMath has 5 functions, 0 modifiers, 0 events"
+  },
+  {
+    "type": "architecture",
+    "contract": "ERCProxy",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/staking/contracts/lib/os/ERCProxy.sol",
+    "functions_count": 2,
+    "modifiers_count": 0,
+    "events_count": 0,
+    "severity": "info",
+    "description": "Contract ERCProxy has 2 functions, 0 modifiers, 0 events"
+  },
+  {
+    "type": "architecture",
+    "contract": "ERC20",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/staking/contracts/lib/os/ERC20.sol",
+    "functions_count": 6,
+    "modifiers_count": 0,
+    "events_count": 2,
+    "severity": "info",
+    "description": "Contract ERC20 has 6 functions, 0 modifiers, 2 events"
+  },
+  {
+    "type": "architecture",
+    "contract": "Petrifiable",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/staking/contracts/lib/os/Petrifiable.sol",
+    "functions_count": 2,
+    "modifiers_count": 0,
+    "events_count": 0,
+    "severity": "info",
+    "description": "Contract Petrifiable has 2 functions, 0 modifiers, 0 events"
+  },
+  {
+    "type": "architecture",
+    "contract": "ScriptHelpers",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/staking/contracts/lib/os/ScriptHelpers.sol",
+    "functions_count": 6,
+    "modifiers_count": 0,
+    "events_count": 0,
+    "severity": "info",
+    "description": "Contract ScriptHelpers has 6 functions, 0 modifiers, 0 events"
+  },
+  {
+    "type": "architecture",
+    "contract": "SafeERC20",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/staking/contracts/lib/os/SafeERC20.sol",
+    "functions_count": 4,
+    "modifiers_count": 0,
+    "events_count": 0,
+    "severity": "info",
+    "description": "Contract SafeERC20 has 4 functions, 0 modifiers, 0 events"
+  },
+  {
+    "type": "architecture",
+    "contract": "TimeHelpers",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/staking/contracts/lib/os/TimeHelpers.sol",
+    "functions_count": 4,
+    "modifiers_count": 0,
+    "events_count": 0,
+    "severity": "info",
+    "description": "Contract TimeHelpers has 4 functions, 0 modifiers, 0 events"
+  },
+  {
+    "type": "architecture",
+    "contract": "IsContract",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/staking/contracts/lib/os/IsContract.sol",
+    "functions_count": 1,
+    "modifiers_count": 0,
+    "events_count": 0,
+    "severity": "info",
+    "description": "Contract IsContract has 1 functions, 0 modifiers, 0 events"
+  },
+  {
+    "type": "architecture",
+    "contract": "Autopetrified",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/staking/contracts/lib/os/Autopetrified.sol",
+    "functions_count": 0,
+    "modifiers_count": 0,
+    "events_count": 0,
+    "severity": "info",
+    "description": "Contract Autopetrified has 0 functions, 0 modifiers, 0 events"
+  },
+  {
+    "type": "architecture",
+    "contract": "ERC900",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/staking/contracts/standards/ERC900.sol",
+    "functions_count": 7,
+    "modifiers_count": 0,
+    "events_count": 2,
+    "severity": "info",
+    "description": "Contract ERC900 has 7 functions, 0 modifiers, 2 events"
+  },
+  {
+    "type": "architecture",
+    "contract": "ILockManager",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/staking/contracts/locking/ILockManager.sol",
+    "functions_count": 1,
+    "modifiers_count": 0,
+    "events_count": 0,
+    "severity": "info",
+    "description": "Contract ILockManager has 1 functions, 0 modifiers, 0 events"
+  },
+  {
+    "type": "architecture",
+    "contract": "TimeLockManager",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/staking/contracts/locking/TimeLockManager.sol",
+    "functions_count": 3,
+    "modifiers_count": 0,
+    "events_count": 1,
+    "severity": "info",
+    "description": "Contract TimeLockManager has 3 functions, 0 modifiers, 1 events"
+  },
+  {
+    "type": "architecture",
+    "contract": "IStakingLocking",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/staking/contracts/locking/IStakingLocking.sol",
+    "functions_count": 17,
+    "modifiers_count": 0,
+    "events_count": 7,
+    "severity": "info",
+    "description": "Contract IStakingLocking has 17 functions, 0 modifiers, 7 events"
+  },
+  {
+    "type": "architecture",
+    "contract": "TestRevert",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/exception/contracts/TestRevert.sol",
+    "functions_count": 8,
+    "modifiers_count": 0,
+    "events_count": 0,
+    "severity": "info",
+    "description": "Contract TestRevert has 8 functions, 0 modifiers, 0 events"
+  },
+  {
+    "type": "architecture",
+    "contract": "Migrations",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/exception/contracts/test/Migrations.sol",
+    "functions_count": 1,
+    "modifiers_count": 1,
+    "events_count": 0,
+    "severity": "info",
+    "description": "Contract Migrations has 1 functions, 1 modifiers, 0 events"
+  },
+  {
+    "type": "architecture",
+    "contract": "TestMessageCall",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/basic/contracts/TestMessageCall.sol",
+    "functions_count": 2,
+    "modifiers_count": 0,
+    "events_count": 1,
+    "severity": "info",
+    "description": "Contract TestMessageCall has 2 functions, 0 modifiers, 1 events"
+  },
+  {
+    "type": "architecture",
+    "contract": "Counter",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/basic/contracts/Counter.sol",
+    "functions_count": 3,
+    "modifiers_count": 0,
+    "events_count": 2,
+    "severity": "info",
+    "description": "Contract Counter has 3 functions, 0 modifiers, 2 events"
+  },
+  {
+    "type": "architecture",
+    "contract": "Storage",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/basic/contracts/Storage.sol",
+    "functions_count": 2,
+    "modifiers_count": 0,
+    "events_count": 0,
+    "severity": "info",
+    "description": "Contract Storage has 2 functions, 0 modifiers, 0 events"
+  },
+  {
+    "type": "architecture",
+    "contract": "Migrations",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/basic/contracts/test/Migrations.sol",
+    "functions_count": 1,
+    "modifiers_count": 1,
+    "events_count": 0,
+    "severity": "info",
+    "description": "Contract Migrations has 1 functions, 1 modifiers, 0 events"
+  },
+  {
+    "type": "architecture",
+    "contract": "Initializable",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/initializable-buidler/contracts/Initializable.sol",
+    "functions_count": 4,
+    "modifiers_count": 0,
+    "events_count": 0,
+    "severity": "info",
+    "description": "Contract Initializable has 4 functions, 0 modifiers, 0 events"
+  },
+  {
+    "type": "architecture",
+    "contract": "UnstructuredStorage",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/initializable-buidler/contracts/UnstructuredStorage.sol",
+    "functions_count": 8,
+    "modifiers_count": 0,
+    "events_count": 0,
+    "severity": "info",
+    "description": "Contract UnstructuredStorage has 8 functions, 0 modifiers, 0 events"
+  },
+  {
+    "type": "architecture",
+    "contract": "Uint256Helpers",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/initializable-buidler/contracts/Uint256Helpers.sol",
+    "functions_count": 1,
+    "modifiers_count": 0,
+    "events_count": 0,
+    "severity": "info",
+    "description": "Contract Uint256Helpers has 1 functions, 0 modifiers, 0 events"
+  },
+  {
+    "type": "architecture",
+    "contract": "Petrifiable",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/initializable-buidler/contracts/Petrifiable.sol",
+    "functions_count": 2,
+    "modifiers_count": 0,
+    "events_count": 0,
+    "severity": "info",
+    "description": "Contract Petrifiable has 2 functions, 0 modifiers, 0 events"
+  },
+  {
+    "type": "architecture",
+    "contract": "TimeHelpers",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/initializable-buidler/contracts/TimeHelpers.sol",
+    "functions_count": 4,
+    "modifiers_count": 0,
+    "events_count": 0,
+    "severity": "info",
+    "description": "Contract TimeHelpers has 4 functions, 0 modifiers, 0 events"
+  },
+  {
+    "type": "architecture",
+    "contract": "InitializableMock",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/initializable-buidler/contracts/test/InitializableMock.sol",
+    "functions_count": 2,
+    "modifiers_count": 0,
+    "events_count": 0,
+    "severity": "info",
+    "description": "Contract InitializableMock has 2 functions, 0 modifiers, 0 events"
+  },
+  {
+    "type": "architecture",
+    "contract": "DepositableDelegateProxy",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/proxy/contracts/DepositableDelegateProxy.sol",
+    "functions_count": 0,
+    "modifiers_count": 0,
+    "events_count": 1,
+    "severity": "info",
+    "description": "Contract DepositableDelegateProxy has 0 functions, 0 modifiers, 1 events"
+  },
+  {
+    "type": "architecture",
+    "contract": "UnstructuredStorage",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/proxy/contracts/UnstructuredStorage.sol",
+    "functions_count": 8,
+    "modifiers_count": 0,
+    "events_count": 0,
+    "severity": "info",
+    "description": "Contract UnstructuredStorage has 8 functions, 0 modifiers, 0 events"
+  },
+  {
+    "type": "architecture",
+    "contract": "DelegateProxy",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/proxy/contracts/DelegateProxy.sol",
+    "functions_count": 1,
+    "modifiers_count": 0,
+    "events_count": 0,
+    "severity": "info",
+    "description": "Contract DelegateProxy has 1 functions, 0 modifiers, 0 events"
+  },
+  {
+    "type": "architecture",
+    "contract": "ERCProxy",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/proxy/contracts/ERCProxy.sol",
+    "functions_count": 2,
+    "modifiers_count": 0,
+    "events_count": 0,
+    "severity": "info",
+    "description": "Contract ERCProxy has 2 functions, 0 modifiers, 0 events"
+  },
+  {
+    "type": "architecture",
+    "contract": "DepositableStorage",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/proxy/contracts/DepositableStorage.sol",
+    "functions_count": 2,
+    "modifiers_count": 0,
+    "events_count": 0,
+    "severity": "info",
+    "description": "Contract DepositableStorage has 2 functions, 0 modifiers, 0 events"
+  },
+  {
+    "type": "architecture",
+    "contract": "IsContract",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/proxy/contracts/IsContract.sol",
+    "functions_count": 1,
+    "modifiers_count": 0,
+    "events_count": 0,
+    "severity": "info",
+    "description": "Contract IsContract has 1 functions, 0 modifiers, 0 events"
+  },
+  {
+    "type": "architecture",
+    "contract": "Migrations",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/proxy/contracts/test/Migrations.sol",
+    "functions_count": 1,
+    "modifiers_count": 1,
+    "events_count": 0,
+    "severity": "info",
+    "description": "Contract Migrations has 1 functions, 1 modifiers, 0 events"
+  },
+  {
+    "type": "architecture",
+    "contract": "ProxyTarget",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/proxy/contracts/test/ProxyTarget.sol",
+    "functions_count": 1,
+    "modifiers_count": 0,
+    "events_count": 2,
+    "severity": "info",
+    "description": "Contract ProxyTarget has 1 functions, 0 modifiers, 2 events"
+  },
+  {
+    "type": "architecture",
+    "contract": "EthSender",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/proxy/contracts/test/EthSender.sol",
+    "functions_count": 1,
+    "modifiers_count": 0,
+    "events_count": 0,
+    "severity": "info",
+    "description": "Contract EthSender has 1 functions, 0 modifiers, 0 events"
+  },
+  {
+    "type": "architecture",
+    "contract": "DepositableDelegateProxyMock",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/proxy/contracts/test/DepositableDelegateProxyMock.sol",
+    "functions_count": 4,
+    "modifiers_count": 0,
+    "events_count": 0,
+    "severity": "info",
+    "description": "Contract DepositableDelegateProxyMock has 4 functions, 0 modifiers, 0 events"
+  },
+  {
+    "type": "architecture",
+    "contract": "TestERC20",
+    "file": "/home/dok/web3/Injective/injective-core/peggo/solidity/contracts/TestERC20.sol",
+    "functions_count": 0,
+    "modifiers_count": 0,
+    "events_count": 0,
+    "severity": "info",
+    "description": "Contract TestERC20 has 0 functions, 0 modifiers, 0 events"
+  },
+  {
+    "type": "architecture",
+    "contract": "PeggySubgraph",
+    "file": "/home/dok/web3/Injective/injective-core/peggo/solidity/contracts/PeggySubgraph.sol",
+    "functions_count": 1,
+    "modifiers_count": 0,
+    "events_count": 1,
+    "severity": "info",
+    "description": "Contract PeggySubgraph has 1 functions, 0 modifiers, 1 events"
+  },
+  {
+    "type": "architecture",
+    "contract": "HashingTest",
+    "file": "/home/dok/web3/Injective/injective-core/peggo/solidity/contracts/HashingTest.sol",
+    "functions_count": 5,
+    "modifiers_count": 0,
+    "events_count": 0,
+    "severity": "info",
+    "description": "Contract HashingTest has 5 functions, 0 modifiers, 0 events"
+  },
+  {
+    "type": "architecture",
+    "contract": "CosmosToken",
+    "file": "/home/dok/web3/Injective/injective-core/peggo/solidity/contracts/CosmosToken.sol",
+    "functions_count": 1,
+    "modifiers_count": 0,
+    "events_count": 0,
+    "severity": "info",
+    "description": "Contract CosmosToken has 1 functions, 0 modifiers, 0 events"
+  },
+  {
+    "type": "architecture",
+    "contract": "Peggy",
+    "file": "/home/dok/web3/Injective/injective-core/peggo/solidity/contracts/Peggy.sol",
+    "functions_count": 11,
+    "modifiers_count": 0,
+    "events_count": 4,
+    "severity": "info",
+    "description": "Contract Peggy has 11 functions, 0 modifiers, 4 events"
+  },
+  {
+    "type": "architecture",
+    "contract": "console",
+    "file": "/home/dok/web3/Injective/injective-core/peggo/solidity/contracts/hardhat/console.sol",
+    "functions_count": 380,
+    "modifiers_count": 0,
+    "events_count": 0,
+    "severity": "info",
+    "description": "Contract console has 380 functions, 0 modifiers, 0 events"
+  },
+  {
+    "type": "architecture",
+    "contract": "IERC20Metadata",
+    "file": "/home/dok/web3/Injective/injective-core/peggo/solidity/contracts/@openzeppelin/contracts/IERC20Metadata.sol",
+    "functions_count": 3,
+    "modifiers_count": 0,
+    "events_count": 0,
+    "severity": "info",
+    "description": "Contract IERC20Metadata has 3 functions, 0 modifiers, 0 events"
+  },
+  {
+    "type": "architecture",
+    "contract": "Proxy",
+    "file": "/home/dok/web3/Injective/injective-core/peggo/solidity/contracts/@openzeppelin/contracts/Proxy.sol",
+    "functions_count": 4,
+    "modifiers_count": 0,
+    "events_count": 0,
+    "severity": "info",
+    "description": "Contract Proxy has 4 functions, 0 modifiers, 0 events"
+  },
+  {
+    "type": "architecture",
+    "contract": "OwnableWithExpiry",
+    "file": "/home/dok/web3/Injective/injective-core/peggo/solidity/contracts/@openzeppelin/contracts/OwnableWithExpiry.sol",
+    "functions_count": 7,
+    "modifiers_count": 1,
+    "events_count": 1,
+    "severity": "info",
+    "description": "Contract OwnableWithExpiry has 7 functions, 1 modifiers, 1 events"
+  },
+  {
+    "type": "architecture",
+    "contract": "Ownable",
+    "file": "/home/dok/web3/Injective/injective-core/peggo/solidity/contracts/@openzeppelin/contracts/Ownable.sol",
+    "functions_count": 4,
+    "modifiers_count": 1,
+    "events_count": 1,
+    "severity": "info",
+    "description": "Contract Ownable has 4 functions, 1 modifiers, 1 events"
+  },
+  {
+    "type": "architecture",
+    "contract": "OwnableUpgradeableWithExpiry",
+    "file": "/home/dok/web3/Injective/injective-core/peggo/solidity/contracts/@openzeppelin/contracts/OwnableUpgradeableWithExpiry.sol",
+    "functions_count": 9,
+    "modifiers_count": 1,
+    "events_count": 1,
+    "severity": "info",
+    "description": "Contract OwnableUpgradeableWithExpiry has 9 functions, 1 modifiers, 1 events"
+  },
+  {
+    "type": "architecture",
+    "contract": "ERC1967Proxy",
+    "file": "/home/dok/web3/Injective/injective-core/peggo/solidity/contracts/@openzeppelin/contracts/ERC1967Proxy.sol",
+    "functions_count": 3,
+    "modifiers_count": 0,
+    "events_count": 1,
+    "severity": "info",
+    "description": "Contract ERC1967Proxy has 3 functions, 0 modifiers, 1 events"
+  },
+  {
+    "type": "architecture",
+    "contract": "ERC20",
+    "file": "/home/dok/web3/Injective/injective-core/peggo/solidity/contracts/@openzeppelin/contracts/ERC20.sol",
+    "functions_count": 16,
+    "modifiers_count": 0,
+    "events_count": 0,
+    "severity": "info",
+    "description": "Contract ERC20 has 16 functions, 0 modifiers, 0 events"
+  },
+  {
+    "type": "architecture",
+    "contract": "ProxyAdmin",
+    "file": "/home/dok/web3/Injective/injective-core/peggo/solidity/contracts/@openzeppelin/contracts/ProxyAdmin.sol",
+    "functions_count": 5,
+    "modifiers_count": 0,
+    "events_count": 0,
+    "severity": "info",
+    "description": "Contract ProxyAdmin has 5 functions, 0 modifiers, 0 events"
+  },
+  {
+    "type": "architecture",
+    "contract": "SafeERC20",
+    "file": "/home/dok/web3/Injective/injective-core/peggo/solidity/contracts/@openzeppelin/contracts/SafeERC20.sol",
+    "functions_count": 6,
+    "modifiers_count": 0,
+    "events_count": 0,
+    "severity": "info",
+    "description": "Contract SafeERC20 has 6 functions, 0 modifiers, 0 events"
+  },
+  {
+    "type": "architecture",
+    "contract": "TransparentUpgradeableProxy",
+    "file": "/home/dok/web3/Injective/injective-core/peggo/solidity/contracts/@openzeppelin/contracts/TransparentUpgradeableProxy.sol",
+    "functions_count": 8,
+    "modifiers_count": 1,
+    "events_count": 1,
+    "severity": "info",
+    "description": "Contract TransparentUpgradeableProxy has 8 functions, 1 modifiers, 1 events"
+  },
+  {
+    "type": "architecture",
+    "contract": "IERC20",
+    "file": "/home/dok/web3/Injective/injective-core/peggo/solidity/contracts/@openzeppelin/contracts/IERC20.sol",
+    "functions_count": 6,
+    "modifiers_count": 0,
+    "events_count": 2,
+    "severity": "info",
+    "description": "Contract IERC20 has 6 functions, 0 modifiers, 2 events"
+  },
+  {
+    "type": "architecture",
+    "contract": "ReentrancyGuard",
+    "file": "/home/dok/web3/Injective/injective-core/peggo/solidity/contracts/@openzeppelin/contracts/security/ReentrancyGuard.sol",
+    "functions_count": 0,
+    "modifiers_count": 1,
+    "events_count": 0,
+    "severity": "info",
+    "description": "Contract ReentrancyGuard has 0 functions, 1 modifiers, 0 events"
+  },
+  {
+    "type": "architecture",
+    "contract": "ContextUpgradeable",
+    "file": "/home/dok/web3/Injective/injective-core/peggo/solidity/contracts/@openzeppelin/contracts/utils/ContextUpgradeable.sol",
+    "functions_count": 4,
+    "modifiers_count": 0,
+    "events_count": 0,
+    "severity": "info",
+    "description": "Contract ContextUpgradeable has 4 functions, 0 modifiers, 0 events"
+  },
+  {
+    "type": "architecture",
+    "contract": "Initializable",
+    "file": "/home/dok/web3/Injective/injective-core/peggo/solidity/contracts/@openzeppelin/contracts/utils/Initializable.sol",
+    "functions_count": 0,
+    "modifiers_count": 1,
+    "events_count": 0,
+    "severity": "info",
+    "description": "Contract Initializable has 0 functions, 1 modifiers, 0 events"
+  },
+  {
+    "type": "architecture",
+    "contract": "Pausable",
+    "file": "/home/dok/web3/Injective/injective-core/peggo/solidity/contracts/@openzeppelin/contracts/utils/Pausable.sol",
+    "functions_count": 3,
+    "modifiers_count": 2,
+    "events_count": 2,
+    "severity": "info",
+    "description": "Contract Pausable has 3 functions, 2 modifiers, 2 events"
+  },
+  {
+    "type": "architecture",
+    "contract": "Address",
+    "file": "/home/dok/web3/Injective/injective-core/peggo/solidity/contracts/@openzeppelin/contracts/utils/Address.sol",
+    "functions_count": 11,
+    "modifiers_count": 0,
+    "events_count": 0,
+    "severity": "info",
+    "description": "Contract Address has 11 functions, 0 modifiers, 0 events"
+  },
+  {
+    "type": "architecture",
+    "contract": "Context",
+    "file": "/home/dok/web3/Injective/injective-core/peggo/solidity/contracts/@openzeppelin/contracts/utils/Context.sol",
+    "functions_count": 2,
+    "modifiers_count": 0,
+    "events_count": 0,
+    "severity": "info",
+    "description": "Contract Context has 2 functions, 0 modifiers, 0 events"
+  }
+]

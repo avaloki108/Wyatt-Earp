@@ -113,9 +113,9 @@ contract UnsafeTest {
     )
     
     print(f"✓ Generated PoC for {reentrancy_vuln.name}")
-    print(f"  Template used: foundry_reentrancy")
+    print("  Template used: foundry_reentrancy")
     print(f"  Code length: {len(poc_code)} characters")
-    print(f"  First 300 chars:")
+    print("  First 300 chars:")
     print(f"  {poc_code[:300]}...")
     
     # Validate generated PoC

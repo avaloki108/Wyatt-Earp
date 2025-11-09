@@ -1,8 +1,6 @@
 from slither.detectors.abstract_detector import AbstractDetector, DetectorClassification
 from slither.core.declarations import FunctionContract
-from slither.core.expressions import CallExpression, Literal
-from slither.core.variables.state_variable import StateVariable
-from slither.core.solidity_types import MappingType, ElementaryType
+from slither.core.expressions import CallExpression
 from slither.utils.output import Output
 
 
@@ -14,7 +12,7 @@ class GovernanceVulnerabilityDetector(AbstractDetector):
 
     ARGUMENT = "governance-vulnerabilities"
     HELP = "Detects governance-specific vulnerabilities like flash loan vote manipulation and proposal execution flaws"
-    IMPACT = DetectorClassification.CRITICAL
+    IMPACT = DetectorClassification.HIGH
     CONFIDENCE = DetectorClassification.HIGH
 
     def _detect(self):
@@ -42,13 +40,22 @@ class GovernanceVulnerabilityDetector(AbstractDetector):
                 vulnerabilities.extend(timelock_issues)
 
                 for vuln in vulnerabilities:
-                    results.append(self.generate_result_from_vulnerability(contract, vuln))
+                    results.append(
+                        self.generate_result_from_vulnerability(contract, vuln)
+                    )
 
         return results
 
     def _is_governance_contract(self, contract) -> bool:
         """Determine if contract appears to be a governance system"""
-        governance_keywords = ['govern', 'vote', 'proposal', 'quorum', 'timelock', 'delegate']
+        governance_keywords = [
+            "govern",
+            "vote",
+            "proposal",
+            "quorum",
+            "timelock",
+            "delegate",
+        ]
         contract_name = contract.name.lower()
         return any(keyword in contract_name for keyword in governance_keywords)
 
@@ -60,19 +67,23 @@ class GovernanceVulnerabilityDetector(AbstractDetector):
             if self._is_voting_function(function):
                 # Check if voting power can be manipulated atomically
                 if self._has_atomic_voting_power_change(function):
-                    issues.append({
-                        'type': 'flash_loan_voting',
-                        'function': function.name,
-                        'description': f'Voting function {function.name} vulnerable to flash loan manipulation - atomic voting power changes detected'
-                    })
+                    issues.append(
+                        {
+                            "type": "flash_loan_voting",
+                            "function": function.name,
+                            "description": f"Voting function {function.name} vulnerable to flash loan manipulation - atomic voting power changes detected",
+                        }
+                    )
 
                 # Check for insufficient delegation checks
                 if not self._has_delegation_validation(function):
-                    issues.append({
-                        'type': 'weak_delegation',
-                        'function': function.name,
-                        'description': f'Voting function {function.name} lacks proper delegation validation'
-                    })
+                    issues.append(
+                        {
+                            "type": "weak_delegation",
+                            "function": function.name,
+                            "description": f"Voting function {function.name} lacks proper delegation validation",
+                        }
+                    )
 
         return issues
 
@@ -81,22 +92,26 @@ class GovernanceVulnerabilityDetector(AbstractDetector):
         issues = []
 
         for function in contract.functions:
-            if 'execute' in function.name.lower() or 'queue' in function.name.lower():
+            if "execute" in function.name.lower() or "queue" in function.name.lower():
                 # Check for missing vote threshold validation
                 if not self._has_vote_threshold_check(function):
-                    issues.append({
-                        'type': 'missing_vote_threshold',
-                        'function': function.name,
-                        'description': f'Execution function {function.name} lacks vote threshold validation'
-                    })
+                    issues.append(
+                        {
+                            "type": "missing_vote_threshold",
+                            "function": function.name,
+                            "description": f"Execution function {function.name} lacks vote threshold validation",
+                        }
+                    )
 
                 # Check for timelock bypass
                 if self._allows_immediate_execution(function):
-                    issues.append({
-                        'type': 'immediate_execution',
-                        'function': function.name,
-                        'description': f'Execution function {function.name} allows immediate execution without timelock'
-                    })
+                    issues.append(
+                        {
+                            "type": "immediate_execution",
+                            "function": function.name,
+                            "description": f"Execution function {function.name} allows immediate execution without timelock",
+                        }
+                    )
 
         return issues
 
@@ -106,14 +121,19 @@ class GovernanceVulnerabilityDetector(AbstractDetector):
 
         # Look for quorum calculation logic
         for function in contract.functions:
-            if 'quorum' in function.name.lower() or 'participation' in function.name.lower():
+            if (
+                "quorum" in function.name.lower()
+                or "participation" in function.name.lower()
+            ):
                 # Check if quorum can be manipulated through delegation
                 if self._quorum_manipulable_via_delegation(function):
-                    issues.append({
-                        'type': 'quorum_manipulation',
-                        'function': function.name,
-                        'description': f'Quorum calculation in {function.name} vulnerable to delegation manipulation'
-                    })
+                    issues.append(
+                        {
+                            "type": "quorum_manipulation",
+                            "function": function.name,
+                            "description": f"Quorum calculation in {function.name} vulnerable to delegation manipulation",
+                        }
+                    )
 
         return issues
 
@@ -122,28 +142,32 @@ class GovernanceVulnerabilityDetector(AbstractDetector):
         issues = []
 
         for function in contract.functions:
-            if 'timelock' in function.name.lower() or 'delay' in function.name.lower():
+            if "timelock" in function.name.lower() or "delay" in function.name.lower():
                 # Check for emergency bypass mechanisms
                 if self._has_emergency_bypass(function):
-                    issues.append({
-                        'type': 'emergency_bypass_risk',
-                        'function': function.name,
-                        'description': f'Timelock function {function.name} has emergency bypass that could be abused'
-                    })
+                    issues.append(
+                        {
+                            "type": "emergency_bypass_risk",
+                            "function": function.name,
+                            "description": f"Timelock function {function.name} has emergency bypass that could be abused",
+                        }
+                    )
 
                 # Check for insufficient delay validation
                 if not self._has_delay_validation(function):
-                    issues.append({
-                        'type': 'weak_delay_validation',
-                        'function': function.name,
-                        'description': f'Timelock function {function.name} lacks proper delay validation'
-                    })
+                    issues.append(
+                        {
+                            "type": "weak_delay_validation",
+                            "function": function.name,
+                            "description": f"Timelock function {function.name} lacks proper delay validation",
+                        }
+                    )
 
         return issues
 
     def _is_voting_function(self, function: FunctionContract) -> bool:
         """Determine if function is a voting function"""
-        voting_keywords = ['vote', 'cast', 'delegate', 'participate']
+        voting_keywords = ["vote", "cast", "delegate", "participate"]
         func_name = function.name.lower()
         return any(keyword in func_name for keyword in voting_keywords)
 
@@ -153,26 +177,26 @@ class GovernanceVulnerabilityDetector(AbstractDetector):
         for node in function.nodes:
             for ir in node.irs:
                 if isinstance(ir, CallExpression):
-                    if hasattr(ir, 'function') and ir.function:
+                    if hasattr(ir, "function") and ir.function:
                         func_name = ir.function.name.lower()
-                        if 'delegate' in func_name or 'transfer' in func_name:
+                        if "delegate" in func_name or "transfer" in func_name:
                             return True
         return False
 
     def _has_delegation_validation(self, function: FunctionContract) -> bool:
         """Check for delegation validation"""
         # Look for checks on delegation authority
-        validation_keywords = ['require', 'assert', 'onlydelegate']
+        validation_keywords = ["require", "assert", "onlydelegate"]
         for node in function.nodes:
             for ir in node.irs:
                 if any(keyword in str(ir).lower() for keyword in validation_keywords):
-                    if 'delegate' in str(ir).lower():
+                    if "delegate" in str(ir).lower():
                         return True
         return False
 
     def _has_vote_threshold_check(self, function: FunctionContract) -> bool:
         """Check for vote threshold validation"""
-        threshold_keywords = ['threshold', 'quorum', 'majority']
+        threshold_keywords = ["threshold", "quorum", "majority"]
         for node in function.nodes:
             for ir in node.irs:
                 if any(keyword in str(ir).lower() for keyword in threshold_keywords):
@@ -182,7 +206,7 @@ class GovernanceVulnerabilityDetector(AbstractDetector):
     def _allows_immediate_execution(self, function: FunctionContract) -> bool:
         """Check if function allows immediate execution"""
         # Look for lack of timelock/delay checks
-        delay_keywords = ['timelock', 'delay', 'eta', 'queue']
+        delay_keywords = ["timelock", "delay", "eta", "queue"]
         has_delay_check = False
         for node in function.nodes:
             for ir in node.irs:
@@ -202,16 +226,16 @@ class GovernanceVulnerabilityDetector(AbstractDetector):
 
         for node in function.nodes:
             for ir in node.irs:
-                if 'quorum' in str(ir).lower():
+                if "quorum" in str(ir).lower():
                     quorum_calc = True
-                if 'delegate' in str(ir).lower():
+                if "delegate" in str(ir).lower():
                     delegation_use = True
 
         return quorum_calc and delegation_use
 
     def _has_emergency_bypass(self, function: FunctionContract) -> bool:
         """Check for emergency bypass mechanisms"""
-        emergency_keywords = ['emergency', 'bypass', 'override', 'force']
+        emergency_keywords = ["emergency", "bypass", "override", "force"]
         for node in function.nodes:
             for ir in node.irs:
                 if any(keyword in str(ir).lower() for keyword in emergency_keywords):
@@ -220,13 +244,13 @@ class GovernanceVulnerabilityDetector(AbstractDetector):
 
     def _has_delay_validation(self, function: FunctionContract) -> bool:
         """Check for delay validation"""
-        validation_keywords = ['require', 'assert', 'if', 'block.timestamp']
+        validation_keywords = ["require", "assert", "if", "block.timestamp"]
         delay_check = False
 
         for node in function.nodes:
             for ir in node.irs:
                 if any(keyword in str(ir).lower() for keyword in validation_keywords):
-                    if 'delay' in str(ir).lower() or 'timelock' in str(ir).lower():
+                    if "delay" in str(ir).lower() or "timelock" in str(ir).lower():
                         delay_check = True
                         break
             if delay_check:
@@ -237,8 +261,8 @@ class GovernanceVulnerabilityDetector(AbstractDetector):
     def generate_result_from_vulnerability(self, contract, vulnerability):
         info = f"Governance Vulnerability in {contract.name}: {vulnerability['type']}\n"
         info += f"Description: {vulnerability['description']}\n"
-        if 'function' in vulnerability:
+        if "function" in vulnerability:
             info += f"Function: {vulnerability['function']}\n"
 
-        json_result = self.generate_json_result(info)
+        json_result = self.generate_result(info)
         return Output(info, json_result)

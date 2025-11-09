@@ -4,9 +4,9 @@ Uses statistical analysis and ML-inspired heuristics to detect unusual patterns
 Identifies logic flaws that don't match standard vulnerability signatures
 """
 
-from typing import List, Dict, Any, Set, Tuple, Optional
-from dataclasses import dataclass, field
-from collections import defaultdict, Counter
+from typing import List, Dict, Any, Optional
+from dataclasses import dataclass
+from collections import defaultdict
 import re
 from enum import Enum
 

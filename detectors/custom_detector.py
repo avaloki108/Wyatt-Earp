@@ -1,8 +1,6 @@
 from slither.detectors.abstract_detector import AbstractDetector, DetectorClassification
-from slither.core.declarations import FunctionContract
 from slither.core.variables.state_variable import StateVariable
 from slither.core.expressions import CallExpression
-from slither.core.solidity_types import ElementaryType
 from slither.utils.output import Output
 
 
@@ -31,13 +29,21 @@ class CustomLogicFlawDetector(AbstractDetector):
                         for ir in node.irs:
                             if isinstance(ir, CallExpression):
                                 # Check if it's an external call (low-level call or interface call)
-                                if hasattr(ir, 'function') and ir.function:
-                                    if ir.function.name in ['call', 'delegatecall', 'staticcall'] or \
-                                       (hasattr(ir.function, 'contract') and ir.function.contract != contract):
+                                if hasattr(ir, "function") and ir.function:
+                                    if ir.function.name in [
+                                        "call",
+                                        "delegatecall",
+                                        "staticcall",
+                                    ] or (
+                                        hasattr(ir.function, "contract")
+                                        and ir.function.contract != contract
+                                    ):
                                         external_calls.append(node)
 
                             # Check for state variable assignments
-                            if hasattr(ir, 'lvalue') and isinstance(ir.lvalue, StateVariable):
+                            if hasattr(ir, "lvalue") and isinstance(
+                                ir.lvalue, StateVariable
+                            ):
                                 state_updates.append(node)
 
                     # Flag if state updates happen after external calls
@@ -45,7 +51,9 @@ class CustomLogicFlawDetector(AbstractDetector):
                         last_call = max(external_calls, key=lambda x: x.node_id)
                         first_update = min(state_updates, key=lambda x: x.node_id)
                         if first_update.node_id > last_call.node_id:
-                            results.append(self.generate_result_from_contract(contract, function))
+                            results.append(
+                                self.generate_result_from_contract(contract, function)
+                            )
 
         return results
 
@@ -54,5 +62,5 @@ class CustomLogicFlawDetector(AbstractDetector):
         info += f"Function: {function.name}\n"
         info += f"Contract: {contract.name}\n"
 
-        json_result = self.generate_json_result(info)
+        json_result = self.generate_result(info)
         return Output(info, json_result)

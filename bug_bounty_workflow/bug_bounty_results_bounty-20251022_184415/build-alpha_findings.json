@@ -1,0 +1,9 @@
+[
+  {
+    "type": "build_system_detection",
+    "severity": "info",
+    "description": "Detected build systems: ",
+    "build_systems": [],
+    "package_managers": []
+  }
+]

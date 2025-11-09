@@ -1,0 +1,53 @@
+{
+  "target_contracts": [],
+  "excluded_contracts": [],
+  "target_functions": [],
+  "excluded_functions": [],
+  "severity_focus": [
+    "and rewards",
+    "and guides the reward amount.",
+    "level\timpact: critical\timpact: high\timpact: medium\timpact: low"
+  ],
+  "vulnerability_types": [
+    "in any component not explicitly listed but which poses a risk to user funds, user data, or system integrity, you may submit it for consideration. our team will review such submissions on a case-by-case basis.",
+    "before it has been addressed and you have received written permission to disclose.",
+    "beyond the minimum steps necessary to demonstrate the issue. do not access private data, engage in social engineering, or disrupt service.",
+    "and its impact.",
+    "were exploited.",
+    "within scope.",
+    "in a malicious manner.",
+    "to third parties prior to receiving permission.",
+    "the vulnerability beyond the minimum steps necessary to demonstrate the issue. do not access private data, engage in social engineering, or disrupt service.",
+    "or highly incentivized.",
+    "or requires highly specific conditions."
+  ],
+  "exclusions": [
+    "actions"
+  ],
+  "special_instructions": [
+    "releases with custom tags such as \u201cbeta\u201d are excluded form the bounty program. only official releases such as 1.15.0 are included.",
+    "actual reward amounts are determined at injective\u2019s sole discretion. factors influencing payout include report quality, completeness, and severity/exploitability."
+  ],
+  "bounty_platform": null,
+  "max_prize": null,
+  "confidence_threshold": 0.7,
+  "agent_priorities": {
+    "hunter-beta": 8,
+    "hunter-alpha": 5,
+    "hunter-gamma": 4,
+    "hunter-delta": 4,
+    "hunter-epsilon": 4,
+    "hunter-zeta": 3,
+    "hunter-eta": 3,
+    "hunter-theta": 3,
+    "hunter-iota": 2,
+    "hunter-kappa": 2
+  },
+  "hunting_strategy": {
+    "focus_areas": [],
+    "excluded_areas": [],
+    "hunting_approach": "comprehensive",
+    "confidence_threshold": 0.7,
+    "platform_optimization": null
+  }
+}

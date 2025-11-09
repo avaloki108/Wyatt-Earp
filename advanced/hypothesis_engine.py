@@ -3,7 +3,7 @@ Hypothesis Engine - Creative Vulnerability Hypothesis Generation
 Generates novel vulnerability hypotheses using multi-temperature LLM prompting
 """
 
-from typing import List, Dict, Any, Optional, Tuple
+from typing import List, Dict, Any, Optional
 from dataclasses import dataclass, field
 from enum import Enum
 from datetime import datetime

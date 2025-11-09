@@ -205,7 +205,7 @@ def test_user_feedback_processor():
     
     # Show feedback summary
     summary = processor.get_feedback_summary()
-    print(f"\nFeedback Summary:")
+    print("\nFeedback Summary:")
     print(f"  Total Feedback: {summary['total_feedback']}")
     print(f"  By Type: {summary['by_type']}")
     
@@ -270,7 +270,7 @@ def test_adaptive_learning_system():
     
     loop.close()
     
-    print(f"\nAdaptive Learning Results:")
+    print("\nAdaptive Learning Results:")
     print(f"  New Patterns Learned: {result['new_patterns_learned']}")
     print(f"  Feedback Processed: {result['feedback_processed']}")
     print(f"  Verification Weights: {result['current_verification_weights']}")
@@ -278,7 +278,7 @@ def test_adaptive_learning_system():
     # Get comprehensive metrics
     metrics = adaptive_system.get_comprehensive_metrics()
     
-    print(f"\nComprehensive Metrics:")
+    print("\nComprehensive Metrics:")
     print(f"  Prompt Performance Tracked: {len(metrics['prompt_optimization'])} stages")
     print(f"  Patterns Learned: {metrics['pattern_learning']['total_patterns_learned']}")
     print(f"  User Feedback: {metrics['user_feedback']['total_feedback']} items")
@@ -291,7 +291,7 @@ def test_adaptive_learning_system():
     new_system.load_state(state)
     
     print(f"✓ State saved with {len(state)} keys")
-    print(f"✓ State loaded successfully")
+    print("✓ State loaded successfully")
     
     print("\n✓ Adaptive Learning System Test Passed")
     return adaptive_system

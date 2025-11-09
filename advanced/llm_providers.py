@@ -4,9 +4,8 @@ Supports multiple LLM providers: Grok (x.ai), Claude (Anthropic), OpenAI
 """
 
 import os
-import json
 import requests
-from typing import List, Dict, Any, Optional
+from typing import List, Dict, Optional
 from enum import Enum
 
 

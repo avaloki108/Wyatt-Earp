@@ -1,0 +1,658 @@
+[
+  {
+    "type": "validated_vulnerability",
+    "pattern": "integer_overflow",
+    "severity": "medium",
+    "description": "Potential integer overflow",
+    "file": "/home/dok/web3/Injective/injective-core/interchaintest/solidity/Counter.sol",
+    "validation_status": "confirmed"
+  },
+  {
+    "type": "validated_vulnerability",
+    "pattern": "integer_overflow",
+    "severity": "medium",
+    "description": "Potential integer overflow",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/precompiles/bindings/cosmos/precompile/exchange/test/panicing/Panicing.sol",
+    "validation_status": "confirmed"
+  },
+  {
+    "type": "validated_vulnerability",
+    "pattern": "integer_overflow",
+    "severity": "medium",
+    "description": "Potential integer overflow",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/initializable/contracts/Initializable.sol",
+    "validation_status": "confirmed"
+  },
+  {
+    "type": "validated_vulnerability",
+    "pattern": "integer_overflow",
+    "severity": "medium",
+    "description": "Potential integer overflow",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/initializable/contracts/Uint256Helpers.sol",
+    "validation_status": "confirmed"
+  },
+  {
+    "type": "validated_vulnerability",
+    "pattern": "integer_overflow",
+    "severity": "medium",
+    "description": "Potential integer overflow",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/initializable/contracts/Petrifiable.sol",
+    "validation_status": "confirmed"
+  },
+  {
+    "type": "validated_vulnerability",
+    "pattern": "integer_overflow",
+    "severity": "medium",
+    "description": "Potential integer overflow",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/initializable/contracts/TimeHelpers.sol",
+    "validation_status": "confirmed"
+  },
+  {
+    "type": "validated_vulnerability",
+    "pattern": "timestamp_dependency",
+    "severity": "low",
+    "description": "Timestamp dependency",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/initializable/contracts/TimeHelpers.sol",
+    "validation_status": "confirmed"
+  },
+  {
+    "type": "validated_vulnerability",
+    "pattern": "integer_overflow",
+    "severity": "medium",
+    "description": "Potential integer overflow",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/initializable/contracts/test/Migrations.sol",
+    "validation_status": "confirmed"
+  },
+  {
+    "type": "validated_vulnerability",
+    "pattern": "integer_overflow",
+    "severity": "medium",
+    "description": "Potential integer overflow",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/opcode/contracts/OpCodes.sol",
+    "validation_status": "confirmed"
+  },
+  {
+    "type": "validated_vulnerability",
+    "pattern": "integer_overflow",
+    "severity": "medium",
+    "description": "Potential integer overflow",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/storage/contracts/Storage.sol",
+    "validation_status": "confirmed"
+  },
+  {
+    "type": "validated_vulnerability",
+    "pattern": "integer_overflow",
+    "severity": "medium",
+    "description": "Potential integer overflow",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/storage/contracts/EventTest.sol",
+    "validation_status": "confirmed"
+  },
+  {
+    "type": "validated_vulnerability",
+    "pattern": "reentrancy",
+    "severity": "high",
+    "description": "Potential reentrancy vulnerability",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/staking/contracts/Staking.sol",
+    "validation_status": "confirmed"
+  },
+  {
+    "type": "validated_vulnerability",
+    "pattern": "integer_overflow",
+    "severity": "medium",
+    "description": "Potential integer overflow",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/staking/contracts/Staking.sol",
+    "validation_status": "confirmed"
+  },
+  {
+    "type": "validated_vulnerability",
+    "pattern": "integer_overflow",
+    "severity": "medium",
+    "description": "Potential integer overflow",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/staking/contracts/test/TestImports.sol",
+    "validation_status": "confirmed"
+  },
+  {
+    "type": "validated_vulnerability",
+    "pattern": "integer_overflow",
+    "severity": "medium",
+    "description": "Potential integer overflow",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/staking/contracts/test/lib/MiniMeToken.sol",
+    "validation_status": "confirmed"
+  },
+  {
+    "type": "validated_vulnerability",
+    "pattern": "integer_overflow",
+    "severity": "medium",
+    "description": "Potential integer overflow",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/staking/contracts/test/lib/EchidnaStaking.sol",
+    "validation_status": "confirmed"
+  },
+  {
+    "type": "validated_vulnerability",
+    "pattern": "integer_overflow",
+    "severity": "medium",
+    "description": "Potential integer overflow",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/staking/contracts/test/mocks/TimeHelpersMock.sol",
+    "validation_status": "confirmed"
+  },
+  {
+    "type": "validated_vulnerability",
+    "pattern": "timestamp_dependency",
+    "severity": "low",
+    "description": "Timestamp dependency",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/staking/contracts/test/mocks/TimeHelpersMock.sol",
+    "validation_status": "confirmed"
+  },
+  {
+    "type": "validated_vulnerability",
+    "pattern": "integer_overflow",
+    "severity": "medium",
+    "description": "Potential integer overflow",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/staking/contracts/test/mocks/ERC20.sol",
+    "validation_status": "confirmed"
+  },
+  {
+    "type": "validated_vulnerability",
+    "pattern": "integer_overflow",
+    "severity": "medium",
+    "description": "Potential integer overflow",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/staking/contracts/test/mocks/BadTokenMock.sol",
+    "validation_status": "confirmed"
+  },
+  {
+    "type": "validated_vulnerability",
+    "pattern": "integer_overflow",
+    "severity": "medium",
+    "description": "Potential integer overflow",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/staking/contracts/test/mocks/StakingMock.sol",
+    "validation_status": "confirmed"
+  },
+  {
+    "type": "validated_vulnerability",
+    "pattern": "integer_overflow",
+    "severity": "medium",
+    "description": "Potential integer overflow",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/staking/contracts/test/mocks/StandardTokenMock.sol",
+    "validation_status": "confirmed"
+  },
+  {
+    "type": "validated_vulnerability",
+    "pattern": "integer_overflow",
+    "severity": "medium",
+    "description": "Potential integer overflow",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/staking/contracts/test/mocks/TimeLockManagerMock.sol",
+    "validation_status": "confirmed"
+  },
+  {
+    "type": "validated_vulnerability",
+    "pattern": "integer_overflow",
+    "severity": "medium",
+    "description": "Potential integer overflow",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/staking/contracts/test/mocks/NoApproveTokenMock.sol",
+    "validation_status": "confirmed"
+  },
+  {
+    "type": "validated_vulnerability",
+    "pattern": "integer_overflow",
+    "severity": "medium",
+    "description": "Potential integer overflow",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/staking/contracts/lib/Checkpointing.sol",
+    "validation_status": "confirmed"
+  },
+  {
+    "type": "validated_vulnerability",
+    "pattern": "integer_overflow",
+    "severity": "medium",
+    "description": "Potential integer overflow",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/staking/contracts/lib/os/Initializable.sol",
+    "validation_status": "confirmed"
+  },
+  {
+    "type": "validated_vulnerability",
+    "pattern": "integer_overflow",
+    "severity": "medium",
+    "description": "Potential integer overflow",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/staking/contracts/lib/os/Uint256Helpers.sol",
+    "validation_status": "confirmed"
+  },
+  {
+    "type": "validated_vulnerability",
+    "pattern": "integer_overflow",
+    "severity": "medium",
+    "description": "Potential integer overflow",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/staking/contracts/lib/os/SafeMath64.sol",
+    "validation_status": "confirmed"
+  },
+  {
+    "type": "validated_vulnerability",
+    "pattern": "integer_overflow",
+    "severity": "medium",
+    "description": "Potential integer overflow",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/staking/contracts/lib/os/DelegateProxy.sol",
+    "validation_status": "confirmed"
+  },
+  {
+    "type": "validated_vulnerability",
+    "pattern": "integer_overflow",
+    "severity": "medium",
+    "description": "Potential integer overflow",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/staking/contracts/lib/os/SafeMath.sol",
+    "validation_status": "confirmed"
+  },
+  {
+    "type": "validated_vulnerability",
+    "pattern": "integer_overflow",
+    "severity": "medium",
+    "description": "Potential integer overflow",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/staking/contracts/lib/os/ERC20.sol",
+    "validation_status": "confirmed"
+  },
+  {
+    "type": "validated_vulnerability",
+    "pattern": "integer_overflow",
+    "severity": "medium",
+    "description": "Potential integer overflow",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/staking/contracts/lib/os/Petrifiable.sol",
+    "validation_status": "confirmed"
+  },
+  {
+    "type": "validated_vulnerability",
+    "pattern": "integer_overflow",
+    "severity": "medium",
+    "description": "Potential integer overflow",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/staking/contracts/lib/os/SafeERC20.sol",
+    "validation_status": "confirmed"
+  },
+  {
+    "type": "validated_vulnerability",
+    "pattern": "integer_overflow",
+    "severity": "medium",
+    "description": "Potential integer overflow",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/staking/contracts/lib/os/TimeHelpers.sol",
+    "validation_status": "confirmed"
+  },
+  {
+    "type": "validated_vulnerability",
+    "pattern": "timestamp_dependency",
+    "severity": "low",
+    "description": "Timestamp dependency",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/staking/contracts/lib/os/TimeHelpers.sol",
+    "validation_status": "confirmed"
+  },
+  {
+    "type": "validated_vulnerability",
+    "pattern": "integer_overflow",
+    "severity": "medium",
+    "description": "Potential integer overflow",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/staking/contracts/lib/os/IsContract.sol",
+    "validation_status": "confirmed"
+  },
+  {
+    "type": "validated_vulnerability",
+    "pattern": "integer_overflow",
+    "severity": "medium",
+    "description": "Potential integer overflow",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/staking/contracts/lib/os/Autopetrified.sol",
+    "validation_status": "confirmed"
+  },
+  {
+    "type": "validated_vulnerability",
+    "pattern": "integer_overflow",
+    "severity": "medium",
+    "description": "Potential integer overflow",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/staking/contracts/standards/ERC900.sol",
+    "validation_status": "confirmed"
+  },
+  {
+    "type": "validated_vulnerability",
+    "pattern": "integer_overflow",
+    "severity": "medium",
+    "description": "Potential integer overflow",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/staking/contracts/locking/ILockManager.sol",
+    "validation_status": "confirmed"
+  },
+  {
+    "type": "validated_vulnerability",
+    "pattern": "integer_overflow",
+    "severity": "medium",
+    "description": "Potential integer overflow",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/staking/contracts/locking/TimeLockManager.sol",
+    "validation_status": "confirmed"
+  },
+  {
+    "type": "validated_vulnerability",
+    "pattern": "integer_overflow",
+    "severity": "medium",
+    "description": "Potential integer overflow",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/exception/contracts/TestRevert.sol",
+    "validation_status": "confirmed"
+  },
+  {
+    "type": "validated_vulnerability",
+    "pattern": "integer_overflow",
+    "severity": "medium",
+    "description": "Potential integer overflow",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/exception/contracts/test/Migrations.sol",
+    "validation_status": "confirmed"
+  },
+  {
+    "type": "validated_vulnerability",
+    "pattern": "integer_overflow",
+    "severity": "medium",
+    "description": "Potential integer overflow",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/basic/contracts/TestMessageCall.sol",
+    "validation_status": "confirmed"
+  },
+  {
+    "type": "validated_vulnerability",
+    "pattern": "integer_overflow",
+    "severity": "medium",
+    "description": "Potential integer overflow",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/basic/contracts/Counter.sol",
+    "validation_status": "confirmed"
+  },
+  {
+    "type": "validated_vulnerability",
+    "pattern": "integer_overflow",
+    "severity": "medium",
+    "description": "Potential integer overflow",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/basic/contracts/Storage.sol",
+    "validation_status": "confirmed"
+  },
+  {
+    "type": "validated_vulnerability",
+    "pattern": "integer_overflow",
+    "severity": "medium",
+    "description": "Potential integer overflow",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/basic/contracts/test/Migrations.sol",
+    "validation_status": "confirmed"
+  },
+  {
+    "type": "validated_vulnerability",
+    "pattern": "integer_overflow",
+    "severity": "medium",
+    "description": "Potential integer overflow",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/initializable-buidler/contracts/Initializable.sol",
+    "validation_status": "confirmed"
+  },
+  {
+    "type": "validated_vulnerability",
+    "pattern": "integer_overflow",
+    "severity": "medium",
+    "description": "Potential integer overflow",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/initializable-buidler/contracts/Uint256Helpers.sol",
+    "validation_status": "confirmed"
+  },
+  {
+    "type": "validated_vulnerability",
+    "pattern": "integer_overflow",
+    "severity": "medium",
+    "description": "Potential integer overflow",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/initializable-buidler/contracts/Petrifiable.sol",
+    "validation_status": "confirmed"
+  },
+  {
+    "type": "validated_vulnerability",
+    "pattern": "integer_overflow",
+    "severity": "medium",
+    "description": "Potential integer overflow",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/initializable-buidler/contracts/TimeHelpers.sol",
+    "validation_status": "confirmed"
+  },
+  {
+    "type": "validated_vulnerability",
+    "pattern": "timestamp_dependency",
+    "severity": "low",
+    "description": "Timestamp dependency",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/initializable-buidler/contracts/TimeHelpers.sol",
+    "validation_status": "confirmed"
+  },
+  {
+    "type": "validated_vulnerability",
+    "pattern": "integer_overflow",
+    "severity": "medium",
+    "description": "Potential integer overflow",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/proxy/contracts/DepositableDelegateProxy.sol",
+    "validation_status": "confirmed"
+  },
+  {
+    "type": "validated_vulnerability",
+    "pattern": "integer_overflow",
+    "severity": "medium",
+    "description": "Potential integer overflow",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/proxy/contracts/DelegateProxy.sol",
+    "validation_status": "confirmed"
+  },
+  {
+    "type": "validated_vulnerability",
+    "pattern": "integer_overflow",
+    "severity": "medium",
+    "description": "Potential integer overflow",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/proxy/contracts/IsContract.sol",
+    "validation_status": "confirmed"
+  },
+  {
+    "type": "validated_vulnerability",
+    "pattern": "integer_overflow",
+    "severity": "medium",
+    "description": "Potential integer overflow",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/proxy/contracts/test/Migrations.sol",
+    "validation_status": "confirmed"
+  },
+  {
+    "type": "validated_vulnerability",
+    "pattern": "integer_overflow",
+    "severity": "medium",
+    "description": "Potential integer overflow",
+    "file": "/home/dok/web3/Injective/injective-core/peggo/solidity/contracts/PeggySubgraph.sol",
+    "validation_status": "confirmed"
+  },
+  {
+    "type": "validated_vulnerability",
+    "pattern": "integer_overflow",
+    "severity": "medium",
+    "description": "Potential integer overflow",
+    "file": "/home/dok/web3/Injective/injective-core/peggo/solidity/contracts/HashingTest.sol",
+    "validation_status": "confirmed"
+  },
+  {
+    "type": "validated_vulnerability",
+    "pattern": "integer_overflow",
+    "severity": "medium",
+    "description": "Potential integer overflow",
+    "file": "/home/dok/web3/Injective/injective-core/peggo/solidity/contracts/CosmosToken.sol",
+    "validation_status": "confirmed"
+  },
+  {
+    "type": "validated_vulnerability",
+    "pattern": "reentrancy",
+    "severity": "high",
+    "description": "Potential reentrancy vulnerability",
+    "file": "/home/dok/web3/Injective/injective-core/peggo/solidity/contracts/Peggy.sol",
+    "validation_status": "confirmed"
+  },
+  {
+    "type": "validated_vulnerability",
+    "pattern": "integer_overflow",
+    "severity": "medium",
+    "description": "Potential integer overflow",
+    "file": "/home/dok/web3/Injective/injective-core/peggo/solidity/contracts/Peggy.sol",
+    "validation_status": "confirmed"
+  },
+  {
+    "type": "validated_vulnerability",
+    "pattern": "integer_overflow",
+    "severity": "medium",
+    "description": "Potential integer overflow",
+    "file": "/home/dok/web3/Injective/injective-core/peggo/solidity/contracts/hardhat/console.sol",
+    "validation_status": "confirmed"
+  },
+  {
+    "type": "validated_vulnerability",
+    "pattern": "integer_overflow",
+    "severity": "medium",
+    "description": "Potential integer overflow",
+    "file": "/home/dok/web3/Injective/injective-core/peggo/solidity/contracts/@openzeppelin/contracts/IERC20Metadata.sol",
+    "validation_status": "confirmed"
+  },
+  {
+    "type": "validated_vulnerability",
+    "pattern": "integer_overflow",
+    "severity": "medium",
+    "description": "Potential integer overflow",
+    "file": "/home/dok/web3/Injective/injective-core/peggo/solidity/contracts/@openzeppelin/contracts/Proxy.sol",
+    "validation_status": "confirmed"
+  },
+  {
+    "type": "validated_vulnerability",
+    "pattern": "integer_overflow",
+    "severity": "medium",
+    "description": "Potential integer overflow",
+    "file": "/home/dok/web3/Injective/injective-core/peggo/solidity/contracts/@openzeppelin/contracts/OwnableWithExpiry.sol",
+    "validation_status": "confirmed"
+  },
+  {
+    "type": "validated_vulnerability",
+    "pattern": "timestamp_dependency",
+    "severity": "low",
+    "description": "Timestamp dependency",
+    "file": "/home/dok/web3/Injective/injective-core/peggo/solidity/contracts/@openzeppelin/contracts/OwnableWithExpiry.sol",
+    "validation_status": "confirmed"
+  },
+  {
+    "type": "validated_vulnerability",
+    "pattern": "integer_overflow",
+    "severity": "medium",
+    "description": "Potential integer overflow",
+    "file": "/home/dok/web3/Injective/injective-core/peggo/solidity/contracts/@openzeppelin/contracts/Ownable.sol",
+    "validation_status": "confirmed"
+  },
+  {
+    "type": "validated_vulnerability",
+    "pattern": "integer_overflow",
+    "severity": "medium",
+    "description": "Potential integer overflow",
+    "file": "/home/dok/web3/Injective/injective-core/peggo/solidity/contracts/@openzeppelin/contracts/OwnableUpgradeableWithExpiry.sol",
+    "validation_status": "confirmed"
+  },
+  {
+    "type": "validated_vulnerability",
+    "pattern": "timestamp_dependency",
+    "severity": "low",
+    "description": "Timestamp dependency",
+    "file": "/home/dok/web3/Injective/injective-core/peggo/solidity/contracts/@openzeppelin/contracts/OwnableUpgradeableWithExpiry.sol",
+    "validation_status": "confirmed"
+  },
+  {
+    "type": "validated_vulnerability",
+    "pattern": "integer_overflow",
+    "severity": "medium",
+    "description": "Potential integer overflow",
+    "file": "/home/dok/web3/Injective/injective-core/peggo/solidity/contracts/@openzeppelin/contracts/ERC1967Proxy.sol",
+    "validation_status": "confirmed"
+  },
+  {
+    "type": "validated_vulnerability",
+    "pattern": "integer_overflow",
+    "severity": "medium",
+    "description": "Potential integer overflow",
+    "file": "/home/dok/web3/Injective/injective-core/peggo/solidity/contracts/@openzeppelin/contracts/ERC20.sol",
+    "validation_status": "confirmed"
+  },
+  {
+    "type": "validated_vulnerability",
+    "pattern": "integer_overflow",
+    "severity": "medium",
+    "description": "Potential integer overflow",
+    "file": "/home/dok/web3/Injective/injective-core/peggo/solidity/contracts/@openzeppelin/contracts/ProxyAdmin.sol",
+    "validation_status": "confirmed"
+  },
+  {
+    "type": "validated_vulnerability",
+    "pattern": "integer_overflow",
+    "severity": "medium",
+    "description": "Potential integer overflow",
+    "file": "/home/dok/web3/Injective/injective-core/peggo/solidity/contracts/@openzeppelin/contracts/SafeERC20.sol",
+    "validation_status": "confirmed"
+  },
+  {
+    "type": "validated_vulnerability",
+    "pattern": "unchecked_call",
+    "severity": "medium",
+    "description": "Unchecked external call",
+    "file": "/home/dok/web3/Injective/injective-core/peggo/solidity/contracts/@openzeppelin/contracts/SafeERC20.sol",
+    "validation_status": "confirmed"
+  },
+  {
+    "type": "validated_vulnerability",
+    "pattern": "integer_overflow",
+    "severity": "medium",
+    "description": "Potential integer overflow",
+    "file": "/home/dok/web3/Injective/injective-core/peggo/solidity/contracts/@openzeppelin/contracts/TransparentUpgradeableProxy.sol",
+    "validation_status": "confirmed"
+  },
+  {
+    "type": "validated_vulnerability",
+    "pattern": "integer_overflow",
+    "severity": "medium",
+    "description": "Potential integer overflow",
+    "file": "/home/dok/web3/Injective/injective-core/peggo/solidity/contracts/@openzeppelin/contracts/IERC20.sol",
+    "validation_status": "confirmed"
+  },
+  {
+    "type": "validated_vulnerability",
+    "pattern": "integer_overflow",
+    "severity": "medium",
+    "description": "Potential integer overflow",
+    "file": "/home/dok/web3/Injective/injective-core/peggo/solidity/contracts/@openzeppelin/contracts/security/ReentrancyGuard.sol",
+    "validation_status": "confirmed"
+  },
+  {
+    "type": "validated_vulnerability",
+    "pattern": "integer_overflow",
+    "severity": "medium",
+    "description": "Potential integer overflow",
+    "file": "/home/dok/web3/Injective/injective-core/peggo/solidity/contracts/@openzeppelin/contracts/utils/ContextUpgradeable.sol",
+    "validation_status": "confirmed"
+  },
+  {
+    "type": "validated_vulnerability",
+    "pattern": "reentrancy",
+    "severity": "high",
+    "description": "Potential reentrancy vulnerability",
+    "file": "/home/dok/web3/Injective/injective-core/peggo/solidity/contracts/@openzeppelin/contracts/utils/Initializable.sol",
+    "validation_status": "confirmed"
+  },
+  {
+    "type": "validated_vulnerability",
+    "pattern": "integer_overflow",
+    "severity": "medium",
+    "description": "Potential integer overflow",
+    "file": "/home/dok/web3/Injective/injective-core/peggo/solidity/contracts/@openzeppelin/contracts/utils/Initializable.sol",
+    "validation_status": "confirmed"
+  },
+  {
+    "type": "validated_vulnerability",
+    "pattern": "integer_overflow",
+    "severity": "medium",
+    "description": "Potential integer overflow",
+    "file": "/home/dok/web3/Injective/injective-core/peggo/solidity/contracts/@openzeppelin/contracts/utils/Pausable.sol",
+    "validation_status": "confirmed"
+  },
+  {
+    "type": "validated_vulnerability",
+    "pattern": "integer_overflow",
+    "severity": "medium",
+    "description": "Potential integer overflow",
+    "file": "/home/dok/web3/Injective/injective-core/peggo/solidity/contracts/@openzeppelin/contracts/utils/Address.sol",
+    "validation_status": "confirmed"
+  },
+  {
+    "type": "validated_vulnerability",
+    "pattern": "integer_overflow",
+    "severity": "medium",
+    "description": "Potential integer overflow",
+    "file": "/home/dok/web3/Injective/injective-core/peggo/solidity/contracts/@openzeppelin/contracts/utils/Context.sol",
+    "validation_status": "confirmed"
+  }
+]

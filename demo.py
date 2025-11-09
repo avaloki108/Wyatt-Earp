@@ -38,12 +38,12 @@ def demo_symbolic_execution():
         print(f"✓ Found vulnerability: {vuln['type']}")
         print(f"  Operation: {vuln['operation']}")
         print(f"  Exploitable: {vuln['exploitable']}")
-        print(f"  Example values:")
+        print("  Example values:")
         for var, val in vuln['example_values'].items():
             print(f"    {var} = {val}")
 
         # Generate PoC
-        print(f"\n  Proof of Concept:")
+        print("\n  Proof of Concept:")
         poc = executor.generate_exploit_pocs(vuln)
         print(poc[:300] + "...")
     else:
@@ -78,7 +78,7 @@ def demo_symbolic_execution():
         print(f"  Description: {attack['description']}")
 
         # Generate PoC
-        print(f"\n  Proof of Concept:")
+        print("\n  Proof of Concept:")
         poc = executor.generate_exploit_pocs(attack)
         print(poc[:300] + "...")
     else:
@@ -285,7 +285,7 @@ def demo_enhanced_fuzzing():
     orchestrator1 = EnhancedFuzzingOrchestrator(config1)
     print(f"  Strategy: {config1.strategy.value}")
     print(f"  Max iterations: {config1.max_iterations}")
-    print(f"  Focus: Maximize code coverage")
+    print("  Focus: Maximize code coverage")
 
     print("\n[2] Mutation-Based Fuzzing:")
     config2 = FuzzingConfig(
@@ -293,7 +293,7 @@ def demo_enhanced_fuzzing():
         max_iterations=500
     )
     print(f"  Strategy: {config2.strategy.value}")
-    print(f"  Mutations: Overflow triggers, precision loss, edge values")
+    print("  Mutations: Overflow triggers, precision loss, edge values")
 
     print("\n[3] Adversarial Fuzzing:")
     config3 = FuzzingConfig(
@@ -301,7 +301,7 @@ def demo_enhanced_fuzzing():
         max_iterations=300
     )
     print(f"  Strategy: {config3.strategy.value}")
-    print(f"  Focus: Property-breaking inputs")
+    print("  Focus: Property-breaking inputs")
 
     print("\n✓ Enhanced fuzzing demo complete\n")
 

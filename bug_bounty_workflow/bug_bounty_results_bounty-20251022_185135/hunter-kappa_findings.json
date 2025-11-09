@@ -1,0 +1,62 @@
+[
+  {
+    "type": "elite_temporal_vulnerability",
+    "severity": "critical",
+    "category": "elite_temporal",
+    "confidence": 0.92,
+    "description": "Temporal: Constructor extcodesize vulnerability",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/opcode/contracts/OpCodes.sol",
+    "novelty": "extreme",
+    "rarity": "extreme",
+    "human_only": true,
+    "requires_temporal_reasoning": true
+  },
+  {
+    "type": "elite_temporal_vulnerability",
+    "severity": "critical",
+    "category": "elite_temporal",
+    "confidence": 0.92,
+    "description": "Temporal: Constructor extcodesize vulnerability",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/staking/contracts/test/lib/MiniMeToken.sol",
+    "novelty": "extreme",
+    "rarity": "extreme",
+    "human_only": true,
+    "requires_temporal_reasoning": true
+  },
+  {
+    "type": "elite_temporal_vulnerability",
+    "severity": "critical",
+    "category": "elite_temporal",
+    "confidence": 0.92,
+    "description": "Temporal: Deployed contract check vulnerability",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/staking/contracts/test/lib/MiniMeToken.sol",
+    "novelty": "extreme",
+    "rarity": "extreme",
+    "human_only": true,
+    "requires_temporal_reasoning": true
+  },
+  {
+    "type": "elite_temporal_vulnerability",
+    "severity": "critical",
+    "category": "elite_temporal",
+    "confidence": 0.92,
+    "description": "Temporal: Deployed contract check vulnerability",
+    "file": "/home/dok/web3/Injective/injective-core/peggo/solidity/contracts/Peggy.sol",
+    "novelty": "extreme",
+    "rarity": "extreme",
+    "human_only": true,
+    "requires_temporal_reasoning": true
+  },
+  {
+    "type": "elite_temporal_vulnerability",
+    "severity": "critical",
+    "category": "elite_temporal",
+    "confidence": 0.92,
+    "description": "Temporal: Constructor extcodesize vulnerability",
+    "file": "/home/dok/web3/Injective/injective-core/peggo/solidity/contracts/@openzeppelin/contracts/utils/Address.sol",
+    "novelty": "extreme",
+    "rarity": "extreme",
+    "human_only": true,
+    "requires_temporal_reasoning": true
+  }
+]
