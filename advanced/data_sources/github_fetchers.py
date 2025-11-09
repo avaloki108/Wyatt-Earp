@@ -135,7 +135,7 @@ class GitHubSourceFetcher:
             if patch:
                 entry["patch"] = patch[:max_preview]
             raw_url = file_info.get("raw_url")
-            if raw_url and filename.endswith(".sol"):
+            if raw_url and filename.endswith((".sol", ".vy")):
                 try:
                     raw_resp = self._request(raw_url)
                     entry["raw_preview"] = raw_resp.text[:max_preview]
