@@ -1,0 +1,145 @@
+[
+  {
+    "type": "llm_assembly_memory_vulnerability",
+    "severity": "high",
+    "category": "assembly_memory",
+    "confidence": 0.9,
+    "description": "LLM detected assembly memory vulnerability",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/opcode/contracts/OpCodes.sol",
+    "novelty": "very_high",
+    "rarity": "extreme",
+    "human_only": true
+  },
+  {
+    "type": "llm_assembly_memory_vulnerability",
+    "severity": "high",
+    "category": "assembly_memory",
+    "confidence": 0.9,
+    "description": "LLM detected assembly memory vulnerability",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/staking/contracts/Staking.sol",
+    "novelty": "very_high",
+    "rarity": "extreme",
+    "human_only": true
+  },
+  {
+    "type": "llm_assembly_memory_vulnerability",
+    "severity": "high",
+    "category": "assembly_memory",
+    "confidence": 0.9,
+    "description": "LLM detected assembly memory vulnerability",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/staking/contracts/test/lib/MiniMeToken.sol",
+    "novelty": "very_high",
+    "rarity": "extreme",
+    "human_only": true
+  },
+  {
+    "type": "llm_assembly_memory_vulnerability",
+    "severity": "high",
+    "category": "assembly_memory",
+    "confidence": 0.9,
+    "description": "LLM detected assembly memory vulnerability",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/staking/contracts/proxies/StakingProxy.sol",
+    "novelty": "very_high",
+    "rarity": "extreme",
+    "human_only": true
+  },
+  {
+    "type": "llm_assembly_memory_vulnerability",
+    "severity": "high",
+    "category": "assembly_memory",
+    "confidence": 0.9,
+    "description": "LLM detected assembly memory vulnerability",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/staking/contracts/lib/os/DelegateProxy.sol",
+    "novelty": "very_high",
+    "rarity": "extreme",
+    "human_only": true
+  },
+  {
+    "type": "llm_assembly_memory_vulnerability",
+    "severity": "high",
+    "category": "assembly_memory",
+    "confidence": 0.9,
+    "description": "LLM detected assembly memory vulnerability",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/staking/contracts/lib/os/ScriptHelpers.sol",
+    "novelty": "very_high",
+    "rarity": "extreme",
+    "human_only": true
+  },
+  {
+    "type": "llm_assembly_memory_vulnerability",
+    "severity": "high",
+    "category": "assembly_memory",
+    "confidence": 0.9,
+    "description": "LLM detected assembly memory vulnerability",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/staking/contracts/lib/os/SafeERC20.sol",
+    "novelty": "very_high",
+    "rarity": "extreme",
+    "human_only": true
+  },
+  {
+    "type": "llm_assembly_memory_vulnerability",
+    "severity": "high",
+    "category": "assembly_memory",
+    "confidence": 0.9,
+    "description": "LLM detected assembly memory vulnerability",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/proxy/contracts/DepositableDelegateProxy.sol",
+    "novelty": "very_high",
+    "rarity": "extreme",
+    "human_only": true
+  },
+  {
+    "type": "llm_assembly_memory_vulnerability",
+    "severity": "high",
+    "category": "assembly_memory",
+    "confidence": 0.9,
+    "description": "LLM detected assembly memory vulnerability",
+    "file": "/home/dok/web3/Injective/injective-core/peggo/solidity/contracts/hardhat/console.sol",
+    "novelty": "very_high",
+    "rarity": "extreme",
+    "human_only": true
+  },
+  {
+    "type": "llm_assembly_memory_vulnerability",
+    "severity": "high",
+    "category": "assembly_memory",
+    "confidence": 0.9,
+    "description": "LLM detected assembly memory vulnerability",
+    "file": "/home/dok/web3/Injective/injective-core/peggo/solidity/contracts/@openzeppelin/contracts/Proxy.sol",
+    "novelty": "very_high",
+    "rarity": "extreme",
+    "human_only": true
+  },
+  {
+    "type": "llm_assembly_memory_vulnerability",
+    "severity": "high",
+    "category": "assembly_memory",
+    "confidence": 0.9,
+    "description": "LLM detected assembly memory vulnerability",
+    "file": "/home/dok/web3/Injective/injective-core/peggo/solidity/contracts/@openzeppelin/contracts/ERC1967Proxy.sol",
+    "novelty": "very_high",
+    "rarity": "extreme",
+    "human_only": true
+  },
+  {
+    "type": "llm_assembly_memory_vulnerability",
+    "severity": "high",
+    "category": "assembly_memory",
+    "confidence": 0.9,
+    "description": "LLM detected assembly memory vulnerability",
+    "file": "/home/dok/web3/Injective/injective-core/peggo/solidity/contracts/@openzeppelin/contracts/TransparentUpgradeableProxy.sol",
+    "novelty": "very_high",
+    "rarity": "extreme",
+    "human_only": true
+  },
+  {
+    "type": "llm_assembly_memory_vulnerability",
+    "severity": "high",
+    "category": "assembly_memory",
+    "confidence": 0.9,
+    "description": "LLM detected assembly memory vulnerability",
+    "file": "/home/dok/web3/Injective/injective-core/peggo/solidity/contracts/@openzeppelin/contracts/utils/Address.sol",
+    "novelty": "very_high",
+    "rarity": "extreme",
+    "human_only": true
+  }
+]

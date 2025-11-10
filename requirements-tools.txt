@@ -1,178 +1,21 @@
-# Optional Security Tools
-# These tools enhance analysis capabilities but have dependency conflicts
-# Install based on your needs (see INSTALL.md for multi-venv setup)
-
-# ============================================================================
-# STATIC ANALYSIS TOOLS
-# ============================================================================
-
-# Slither - Fast static analyzer (RECOMMENDED)
-# Compatible with our z3-solver version
-# Install: uv pip install slither-analyzer
 slither-analyzer>=0.10.0
-
-# Mythril - Symbolic execution tool
-# WARNING: Requires older z3-solver (<4.12), conflicts with our core tools
-# Only install in separate venv (see INSTALL.md)
-# mythril>=0.24.0
-
-# Manticore - Dynamic symbolic execution
-# Heavy dependency, install only if needed
-# manticore>=0.3.7
-
-# ============================================================================
-# FUZZING TOOLS
-# ============================================================================
-
-# Echidna - Property-based fuzzer for Solidity
-# Install separately via: brew install echidna (macOS)
-# Or download from: https://github.com/crytic/echidna/releases
-# Not a Python package
-
-# Foundry (forge) - Solidity testing framework
-# Install separately via: curl -L https://foundry.paradigm.xyz | bash
-# Not a Python package
-
-# Hypothesis - Property-based testing for Python
 hypothesis>=6.92.0
-
-# ============================================================================
-# BLOCKCHAIN INTERACTION
-# ============================================================================
-
-# Web3.py - Ethereum interaction
 web3>=6.0.0
-
-# Brownie - Python development framework
-# eth-brownie>=1.20.0
-
-# Ape - Modern contract framework
-# eth-ape>=0.7.0
-
-# ============================================================================
-# CODE ANALYSIS & PARSING
-# ============================================================================
-
-# Solc-select - Solidity compiler version management
 solc-select>=1.0.4
-
-# Py-solc-x - Solidity compiler wrapper
 py-solc-x>=2.0.0
-
-# Tree-sitter - Advanced code parsing
 tree-sitter>=0.20.0
 tree-sitter-solidity>=0.1.0
-
-# ============================================================================
-# VISUALIZATION & REPORTING
-# ============================================================================
-
-# Graphviz - Control flow visualization
 graphviz>=0.20.0
-
-# Matplotlib - Data visualization
 matplotlib>=3.7.0
-
-# Pandas - Data analysis
 pandas>=2.0.0
-
-# ============================================================================
-# DECOMPILATION & REVERSE ENGINEERING
-# ============================================================================
-
-# Pyevmasm - EVM assembler/disassembler
 pyevmasm>=0.2.3
-
-# Crytic-compile - Multi-framework compilation
 crytic-compile>=0.3.5
-
-# ============================================================================
-# MACHINE LEARNING (for anomaly detection)
-# ============================================================================
-
-# Scikit-learn - ML algorithms
 scikit-learn>=1.3.0
-
-# Numpy - Numerical computing
 numpy>=1.24.0
-
-# ============================================================================
-# ADDITIONAL LLMS
-# ============================================================================
-
-# Replicate - Access to open source models
 replicate>=0.20.0
-
-# Hugging Face - Transformers and models
 transformers>=4.35.0
 torch>=2.1.0
-
-# LangChain - LLM orchestration
 langchain>=0.1.0
 langchain-openai>=0.0.2
-
-# ============================================================================
-# NETWORK ANALYSIS
-# ============================================================================
-
-# Requests - HTTP library
 requests>=2.31.0
-
-# Aiohttp - Async HTTP
 aiohttp>=3.9.0
-
-# ============================================================================
-# INSTALLATION PROFILES
-# ============================================================================
-
-# Profile 1: MINIMAL (just Slither)
-# uv pip install slither-analyzer
-
-# Profile 2: STANDARD (recommended for bug bounties)
-# uv pip install slither-analyzer web3 py-solc-x hypothesis requests
-
-# Profile 3: ADVANCED (full analysis suite)
-# uv pip install slither-analyzer web3 py-solc-x hypothesis requests \
-#                graphviz matplotlib pandas scikit-learn numpy
-
-# Profile 4: ML ENHANCED (with machine learning)
-# uv pip install slither-analyzer web3 scikit-learn numpy pandas \
-#                transformers torch langchain
-
-# Profile 5: MYTHRIL (separate venv required)
-# uv venv .venv-mythril
-# source .venv-mythril/bin/activate
-# uv pip install mythril
-
-# ============================================================================
-# COMPATIBILITY NOTES
-# ============================================================================
-
-# CONFLICTS:
-# - mythril requires z3-solver<4.12 (conflicts with our core z3>=4.12)
-# - transformers/torch are large (~2GB), only install if using ML features
-# - brownie/ape are alternatives, don't install both
-
-# EXTERNAL TOOLS (not Python packages):
-# - Echidna: brew install echidna
-# - Foundry: curl -L https://foundry.paradigm.xyz | bash
-# - Solc: Install via solc-select after installing solc-select package
-
-# ============================================================================
-# QUICK INSTALL COMMANDS
-# ============================================================================
-
-# Recommended setup (no conflicts):
- uv pip install -r requirements-core.txt
- uv pip install slither-analyzer web3 py-solc-x hypothesis
-
-# Full suite (except Mythril):
- uv pip install -r requirements-core.txt
- uv pip install slither-analyzer web3 py-solc-x hypothesis \
-                graphviz matplotlib pandas scikit-learn numpy \
-                crytic-compile solc-select
-
-# To use Mythril (separate venv):
- uv venv .venv-mythril
- source .venv-mythril/bin/activate
- uv pip install mythril web3

@@ -1,17 +1,19 @@
-"""Data sources module for GitHub data handling."""
+"""Data source clients for the auto-learning pipeline."""
 
-from .records import (
-    GitHubRecord,
-    RecordCollection,
-    parse_github_datetime,
-    fetch_github_data,
-    process_records,
+from .records import HackRecord
+from .github_fetchers import (
+    GitHubSourceFetcher,
+    SmartBugsWildFetcher,
+    DeFiHackLabsFetcher,
+    CyfrinAderynFetcher,
+    SoloditContentFetcher,
 )
 
 __all__ = [
-    'GitHubRecord',
-    'RecordCollection',
-    'parse_github_datetime',
-    'fetch_github_data',
-    'process_records',
+    "HackRecord",
+    "GitHubSourceFetcher",
+    "SmartBugsWildFetcher",
+    "DeFiHackLabsFetcher",
+    "CyfrinAderynFetcher",
+    "SoloditContentFetcher",
 ]

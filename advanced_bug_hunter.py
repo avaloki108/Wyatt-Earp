@@ -33,6 +33,7 @@ from advanced.adaptive_learning import (
 )  # NEW
 from advanced.verification_pipeline import MultiLayerVerificationPipeline
 from advanced.poc_generator import AutomatedPoCGenerator, PoCFramework
+from advanced.cross_contract_analyzer import CrossContractAnalyzer
 
 # Import existing modules (optional dependencies)
 try:
@@ -68,6 +69,9 @@ class AdvancedWeb3BugHunter:
         self.config = config or {}
         self.start_time = datetime.now()
 
+        # Check if analyzing directory for cross-contract analysis
+        self.is_directory = self.contract_path.is_dir()
+
         # Initialize learning system first (needed by verification pipeline)
         self.learning_db = get_learning_db()
 
@@ -99,6 +103,11 @@ class AdvancedWeb3BugHunter:
 
         # NEW: Initialize adaptive learning system
         self.adaptive_system = get_adaptive_system(self.learning_db)
+
+        # Initialize cross-contract analyzer for directory analysis
+        self.cross_contract_analyzer = (
+            CrossContractAnalyzer(verbose=True) if self.is_directory else None
+        )
 
         self.results = {
             "contract": str(self.contract_path),
@@ -133,14 +142,58 @@ class AdvancedWeb3BugHunter:
             print(f"Current accuracy: {metrics.get('recent_accuracy', 0.0):.1%}")
         print()
 
-        # Read contract code
-        with open(self.contract_path, "r") as f:
-            contract_code = f.read()
+        # Read contract code (only for single file analysis)
+        if not self.is_directory:
+            with open(self.contract_path, "r") as f:
+                contract_code = f.read()
+            contract_name = self.contract_path.stem
+        else:
+            # For directory analysis, use empty placeholders
+            contract_code = ""
+            contract_name = self.contract_path.name
 
-        contract_name = self.contract_path.stem
+        # Phase 0: Cross-Contract Analysis (if analyzing directory)
+        cross_contract_results = None
+        if self.cross_contract_analyzer and self.is_directory:
+            print("\n[0/9] Running Cross-Contract Analysis...")
+            print("-" * 70)
+            print(
+                "🔗 Analyzing contract interactions, dependencies, and protocol-wide vulnerabilities..."
+            )
+            try:
+                cross_contract_results = self.cross_contract_analyzer.analyze_directory(
+                    str(self.contract_path)
+                )
+                self.results["analysis_results"]["cross_contract"] = (
+                    cross_contract_results
+                )
+
+                # Print summary
+                summary = cross_contract_results.get("summary", {})
+                print(f"\n📊 Cross-Contract Analysis Complete:")
+                print(f"  Contracts analyzed: {summary.get('total_contracts', 0)}")
+                print(f"  External calls: {summary.get('external_calls', 0)}")
+                print(
+                    f"  Cross-contract vulnerabilities: {summary.get('total_vulnerabilities', 0)}"
+                )
+                if summary.get("critical", 0) > 0:
+                    print(f"  🚨 CRITICAL: {summary.get('critical', 0)}")
+                if summary.get("high", 0) > 0:
+                    print(f"  ⚠️  HIGH: {summary.get('high', 0)}")
+            except Exception as e:
+                print(f"  ⚠️  Cross-contract analysis failed: {str(e)}")
+                self.results["analysis_results"]["cross_contract"] = {"error": str(e)}
+
+        # Skip per-contract analysis if analyzing directory
+        if self.is_directory:
+            print("\n✅ Cross-contract analysis complete for directory!")
+            print(f"   Analyzed {summary.get('total_contracts', 0)} contracts")
+            print(f"   Use individual file analysis for detailed per-contract findings")
+            return self.results
 
         # Phase 1: Pattern Detection
-        print("\n[1/8] Running Novel Pattern Detection...")
+        phase_num = "1/9" if cross_contract_results else "1/8"
+        print(f"\n[{phase_num}] Running Novel Pattern Detection...")
         print("-" * 70)
         patterns = self.pattern_detector.detect_all_patterns(
             contract_code, contract_name
@@ -155,7 +208,8 @@ class AdvancedWeb3BugHunter:
         self._print_pattern_summary(patterns)
 
         # Phase 2: Behavioral Anomaly Detection
-        print("\n[2/8] Running Behavioral Anomaly Detection...")
+        phase_num = "2/9" if cross_contract_results else "2/8"
+        print(f"\n[{phase_num}] Running Behavioral Anomaly Detection...")
         print("-" * 70)
         anomalies = self.anomaly_detector.analyze_contract(contract_code, contract_name)
         self.results["analysis_results"]["anomalies"] = {
@@ -168,7 +222,8 @@ class AdvancedWeb3BugHunter:
         self._print_anomaly_summary(anomalies)
 
         # Phase 2.5: Rare & Niche Vulnerability Detection
-        print("\n[2.5/8] Running Rare & Niche Vulnerability Detection...")
+        phase_num = "2.5/9" if cross_contract_results else "2.5/8"
+        print(f"\n[{phase_num}] Running Rare & Niche Vulnerability Detection...")
         print("-" * 70)
         print("🔍 Searching for obscure vulnerabilities that standard tools miss...")
         rare_vulns = self.rare_detector.detect_all(contract_code)
@@ -189,7 +244,8 @@ class AdvancedWeb3BugHunter:
             print("No rare vulnerabilities detected (good sign!)")
 
         # Phase 3: Symbolic Execution
-        print("\n[3/8] Running Symbolic Execution Analysis...")
+        phase_num = "3/9" if cross_contract_results else "3/8"
+        print(f"\n[{phase_num}] Running Symbolic Execution Analysis...")
         print("-" * 70)
         symbolic_results = self._run_symbolic_analysis(contract_code)
         self.results["analysis_results"]["symbolic_execution"] = symbolic_results
@@ -198,8 +254,9 @@ class AdvancedWeb3BugHunter:
         # Phase 4: LLM Multi-Agent Reasoning (WITH LEARNING!)
         llm_insights = []
         if self.config.get("use_llm", True) and HAS_LLM:
+            phase_num = "4/9" if cross_contract_results else "4/8"
             print(
-                "\n[4/8] Running LLM Multi-Agent Reasoning (Enhanced with Learning)..."
+                f"\n[{phase_num}] Running LLM Multi-Agent Reasoning (Enhanced with Learning)..."
             )
             print("-" * 70)
 
@@ -237,22 +294,26 @@ class AdvancedWeb3BugHunter:
                 print(f"  ⚠️  LLM analysis failed: {str(e)}")
                 self.results["analysis_results"]["llm_reasoning"] = {"error": str(e)}
         else:
-            print("\n[4/8] Skipping LLM analysis (disabled or unavailable)")
+            phase_num = "4/9" if cross_contract_results else "4/8"
+            print(f"\n[{phase_num}] Skipping LLM analysis (disabled or unavailable)")
 
         # Phase 5: Enhanced Fuzzing
         if self.config.get("use_fuzzing", True):
-            print("\n[5/8] Running Enhanced Fuzzing Campaign...")
+            phase_num = "5/9" if cross_contract_results else "5/8"
+            print(f"\n[{phase_num}] Running Enhanced Fuzzing Campaign...")
             print("-" * 70)
             fuzzing_results = self._run_enhanced_fuzzing(contract_code)
             self.results["analysis_results"]["fuzzing"] = fuzzing_results
             print("Fuzzing campaign completed")
         else:
-            print("\n[5/8] Skipping fuzzing (disabled in config)")
+            phase_num = "5/9" if cross_contract_results else "5/8"
+            print(f"\n[{phase_num}] Skipping fuzzing (disabled in config)")
 
         # Phase 5.5: Automated PoC Generation
         poc_results = []
         if self.poc_generator and self.config.get("generate_pocs", True):
-            print("\n[5.5/8] 🔬 Generating Proof-of-Concept Exploits...")
+            phase_num = "5.5/9" if cross_contract_results else "5.5/8"
+            print(f"\n[{phase_num}] 🔬 Generating Proof-of-Concept Exploits...")
             print("-" * 70)
             print("Generating PoCs for detected vulnerabilities...")
 
@@ -394,9 +455,10 @@ class AdvancedWeb3BugHunter:
         else:
             print("\n[5.5/8] Skipping PoC generation (disabled in config)")
 
-        # Phase 5.5: Multi-Layer Verification
+        # Phase 6: Multi-Layer Verification
         if self.config.get("use_verification", True):
-            print("\n[5.5/7] Running Multi-Layer Verification Pipeline...")
+            phase_num = "6/9" if cross_contract_results else "6/8"
+            print(f"\n[{phase_num}] Running Multi-Layer Verification Pipeline...")
             print("-" * 70)
             print("🔍 Cross-validating findings with multi-layer verification...")
 

@@ -1,0 +1,586 @@
+[
+  {
+    "type": "defensive_pattern",
+    "pattern": "require(",
+    "severity": "info",
+    "description": "Defensive programming with require statements",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/initializable/contracts/Initializable.sol",
+    "skeptic_analysis": "Defensive measures found"
+  },
+  {
+    "type": "defensive_pattern",
+    "pattern": "modifier",
+    "severity": "info",
+    "description": "Access control modifiers present",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/initializable/contracts/Initializable.sol",
+    "skeptic_analysis": "Defensive measures found"
+  },
+  {
+    "type": "defensive_pattern",
+    "pattern": "require(",
+    "severity": "info",
+    "description": "Defensive programming with require statements",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/initializable/contracts/Uint256Helpers.sol",
+    "skeptic_analysis": "Defensive measures found"
+  },
+  {
+    "type": "defensive_pattern",
+    "pattern": "require(",
+    "severity": "info",
+    "description": "Defensive programming with require statements",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/initializable/contracts/test/Migrations.sol",
+    "skeptic_analysis": "Defensive measures found"
+  },
+  {
+    "type": "defensive_pattern",
+    "pattern": "modifier",
+    "severity": "info",
+    "description": "Access control modifiers present",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/initializable/contracts/test/Migrations.sol",
+    "skeptic_analysis": "Defensive measures found"
+  },
+  {
+    "type": "defensive_pattern",
+    "pattern": "modifier",
+    "severity": "info",
+    "description": "Access control modifiers present",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/opcode/contracts/Migrations.sol",
+    "skeptic_analysis": "Defensive measures found"
+  },
+  {
+    "type": "defensive_pattern",
+    "pattern": "require(",
+    "severity": "info",
+    "description": "Defensive programming with require statements",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/opcode/contracts/OpCodes.sol",
+    "skeptic_analysis": "Defensive measures found"
+  },
+  {
+    "type": "defensive_pattern",
+    "pattern": "modifier",
+    "severity": "info",
+    "description": "Access control modifiers present",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/opcode/contracts/OpCodes.sol",
+    "skeptic_analysis": "Defensive measures found"
+  },
+  {
+    "type": "defensive_pattern",
+    "pattern": "require(",
+    "severity": "info",
+    "description": "Defensive programming with require statements",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/storage/contracts/Storage.sol",
+    "skeptic_analysis": "Defensive measures found"
+  },
+  {
+    "type": "defensive_pattern",
+    "pattern": "require(",
+    "severity": "info",
+    "description": "Defensive programming with require statements",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/staking/contracts/Staking.sol",
+    "skeptic_analysis": "Defensive measures found"
+  },
+  {
+    "type": "defensive_pattern",
+    "pattern": "SafeMath",
+    "severity": "info",
+    "description": "SafeMath library usage",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/staking/contracts/Staking.sol",
+    "skeptic_analysis": "Defensive measures found"
+  },
+  {
+    "type": "defensive_pattern",
+    "pattern": "require(",
+    "severity": "info",
+    "description": "Defensive programming with require statements",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/staking/contracts/test/lib/MiniMeToken.sol",
+    "skeptic_analysis": "Defensive measures found"
+  },
+  {
+    "type": "defensive_pattern",
+    "pattern": "modifier",
+    "severity": "info",
+    "description": "Access control modifiers present",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/staking/contracts/test/lib/MiniMeToken.sol",
+    "skeptic_analysis": "Defensive measures found"
+  },
+  {
+    "type": "defensive_pattern",
+    "pattern": "SafeMath",
+    "severity": "info",
+    "description": "SafeMath library usage",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/staking/contracts/test/lib/EchidnaStaking.sol",
+    "skeptic_analysis": "Defensive measures found"
+  },
+  {
+    "type": "defensive_pattern",
+    "pattern": "SafeMath",
+    "severity": "info",
+    "description": "SafeMath library usage",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/staking/contracts/test/mocks/TimeHelpersMock.sol",
+    "skeptic_analysis": "Defensive measures found"
+  },
+  {
+    "type": "defensive_pattern",
+    "pattern": "require(",
+    "severity": "info",
+    "description": "Defensive programming with require statements",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/staking/contracts/test/mocks/BadTokenMock.sol",
+    "skeptic_analysis": "Defensive measures found"
+  },
+  {
+    "type": "defensive_pattern",
+    "pattern": "SafeMath",
+    "severity": "info",
+    "description": "SafeMath library usage",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/staking/contracts/test/mocks/BadTokenMock.sol",
+    "skeptic_analysis": "Defensive measures found"
+  },
+  {
+    "type": "defensive_pattern",
+    "pattern": "require(",
+    "severity": "info",
+    "description": "Defensive programming with require statements",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/staking/contracts/test/mocks/StakingMock.sol",
+    "skeptic_analysis": "Defensive measures found"
+  },
+  {
+    "type": "defensive_pattern",
+    "pattern": "modifier",
+    "severity": "info",
+    "description": "Access control modifiers present",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/staking/contracts/test/mocks/StakingMock.sol",
+    "skeptic_analysis": "Defensive measures found"
+  },
+  {
+    "type": "defensive_pattern",
+    "pattern": "SafeMath",
+    "severity": "info",
+    "description": "SafeMath library usage",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/staking/contracts/test/mocks/StakingMock.sol",
+    "skeptic_analysis": "Defensive measures found"
+  },
+  {
+    "type": "defensive_pattern",
+    "pattern": "require(",
+    "severity": "info",
+    "description": "Defensive programming with require statements",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/staking/contracts/test/mocks/StandardTokenMock.sol",
+    "skeptic_analysis": "Defensive measures found"
+  },
+  {
+    "type": "defensive_pattern",
+    "pattern": "SafeMath",
+    "severity": "info",
+    "description": "SafeMath library usage",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/staking/contracts/test/mocks/StandardTokenMock.sol",
+    "skeptic_analysis": "Defensive measures found"
+  },
+  {
+    "type": "defensive_pattern",
+    "pattern": "require(",
+    "severity": "info",
+    "description": "Defensive programming with require statements",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/staking/contracts/test/mocks/NoApproveTokenMock.sol",
+    "skeptic_analysis": "Defensive measures found"
+  },
+  {
+    "type": "defensive_pattern",
+    "pattern": "SafeMath",
+    "severity": "info",
+    "description": "SafeMath library usage",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/staking/contracts/test/mocks/NoApproveTokenMock.sol",
+    "skeptic_analysis": "Defensive measures found"
+  },
+  {
+    "type": "defensive_pattern",
+    "pattern": "require(",
+    "severity": "info",
+    "description": "Defensive programming with require statements",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/staking/contracts/lib/Checkpointing.sol",
+    "skeptic_analysis": "Defensive measures found"
+  },
+  {
+    "type": "defensive_pattern",
+    "pattern": "SafeMath",
+    "severity": "info",
+    "description": "SafeMath library usage",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/staking/contracts/lib/Checkpointing.sol",
+    "skeptic_analysis": "Defensive measures found"
+  },
+  {
+    "type": "defensive_pattern",
+    "pattern": "require(",
+    "severity": "info",
+    "description": "Defensive programming with require statements",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/staking/contracts/lib/os/Initializable.sol",
+    "skeptic_analysis": "Defensive measures found"
+  },
+  {
+    "type": "defensive_pattern",
+    "pattern": "modifier",
+    "severity": "info",
+    "description": "Access control modifiers present",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/staking/contracts/lib/os/Initializable.sol",
+    "skeptic_analysis": "Defensive measures found"
+  },
+  {
+    "type": "defensive_pattern",
+    "pattern": "modifier",
+    "severity": "info",
+    "description": "Access control modifiers present",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/staking/contracts/lib/os/Migrations.sol",
+    "skeptic_analysis": "Defensive measures found"
+  },
+  {
+    "type": "defensive_pattern",
+    "pattern": "require(",
+    "severity": "info",
+    "description": "Defensive programming with require statements",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/staking/contracts/lib/os/Uint256Helpers.sol",
+    "skeptic_analysis": "Defensive measures found"
+  },
+  {
+    "type": "defensive_pattern",
+    "pattern": "require(",
+    "severity": "info",
+    "description": "Defensive programming with require statements",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/staking/contracts/lib/os/SafeMath64.sol",
+    "skeptic_analysis": "Defensive measures found"
+  },
+  {
+    "type": "defensive_pattern",
+    "pattern": "assert(",
+    "severity": "info",
+    "description": "Defensive programming with assert statements",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/staking/contracts/lib/os/SafeMath64.sol",
+    "skeptic_analysis": "Defensive measures found"
+  },
+  {
+    "type": "defensive_pattern",
+    "pattern": "SafeMath",
+    "severity": "info",
+    "description": "SafeMath library usage",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/staking/contracts/lib/os/SafeMath64.sol",
+    "skeptic_analysis": "Defensive measures found"
+  },
+  {
+    "type": "defensive_pattern",
+    "pattern": "require(",
+    "severity": "info",
+    "description": "Defensive programming with require statements",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/staking/contracts/lib/os/DelegateProxy.sol",
+    "skeptic_analysis": "Defensive measures found"
+  },
+  {
+    "type": "defensive_pattern",
+    "pattern": "require(",
+    "severity": "info",
+    "description": "Defensive programming with require statements",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/staking/contracts/lib/os/SafeMath.sol",
+    "skeptic_analysis": "Defensive measures found"
+  },
+  {
+    "type": "defensive_pattern",
+    "pattern": "assert(",
+    "severity": "info",
+    "description": "Defensive programming with assert statements",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/staking/contracts/lib/os/SafeMath.sol",
+    "skeptic_analysis": "Defensive measures found"
+  },
+  {
+    "type": "defensive_pattern",
+    "pattern": "SafeMath",
+    "severity": "info",
+    "description": "SafeMath library usage",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/staking/contracts/lib/os/SafeMath.sol",
+    "skeptic_analysis": "Defensive measures found"
+  },
+  {
+    "type": "defensive_pattern",
+    "pattern": "require(",
+    "severity": "info",
+    "description": "Defensive programming with require statements",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/staking/contracts/locking/TimeLockManager.sol",
+    "skeptic_analysis": "Defensive measures found"
+  },
+  {
+    "type": "defensive_pattern",
+    "pattern": "require(",
+    "severity": "info",
+    "description": "Defensive programming with require statements",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/exception/contracts/TestRevert.sol",
+    "skeptic_analysis": "Defensive measures found"
+  },
+  {
+    "type": "defensive_pattern",
+    "pattern": "require(",
+    "severity": "info",
+    "description": "Defensive programming with require statements",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/exception/contracts/test/Migrations.sol",
+    "skeptic_analysis": "Defensive measures found"
+  },
+  {
+    "type": "defensive_pattern",
+    "pattern": "modifier",
+    "severity": "info",
+    "description": "Access control modifiers present",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/exception/contracts/test/Migrations.sol",
+    "skeptic_analysis": "Defensive measures found"
+  },
+  {
+    "type": "defensive_pattern",
+    "pattern": "require(",
+    "severity": "info",
+    "description": "Defensive programming with require statements",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/basic/contracts/Counter.sol",
+    "skeptic_analysis": "Defensive measures found"
+  },
+  {
+    "type": "defensive_pattern",
+    "pattern": "require(",
+    "severity": "info",
+    "description": "Defensive programming with require statements",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/basic/contracts/test/Migrations.sol",
+    "skeptic_analysis": "Defensive measures found"
+  },
+  {
+    "type": "defensive_pattern",
+    "pattern": "modifier",
+    "severity": "info",
+    "description": "Access control modifiers present",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/basic/contracts/test/Migrations.sol",
+    "skeptic_analysis": "Defensive measures found"
+  },
+  {
+    "type": "defensive_pattern",
+    "pattern": "require(",
+    "severity": "info",
+    "description": "Defensive programming with require statements",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/initializable-buidler/contracts/Initializable.sol",
+    "skeptic_analysis": "Defensive measures found"
+  },
+  {
+    "type": "defensive_pattern",
+    "pattern": "modifier",
+    "severity": "info",
+    "description": "Access control modifiers present",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/initializable-buidler/contracts/Initializable.sol",
+    "skeptic_analysis": "Defensive measures found"
+  },
+  {
+    "type": "defensive_pattern",
+    "pattern": "require(",
+    "severity": "info",
+    "description": "Defensive programming with require statements",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/initializable-buidler/contracts/Uint256Helpers.sol",
+    "skeptic_analysis": "Defensive measures found"
+  },
+  {
+    "type": "defensive_pattern",
+    "pattern": "require(",
+    "severity": "info",
+    "description": "Defensive programming with require statements",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/proxy/contracts/DelegateProxy.sol",
+    "skeptic_analysis": "Defensive measures found"
+  },
+  {
+    "type": "defensive_pattern",
+    "pattern": "require(",
+    "severity": "info",
+    "description": "Defensive programming with require statements",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/proxy/contracts/test/Migrations.sol",
+    "skeptic_analysis": "Defensive measures found"
+  },
+  {
+    "type": "defensive_pattern",
+    "pattern": "modifier",
+    "severity": "info",
+    "description": "Access control modifiers present",
+    "file": "/home/dok/web3/Injective/injective-core/injective-chain/modules/evm/tests/solidity/suites/proxy/contracts/test/Migrations.sol",
+    "skeptic_analysis": "Defensive measures found"
+  },
+  {
+    "type": "defensive_pattern",
+    "pattern": "require(",
+    "severity": "info",
+    "description": "Defensive programming with require statements",
+    "file": "/home/dok/web3/Injective/injective-core/peggo/solidity/contracts/HashingTest.sol",
+    "skeptic_analysis": "Defensive measures found"
+  },
+  {
+    "type": "defensive_pattern",
+    "pattern": "require(",
+    "severity": "info",
+    "description": "Defensive programming with require statements",
+    "file": "/home/dok/web3/Injective/injective-core/peggo/solidity/contracts/Peggy.sol",
+    "skeptic_analysis": "Defensive measures found"
+  },
+  {
+    "type": "defensive_pattern",
+    "pattern": "require(",
+    "severity": "info",
+    "description": "Defensive programming with require statements",
+    "file": "/home/dok/web3/Injective/injective-core/peggo/solidity/contracts/@openzeppelin/contracts/OwnableWithExpiry.sol",
+    "skeptic_analysis": "Defensive measures found"
+  },
+  {
+    "type": "defensive_pattern",
+    "pattern": "modifier",
+    "severity": "info",
+    "description": "Access control modifiers present",
+    "file": "/home/dok/web3/Injective/injective-core/peggo/solidity/contracts/@openzeppelin/contracts/OwnableWithExpiry.sol",
+    "skeptic_analysis": "Defensive measures found"
+  },
+  {
+    "type": "defensive_pattern",
+    "pattern": "require(",
+    "severity": "info",
+    "description": "Defensive programming with require statements",
+    "file": "/home/dok/web3/Injective/injective-core/peggo/solidity/contracts/@openzeppelin/contracts/Ownable.sol",
+    "skeptic_analysis": "Defensive measures found"
+  },
+  {
+    "type": "defensive_pattern",
+    "pattern": "modifier",
+    "severity": "info",
+    "description": "Access control modifiers present",
+    "file": "/home/dok/web3/Injective/injective-core/peggo/solidity/contracts/@openzeppelin/contracts/Ownable.sol",
+    "skeptic_analysis": "Defensive measures found"
+  },
+  {
+    "type": "defensive_pattern",
+    "pattern": "require(",
+    "severity": "info",
+    "description": "Defensive programming with require statements",
+    "file": "/home/dok/web3/Injective/injective-core/peggo/solidity/contracts/@openzeppelin/contracts/OwnableUpgradeableWithExpiry.sol",
+    "skeptic_analysis": "Defensive measures found"
+  },
+  {
+    "type": "defensive_pattern",
+    "pattern": "modifier",
+    "severity": "info",
+    "description": "Access control modifiers present",
+    "file": "/home/dok/web3/Injective/injective-core/peggo/solidity/contracts/@openzeppelin/contracts/OwnableUpgradeableWithExpiry.sol",
+    "skeptic_analysis": "Defensive measures found"
+  },
+  {
+    "type": "defensive_pattern",
+    "pattern": "require(",
+    "severity": "info",
+    "description": "Defensive programming with require statements",
+    "file": "/home/dok/web3/Injective/injective-core/peggo/solidity/contracts/@openzeppelin/contracts/ERC1967Proxy.sol",
+    "skeptic_analysis": "Defensive measures found"
+  },
+  {
+    "type": "defensive_pattern",
+    "pattern": "assert(",
+    "severity": "info",
+    "description": "Defensive programming with assert statements",
+    "file": "/home/dok/web3/Injective/injective-core/peggo/solidity/contracts/@openzeppelin/contracts/ERC1967Proxy.sol",
+    "skeptic_analysis": "Defensive measures found"
+  },
+  {
+    "type": "defensive_pattern",
+    "pattern": "require(",
+    "severity": "info",
+    "description": "Defensive programming with require statements",
+    "file": "/home/dok/web3/Injective/injective-core/peggo/solidity/contracts/@openzeppelin/contracts/ERC20.sol",
+    "skeptic_analysis": "Defensive measures found"
+  },
+  {
+    "type": "defensive_pattern",
+    "pattern": "require(",
+    "severity": "info",
+    "description": "Defensive programming with require statements",
+    "file": "/home/dok/web3/Injective/injective-core/peggo/solidity/contracts/@openzeppelin/contracts/ProxyAdmin.sol",
+    "skeptic_analysis": "Defensive measures found"
+  },
+  {
+    "type": "defensive_pattern",
+    "pattern": "require(",
+    "severity": "info",
+    "description": "Defensive programming with require statements",
+    "file": "/home/dok/web3/Injective/injective-core/peggo/solidity/contracts/@openzeppelin/contracts/SafeERC20.sol",
+    "skeptic_analysis": "Defensive measures found"
+  },
+  {
+    "type": "defensive_pattern",
+    "pattern": "require(",
+    "severity": "info",
+    "description": "Defensive programming with require statements",
+    "file": "/home/dok/web3/Injective/injective-core/peggo/solidity/contracts/@openzeppelin/contracts/TransparentUpgradeableProxy.sol",
+    "skeptic_analysis": "Defensive measures found"
+  },
+  {
+    "type": "defensive_pattern",
+    "pattern": "assert(",
+    "severity": "info",
+    "description": "Defensive programming with assert statements",
+    "file": "/home/dok/web3/Injective/injective-core/peggo/solidity/contracts/@openzeppelin/contracts/TransparentUpgradeableProxy.sol",
+    "skeptic_analysis": "Defensive measures found"
+  },
+  {
+    "type": "defensive_pattern",
+    "pattern": "modifier",
+    "severity": "info",
+    "description": "Access control modifiers present",
+    "file": "/home/dok/web3/Injective/injective-core/peggo/solidity/contracts/@openzeppelin/contracts/TransparentUpgradeableProxy.sol",
+    "skeptic_analysis": "Defensive measures found"
+  },
+  {
+    "type": "defensive_pattern",
+    "pattern": "require(",
+    "severity": "info",
+    "description": "Defensive programming with require statements",
+    "file": "/home/dok/web3/Injective/injective-core/peggo/solidity/contracts/@openzeppelin/contracts/security/ReentrancyGuard.sol",
+    "skeptic_analysis": "Defensive measures found"
+  },
+  {
+    "type": "defensive_pattern",
+    "pattern": "modifier",
+    "severity": "info",
+    "description": "Access control modifiers present",
+    "file": "/home/dok/web3/Injective/injective-core/peggo/solidity/contracts/@openzeppelin/contracts/security/ReentrancyGuard.sol",
+    "skeptic_analysis": "Defensive measures found"
+  },
+  {
+    "type": "defensive_pattern",
+    "pattern": "require(",
+    "severity": "info",
+    "description": "Defensive programming with require statements",
+    "file": "/home/dok/web3/Injective/injective-core/peggo/solidity/contracts/@openzeppelin/contracts/utils/Initializable.sol",
+    "skeptic_analysis": "Defensive measures found"
+  },
+  {
+    "type": "defensive_pattern",
+    "pattern": "modifier",
+    "severity": "info",
+    "description": "Access control modifiers present",
+    "file": "/home/dok/web3/Injective/injective-core/peggo/solidity/contracts/@openzeppelin/contracts/utils/Initializable.sol",
+    "skeptic_analysis": "Defensive measures found"
+  },
+  {
+    "type": "defensive_pattern",
+    "pattern": "require(",
+    "severity": "info",
+    "description": "Defensive programming with require statements",
+    "file": "/home/dok/web3/Injective/injective-core/peggo/solidity/contracts/@openzeppelin/contracts/utils/Pausable.sol",
+    "skeptic_analysis": "Defensive measures found"
+  },
+  {
+    "type": "defensive_pattern",
+    "pattern": "modifier",
+    "severity": "info",
+    "description": "Access control modifiers present",
+    "file": "/home/dok/web3/Injective/injective-core/peggo/solidity/contracts/@openzeppelin/contracts/utils/Pausable.sol",
+    "skeptic_analysis": "Defensive measures found"
+  },
+  {
+    "type": "defensive_pattern",
+    "pattern": "require(",
+    "severity": "info",
+    "description": "Defensive programming with require statements",
+    "file": "/home/dok/web3/Injective/injective-core/peggo/solidity/contracts/@openzeppelin/contracts/utils/Address.sol",
+    "skeptic_analysis": "Defensive measures found"
+  }
+]

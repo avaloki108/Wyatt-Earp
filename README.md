@@ -8,7 +8,7 @@ AI-powered smart contract security analyzer that finds vulnerabilities other too
 # Analyze a contract
 ./hunt Contract.sol
 
-# Scan directory
+# Scan entire directory (with cross-contract analysis!)
 ./hunt ~/projects/my-defi-protocol/
 
 # Quick scan (no AI)
@@ -17,6 +17,7 @@ AI-powered smart contract security analyzer that finds vulnerabilities other too
 
 ## Features
 
+- **🔗 Cross-contract analysis** - Find vulnerabilities across multiple contracts (NEW!)
 - **20+ DeFi vulnerability patterns** - ERC-4626 inflation, sandwich attacks, oracle manipulation
 - **Z3 symbolic execution** - Mathematical proof of exploitability
 - **AI reasoning** - Grok/Claude/OpenAI powered analysis
@@ -48,13 +49,21 @@ export XAI_API_KEY="your-grok-key"
 ## What It Finds
 
 **Real vulnerabilities worth millions:**
+- Cross-contract reentrancy chains ($60M DAO, $25M Lendf.me)
 - ERC-4626 inflation attacks ($80M+ Rari, Hundred)
-- Callback reentrancy ($25M Lendf.me)
+- Privilege escalation via external calls
 - Oracle manipulation ($130M Cream)
-- Flash loan exploits
-- Access control issues
-- Precision loss bugs
+- Flash loan exploits ($34M Harvest)
+- Access control bypass across contracts
+- State inconsistencies between contracts
 - And 20+ more patterns
+
+**🆕 Cross-Contract Analysis:**
+- Analyzes multiple contracts together
+- Finds vulnerabilities spanning contract interactions
+- Validates protocol-wide business logic
+- Detects reentrancy chains, privilege escalation, state races
+- See [CROSS_CONTRACT_ANALYSIS.md](CROSS_CONTRACT_ANALYSIS.md) for details
 
 ## Usage
 

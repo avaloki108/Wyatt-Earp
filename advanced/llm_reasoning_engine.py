@@ -29,13 +29,22 @@ except ImportError:
     HAS_PROMPT_CHAINING = False
 
 try:
-    from .langgraph_orchestrator import LangGraphOrchestrator, LangGraphExecutionResult, AgentRun
+    from .langgraph_orchestrator import (
+        LangGraphOrchestrator,
+        LangGraphExecutionResult,
+        AgentRun,
+    )
+
     HAS_LANGGRAPH = True
 except ImportError:
     HAS_LANGGRAPH = False
+
     class AgentRun:
         """Minimal stub for AgentRun when LangGraph is unavailable."""
+
         pass
+
+
 class ReasoningMode(Enum):
     ADVERSARIAL = "adversarial"  # Think like an attacker
     DEFENSIVE = "defensive"  # Think like an auditor
@@ -84,7 +93,6 @@ class AdvancedLLMReasoner:
         if HAS_PROMPT_CHAINING:
             self.prompt_chain_orchestrator = PromptChainOrchestrator(llm_client=self)
 
-<<<<<<< Updated upstream
         # Initialize LangGraph orchestrator for DAG-based reasoning if available
         self.langgraph_orchestrator: Optional[LangGraphOrchestrator] = None
         if HAS_LANGGRAPH:
@@ -93,12 +101,6 @@ class AdvancedLLMReasoner:
             except Exception as exc:
                 print(f"LangGraph orchestrator initialization failed: {exc}")
 
-    def analyze_contract_multi_agent(self,
-                                    contract_code: str,
-                                    static_analysis_results: Dict[str, Any],
-                                    contract_type: str = "unknown",
-                                    use_ai_hypothesis: bool = True) -> List[ReasoningResult]:
-=======
     def analyze_contract_multi_agent(
         self,
         contract_code: str,
@@ -106,7 +108,6 @@ class AdvancedLLMReasoner:
         contract_type: str = "unknown",
         use_ai_hypothesis: bool = True,
     ) -> List[ReasoningResult]:
->>>>>>> Stashed changes
         """
         Run multiple reasoning agents in parallel for comprehensive analysis
 
@@ -134,7 +135,6 @@ class AdvancedLLMReasoner:
             except Exception as e:
                 print(f"AI Hypothesis System error: {e}")
 
-<<<<<<< Updated upstream
         if self.langgraph_orchestrator:
             try:
                 execution: LangGraphExecutionResult = self.langgraph_orchestrator.run(
@@ -146,13 +146,9 @@ class AdvancedLLMReasoner:
                 self.reasoning_history.extend(results)
                 return results
             except Exception as exc:
-                print(f"LangGraph orchestrator error: {exc}. Falling back to legacy pipeline.")
-=======
-        # Agent 1: Adversarial Reasoning
-        results.append(
-            self._adversarial_reasoning(contract_code, static_analysis_results)
-        )
->>>>>>> Stashed changes
+                print(
+                    f"LangGraph orchestrator error: {exc}. Falling back to legacy pipeline."
+                )
 
         # Fallback to the legacy sequential pipeline if LangGraph is unavailable or fails
         legacy_results = self._legacy_multi_agent(
@@ -166,28 +162,35 @@ class AdvancedLLMReasoner:
         self.reasoning_history.extend(results)
         return results
 
-<<<<<<< Updated upstream
-    def _legacy_multi_agent(self,
-                             contract_code: str,
-                             static_analysis_results: Dict[str, Any],
-                             contract_type: str,
-                             prior_results: Optional[List[ReasoningResult]] = None) -> List[ReasoningResult]:
+    def _legacy_multi_agent(
+        self,
+        contract_code: str,
+        static_analysis_results: Dict[str, Any],
+        contract_type: str,
+        prior_results: Optional[List[ReasoningResult]] = None,
+    ) -> List[ReasoningResult]:
         """Retain the legacy sequential pipeline as a fallback path."""
 
         legacy_results: List[ReasoningResult] = []
 
-        legacy_results.append(self._adversarial_reasoning(contract_code, static_analysis_results))
+        legacy_results.append(
+            self._adversarial_reasoning(contract_code, static_analysis_results)
+        )
         legacy_results.append(self._economic_reasoning(contract_code, contract_type))
         legacy_results.append(self._composability_reasoning(contract_code))
         legacy_results.append(self._formal_reasoning(contract_code))
-        legacy_results.append(self._pattern_reasoning(contract_code, static_analysis_results))
+        legacy_results.append(
+            self._pattern_reasoning(contract_code, static_analysis_results)
+        )
 
         synthesis_inputs = (prior_results or []) + legacy_results
         legacy_results.append(self._synthesize_findings(synthesis_inputs))
 
         return legacy_results
 
-    def _convert_langgraph_execution(self, execution: LangGraphExecutionResult) -> List[ReasoningResult]:
+    def _convert_langgraph_execution(
+        self, execution: LangGraphExecutionResult
+    ) -> List[ReasoningResult]:
         """Convert the LangGraph execution artefacts into ReasoningResult entries."""
 
         mode_map = {
@@ -202,7 +205,9 @@ class AdvancedLLMReasoner:
 
         for run in execution.agent_runs:
             mode = mode_map.get(run.name, ReasoningMode.ADVERSARIAL)
-            findings = self._normalize_findings_from_parsed(run.parsed_response, run.raw_response)
+            findings = self._normalize_findings_from_parsed(
+                run.parsed_response, run.raw_response
+            )
             attack_scenarios = self._extract_attack_scenarios_from_run(run)
             confidence = self._extract_confidence_from_parsed(run.parsed_response)
             reasoning_chain = [run.role]
@@ -215,7 +220,9 @@ class AdvancedLLMReasoner:
                 mode=mode,
                 findings=findings,
                 attack_scenarios=attack_scenarios,
-                property_tests=self._extract_property_tests_from_parsed(run.parsed_response),
+                property_tests=self._extract_property_tests_from_parsed(
+                    run.parsed_response
+                ),
                 confidence=confidence,
                 reasoning_chain=reasoning_chain,
                 references=[],
@@ -240,16 +247,23 @@ class AdvancedLLMReasoner:
 
         return results
 
-    def _normalize_findings_from_parsed(self, parsed: Any, raw: Any) -> List[Dict[str, Any]]:
+    def _normalize_findings_from_parsed(
+        self, parsed: Any, raw: Any
+    ) -> List[Dict[str, Any]]:
         """Normalize parsed agent payloads into a list of findings dictionaries."""
 
         if isinstance(parsed, list):
-            return [item if isinstance(item, dict) else {"summary": item} for item in parsed]
+            return [
+                item if isinstance(item, dict) else {"summary": item} for item in parsed
+            ]
         if isinstance(parsed, dict):
             for key in ["hypotheses", "validated", "findings", "analysis"]:
                 value = parsed.get(key)
                 if isinstance(value, list):
-                    return [item if isinstance(item, dict) else {"summary": item} for item in value]
+                    return [
+                        item if isinstance(item, dict) else {"summary": item}
+                        for item in value
+                    ]
             return [parsed]
         if isinstance(raw, str) and raw.strip():
             return [{"summary": raw.strip()}]
@@ -292,14 +306,9 @@ class AdvancedLLMReasoner:
                     stringified.append(str(scenario))
         return stringified
 
-    def _adversarial_reasoning(self,
-                              contract_code: str,
-                              static_results: Dict[str, Any]) -> ReasoningResult:
-=======
     def _adversarial_reasoning(
         self, contract_code: str, static_results: Dict[str, Any]
     ) -> ReasoningResult:
->>>>>>> Stashed changes
         """
         Think like an attacker - find novel exploit paths
         """
@@ -360,7 +369,7 @@ class AdvancedLLMReasoner:
                     api_key=os.getenv("XAI_API_KEY"), base_url="https://api.x.ai/v1"
                 )
                 response = client.chat.completions.create(
-                    model="grok-beta",
+                    model="grok-3",
                     messages=[{"role": "user", "content": prompt}],
                     max_tokens=2000,
                     temperature=temperature,
@@ -651,38 +660,53 @@ For each pattern match:
         Call LLM API (OpenAI, Anthropic, or local)
         In production, this would make actual API calls
         """
-        # Placeholder - in production, this would call actual LLM APIs
-        mock_response = """
-        MOCK LLM RESPONSE (Replace with actual API call)
-
-        Based on analysis of the provided contract:
-
-        FINDINGS:
-        1. Potential reentrancy in withdraw function
-        2. Missing slippage protection in swap
-        3. Oracle price could be manipulated
-
-        ATTACK SCENARIOS:
-        - Flash loan attack to manipulate price oracle
-        - Sandwich attack on unprotected swaps
-        - Cross-function reentrancy between withdraw and deposit
-
-        PROPERTY TESTS:
-        - echidna_balance_conservation: totalSupply == sum(balances)
-        - echidna_no_negative_balance: forall user, balance[user] >= 0
-        - echidna_price_bounds: price >= MIN_PRICE && price <= MAX_PRICE
-
-        REASONING:
-        The contract uses block.timestamp for time-dependent logic, which can be
-        manipulated by miners within a 15-second window. Combined with the lack
-        of slippage protection, this creates an MEV opportunity.
-
-        REFERENCES:
-        - Similar vulnerability in Project X (2023)
-        - See: https://example.com/vulnerability-report
-        """
-
-        return mock_response
+        try:
+            # Try XAI/Grok first (preferred)
+            if os.getenv("XAI_API_KEY"):
+                from openai import OpenAI
+                
+                client = OpenAI(
+                    api_key=os.getenv("XAI_API_KEY"), 
+                    base_url="https://api.x.ai/v1"
+                )
+                response = client.chat.completions.create(
+                    model="grok-3",
+                    messages=[{"role": "user", "content": prompt}],
+                    max_tokens=2000,
+                    temperature=temperature,
+                )
+                return response.choices[0].message.content
+            
+            # Try OpenAI
+            elif self.openai_key:
+                from openai import OpenAI
+                
+                client = OpenAI(api_key=self.openai_key)
+                response = client.chat.completions.create(
+                    model=model,
+                    messages=[{"role": "user", "content": prompt}],
+                    max_tokens=2000,
+                    temperature=temperature,
+                )
+                return response.choices[0].message.content
+            
+            # Try Anthropic/Claude
+            elif self.anthropic_key:
+                import anthropic
+                
+                client = anthropic.Anthropic(api_key=self.anthropic_key)
+                message = client.messages.create(
+                    model="claude-3-opus-20240229",
+                    max_tokens=2000,
+                    messages=[{"role": "user", "content": prompt}],
+                )
+                return message.content[0].text
+            
+            else:
+                return "LLM API key not configured. Set XAI_API_KEY, OPENAI_API_KEY, or ANTHROPIC_API_KEY."
+        
+        except Exception as e:
+            return f"LLM Error: {str(e)}"
 
     def _parse_adversarial_response(self, response: str) -> List[Dict[str, Any]]:
         """Parse LLM response for adversarial findings"""

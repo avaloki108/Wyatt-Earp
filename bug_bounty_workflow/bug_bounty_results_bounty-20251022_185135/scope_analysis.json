@@ -1,0 +1,37 @@
+{
+  "target_path": "/home/dok/web3/Injective",
+  "scope_file": "/home/dok/web3/Injective/scope.txt",
+  "in_scope_contracts": [],
+  "out_of_scope_contracts": [],
+  "in_scope_functions": [],
+  "out_of_scope_functions": [],
+  "severity_focus": [
+    "and rewards",
+    "and guides the reward amount.",
+    "level\timpact: critical\timpact: high\timpact: medium\timpact: low"
+  ],
+  "vulnerability_types": [
+    "in any component not explicitly listed but which poses a risk to user funds, user data, or system integrity, you may submit it for consideration. our team will review such submissions on a case-by-case basis.",
+    "before it has been addressed and you have received written permission to disclose.",
+    "beyond the minimum steps necessary to demonstrate the issue. do not access private data, engage in social engineering, or disrupt service.",
+    "and its impact.",
+    "were exploited.",
+    "within scope.",
+    "in a malicious manner.",
+    "to third parties prior to receiving permission.",
+    "the vulnerability beyond the minimum steps necessary to demonstrate the issue. do not access private data, engage in social engineering, or disrupt service.",
+    "or highly incentivized.",
+    "or requires highly specific conditions."
+  ],
+  "exclusions": [
+    "actions"
+  ],
+  "special_instructions": [
+    "releases with custom tags such as \u201cbeta\u201d are excluded form the bounty program. only official releases such as 1.15.0 are included.",
+    "actual reward amounts are determined at injective\u2019s sole discretion. factors influencing payout include report quality, completeness, and severity/exploitability."
+  ],
+  "bounty_platform": null,
+  "max_prize": null,
+  "confidence_threshold": 0.7,
+  "analysis_timestamp": "2025-10-22T18:51:35.236124"
+}

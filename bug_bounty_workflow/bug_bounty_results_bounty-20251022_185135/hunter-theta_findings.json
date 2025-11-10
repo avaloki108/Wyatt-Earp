@@ -1,0 +1,14 @@
+[
+  {
+    "type": "assembly_memory_vulnerability",
+    "severity": "high",
+    "category": "assembly_memory",
+    "confidence": 0.9,
+    "description": "Assembly: Function selector clash",
+    "file": "/home/dok/web3/Injective/injective-core/peggo/solidity/contracts/@openzeppelin/contracts/TransparentUpgradeableProxy.sol",
+    "novelty": "very_high",
+    "rarity": "extreme",
+    "human_only": true,
+    "requires_assembly_knowledge": true
+  }
+]
