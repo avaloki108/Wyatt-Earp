@@ -55,9 +55,9 @@ def main() -> int:
     else:
         new_patterns = learner.learn_from_recent_hacks(days=args.days)
 
+    pattern_names = ", ".join(pattern.get("name", "unknown") for pattern in new_patterns)
     LOGGER.info("Ingestion complete. %s new pattern(s) learned.", len(new_patterns))
     if new_patterns:
-        pattern_names = ", ".join(pattern.get("name", "unknown") for pattern in new_patterns)
         LOGGER.info("New patterns: %s", pattern_names)
     else:
         LOGGER.info("No new patterns were identified in this run.")

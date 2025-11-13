@@ -64,10 +64,87 @@ class AutoLearner:
                 LOGGER.warning("Failed to decode learned patterns file %s: %s", self.patterns_file, exc)
             except OSError as exc:
                 LOGGER.warning("Failed to load learned patterns from %s: %s", self.patterns_file, exc)
+
+    def _load_learned_patterns(self) -> List[Dict[str, Any]]:
+        """Load previously learned patterns"""
+        if self.patterns_file.exists():
+            try:
+                with self.patterns_file.open('r', encoding='utf-8') as handle:
+                    data = json.load(handle)
+                    if isinstance(data, list):
+                        return data
+            except json.JSONDecodeError as exc:
+                LOGGER.warning("Failed to decode learned patterns file %s: %s", self.patterns_file, exc)
+            except OSError as exc:
+                LOGGER.warning("Failed to load learned patterns from %s: %s", self.patterns_file, exc)
         return []
 
     def _save_learned_patterns(self):
         """Save learned patterns to file"""
+        try:
+            with self.patterns_file.open('w', encoding='utf-8') as handle:
+                json.dump(self.learned_patterns, handle, indent=2)
+        except OSError as exc:
+            LOGGER.error("Failed to persist learned patterns to %s: %s", self.patterns_file, exc)
+    
+    def fetch_recent_hacks(self, days: int = 7) -> List[Dict[str, Any]]:
+        """Fetch and normalize recent hack reports from configured sources."""
+
+        since = datetime.utcnow() - timedelta(days=days)
+        deduped: Dict[str, HackRecord] = {}
+
+        for fetcher in self.source_fetchers:
+            try:
+                records = fetcher.fetch(since)
+            except Exception as exc:  # noqa: BLE001
+                LOGGER.warning(
+                    "Failed to ingest records from %s/%s: %s",
+                    getattr(fetcher, "owner", "unknown"),
+                    getattr(fetcher, "repo", "unknown"),
+                    exc,
+                )
+                continue
+
+            for record in records:
+                if record.discovered_at < since:
+                    continue
+                existing = deduped.get(record.uid)
+                if not existing or record.discovered_at > existing.discovered_at:
+                    deduped[record.uid] = record
+
+        ordered_records = sorted(deduped.values(), key=lambda r: r.discovered_at, reverse=True)
+        return [record.to_learning_payload() for record in ordered_records]
+    
+    def _fetch_github_exploits(self, days: int = 7) -> List[Dict[str, Any]]:
+        """Fetch recent exploits from GitHub-backed sources only."""
+
+        since = datetime.utcnow() - timedelta(days=days)
+        deduped: Dict[str, HackRecord] = {}
+        for fetcher in self.source_fetchers:
+            if isinstance(fetcher, SoloditContentFetcher):
+                continue
+
+            try:
+                records = fetcher.fetch(since)
+            except Exception as exc:  # noqa: BLE001
+                LOGGER.warning(
+                    "Failed to fetch GitHub exploits from %s/%s: %s",
+                    getattr(fetcher, "owner", "unknown"),
+                    getattr(fetcher, "repo", "unknown"),
+                    exc,
+                )
+                continue
+
+            for record in records:
+                if record.discovered_at < since:
+                    continue
+                existing = deduped.get(record.uid)
+                if not existing or record.discovered_at > existing.discovered_at:
+                    deduped[record.uid] = record
+
+        ordered_records = sorted(deduped.values(), key=lambda r: r.discovered_at, reverse=True)
+        return [record.to_learning_payload() for record in ordered_records]
+    
         with open(self.patterns_file, "w") as f:
             json.dump(self.learned_patterns, f, indent=2)
 
@@ -261,6 +338,9 @@ contract Attacker {
         recent_hacks = self.fetch_recent_hacks(days)
 
         for hack in recent_hacks:
+            pattern = self._ingest_hack(hack)
+            if pattern:
+                new_patterns.append(pattern)
             pattern = self.extract_pattern_from_hack(hack)
 
             # Check if pattern already exists (avoid duplicates)
@@ -285,6 +365,21 @@ contract Attacker {
 
         for pattern in new_patterns:
             # Add to detector's patterns (extend the class)
+            detector.patterns.append({
+                "name": pattern["name"],
+                "description": pattern["attack_vector"],
+                "severity": pattern["severity"],
+                "solidity_patterns": [pattern["solidity_signature"]],
+                "detection_function": self._generate_detection_function(pattern)
+            })
+
+        # Save updated detector state (serialize)
+        detector_path = self.storage_dir / "updated_detector.json"
+        with detector_path.open("w", encoding="utf-8") as handle:
+            json.dump({"patterns": detector.patterns}, handle, indent=2)
+
+        LOGGER.info("Updated detectors with %s new pattern(s)", len(new_patterns))
+        LOGGER.info("Manual follow-up: Integrate into novel_vulnerability_patterns.py")
             detector.patterns.append(
                 {
                     "name": pattern["name"],
@@ -377,6 +472,15 @@ def detect_{pattern["name"].lower().replace(" ", "_")}(contract_code: str) -> bo
         Specialized learning from GitHub exploit repositories
         Searches for recent Solidity exploits and extracts patterns
         """
+        github_exploits = self._fetch_github_exploits(days)
+        new_patterns: List[Dict[str, Any]] = []
+
+        for exploit in github_exploits:
+            pattern = self._ingest_hack(exploit)
+            if not pattern:
+                continue
+            pattern["source_type"] = "github_exploit"
+            new_patterns.append(pattern)
         github_exploits = self._fetch_github_exploits()
         new_patterns = []
 
